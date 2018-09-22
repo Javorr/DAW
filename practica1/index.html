@@ -14,15 +14,28 @@
       <title>Imagehony</title>
   </head>
 
-  <header>
-      <!-- <a href="index.html"><img src='logo1.png' alt="Logotipo" width="200"></a> --> <!-- Logo???? -->
-      <div>
-          <h1>Imagehony</h1>
-          <p>Tu web de fotografía</p> <!-- Ni idea de que poner aqui xdddd -->
-      </div>
-  </header>
-
   <body>
+
+    <header>
+        <!-- <a href="index.html"><img src='logo1.png' alt="Logotipo" width="200"></a> --> <!-- Logo???? -->
+        <div>
+            <h1 id="arriba">Imagehony</h1>
+            <p>Tu web de fotografía</p> <!-- Ni idea de que poner aqui xdddd -->
+        </div>
+    </header>
+
+    <!-- Como hay una página de búsqueda no se si poner aqui el enlace o que sea una busqueda rapida o que -->
+
+    <section>
+        <h2>Iniciar sesión</h2>
+        <form>
+            <label>Nombre: </label><input data-pagina="campo" type="text" name="nombre" placeholder="Nombre" required><br>
+            <label>Contraseña: </label><input data-pagina="campo" type="password" name="password" placeholder="Contraseña" required pattern="[A-Za-z0-9_-]{7,20}"><br>
+            <input type="submit" name="submit"><br/>
+        </form>
+        <a href="Registro.html">¡Regístrate!</a>
+    </section>
+
     <section>
            <h2>Últimas fotografías</h2>
 
@@ -30,17 +43,60 @@
                    <h3 title="Fotografia 1"><a href="detallefoto.html">Fotografía 1</a></h3>
                    <img src='foto.jpg' width="300">
 
-                   <footer>
-                       <ul>
-                           <li><a><span class="icon-calendar" aria-hidden="true"></span><span> 26/02/2018 </span></a></li>
-                           <li><a><span class="icon-thumbs-up-alt" aria-hidden="true"></span><span> 1450 </span></a></li>
-                           <li><a><span class="icon-thumbs-down-alt" aria-hidden="true"></span><span> 23 </span></a></li>
-                           <li><a><span class="icon-commenting" aria-hidden="true"></span><span> 87 </span></a></li>
-                       </ul>
-                   </footer>
+                    <ul>
+                      <li><time datetime="2018-09">Septiembre 2018</li>
+                      <li>España</li>
+                    </ul>
+               </article>
 
+               <article>
+                   <h3 title="Fotografia 1"><a href="detallefoto.html">Fotografía 1</a></h3>
+                   <img src='foto.jpg' width="300">
+
+                    <ul>
+                      <li><time datetime="2018-09">Septiembre 2018</li>
+                      <li>España</li>
+                    </ul>
+               </article>
+
+               <article>
+                   <h3 title="Fotografia 1"><a href="detallefoto.html">Fotografía 1</a></h3>
+                   <img src='foto.jpg' width="300">
+
+                    <ul>
+                      <li><time datetime="2018-09">Septiembre 2018</li>
+                      <li>España</li>
+                    </ul>
+               </article>
+
+               <article>
+                   <h3 title="Fotografia 1"><a href="detallefoto.html">Fotografía 1</a></h3>
+                   <img src='foto.jpg' width="300">
+
+                    <ul>
+                      <li><time datetime="2018-09">Septiembre 2018</li>
+                      <li>España</li>
+                    </ul>
+               </article>
+
+               <article>
+                   <h3 title="Fotografia 1"><a href="detallefoto.html">Fotografía 1</a></h3>
+                   <img src='foto.jpg' width="300">
+
+                    <ul>
+                      <li><time datetime="2018-09">Septiembre 2018</li>
+                      <li>España</li>
+                    </ul>
                </article>
 
     </section>
+
+    <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
+    <footer>
+        <a href="#arriba">Volver a index</a> <br>
+        <p>&copy;<time datetime="2018-09"> Septiembre 2018</time></p>
+        <p>Javier Martinez y Monica Ramperez</p>
+    </footer>
+
   </body>
 </html>
