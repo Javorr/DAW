@@ -1,3 +1,9 @@
+
+<!--  Página principal
+    Contiene enlaces a las distintas páginas que componen el sitio web,
+    un formulario (nombre de usuario y contraseña) para acceder como usuario registrado
+    y un listado con un resumen (foto, título, fecha, país) de las últimas cinco fotos que se han introducido. -->
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,18 +14,33 @@
       <title>Imagehony</title>
   </head>
 
-<header id="arriba" class = "notMobile"> <!-- ignora esta parte del header -->
-  <a id="linklogo" href="#arriba"><img  class"a" src="images/pubglogo.png" alt="Logo PCW" height="100"></a>
-  <h1 id = "tenGol"><img  id="nombreweb" src="images/PLAYERPUZZKNOWNS.png" alt="NombrePag PCW" height="50"></h1>
-  <p>¿Podrás ser capaz de completar el puzzle en el tiempo?</p>
-  <br>
-  <br>
-  <br>
-</header>
+  <header>
+      <!-- <a href="index.html"><img src='logo1.png' alt="Logotipo" width="200"></a> --> <!-- Logo???? -->
+      <div>
+          <h1>Imagehony</h1>
+          <p>Tu web de fotografía</p> <!-- Ni idea de que poner aqui xdddd -->
+      </div>
+  </header>
 
   <body>
-    <p>
-      Bla, bla, bla.
-    </p>
+    <section>
+           <h2>Últimas fotografías</h2>
+
+               <article>
+                   <h3 title="Fotografia 1"><a href="detallefoto.html">Fotografía 1</a></h3>
+                   <img src='foto.jpg' width="300">
+
+                   <footer>
+                       <ul>
+                           <li><a><span class="icon-calendar" aria-hidden="true"></span><span> 26/02/2018 </span></a></li>
+                           <li><a><span class="icon-thumbs-up-alt" aria-hidden="true"></span><span> 1450 </span></a></li>
+                           <li><a><span class="icon-thumbs-down-alt" aria-hidden="true"></span><span> 23 </span></a></li>
+                           <li><a><span class="icon-commenting" aria-hidden="true"></span><span> 87 </span></a></li>
+                       </ul>
+                   </footer>
+
+               </article>
+
+    </section>
   </body>
 </html>
