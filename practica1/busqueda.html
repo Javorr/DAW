@@ -25,6 +25,16 @@
       <a href="#arriba">Búsqueda</a>
     </nav>
 
+    <section>
+        <h2>Iniciar sesión</h2>
+        <form>
+            <label>Nombre: </label><input data-pagina="campo" type="text" name="nombre" placeholder="Nombre" required><br>
+            <label>Contraseña: </label><input data-pagina="campo" type="password" name="password" placeholder="Contraseña" required pattern="[A-Za-z0-9_-]{7,20}"><br>
+            <input type="submit" name="submit"><br/>
+        </form>
+        <a href="Registro.html">¡Regístrate!</a>
+    </section>
+
     <form>
       <fieldset class="filtrosBus">
 
@@ -42,7 +52,7 @@
         <br>
         <select id="limpiarPaisBus">
           <option value="---" hidden>------</option>
-          <option value="spa">Espanya</option>
+          <option value="spa">España</option>
           <option value="fr">Francia</option>
           <option value="pt">Portugal</option>
         </select>
