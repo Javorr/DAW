@@ -13,6 +13,54 @@
 
   <body>
 
+    <header>
+        <!-- <a href="index.html"><img src='logo1.png' alt="Logotipo" width="200"></a> --> <!-- Logo???? -->
+        <div>
+            <h1 id="arriba">Imagehony</h1>
+            <p>Tu web de fotografía</p> <!-- Ni idea de que poner aqui xdddd -->
+        </div>
+    </header>
+
+    <nav>
+      <a href="#arriba">Búsqueda</a>
+    </nav>
+
+    <form>
+      <fieldset class="filtrosBus">
+
+        <label for="titulo">Título</label>
+        <br>
+        <input id="tituloBus" name="limpiarBuscar" type="text">
+        <br>
+
+        <label for="fecha">Fecha</label>
+        <br>
+        <input id="fechaBus" name="limpiarBuscar" type="text">
+        <br>
+
+        <label for="pais">Pais</label>
+        <br>
+        <select id="limpiarPaisBus">
+          <option value="---" hidden>------</option>
+          <option value="spa">Espanya</option>
+          <option value="fr">Francia</option>
+          <option value="pt">Portugal</option>
+        </select>
+
+      </fieldset>
+
+      <br>
+      <button onclick="crearURL(this);" type="button">Buscar</button>
+
+    </form>
+
+    <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
+    <footer>
+        <a href="index.html">Volver a index</a> <br>
+        <p>&copy;<time datetime="2018-09"> Septiembre 2018</time></p>
+        <p>Javier Martinez y Monica Ramperez</p>
+    </footer>
+
   </body>
 
 </html>
