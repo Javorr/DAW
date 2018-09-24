@@ -1,0 +1,101 @@
+<!-- Página “Solicitar álbum”
+    Contiene un formulario con los datos necesarios para solicitar un álbum impreso. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="author" content="Javier Martinez y Monica Ramperez" />
+      <meta name="description" content="Pagina web de fotografia" />
+      <title>Imagehony</title>
+  </head>
+
+  <body>
+
+    <header>
+        <a id="arriba" href="index.html"><img src='logo.png' alt="Logotipo" width="200"></a>
+        <h2>Tu web de fotografía</h2p>
+    </header>
+
+    <section>
+        <h2>Solicita tu álbum</h2>
+
+<!--  El formulario de solicitud de un álbum impreso contiene lo siguiente:
+
+    Un texto inicial con una descripción del funcionamiento de esta opción.
+
+    Una tabla con tarifas que dependen de: número de páginas, resolución, color de la portada (blanco y negro o color).
+
+    Nombre: para el envío postal y personalización del álbum, máximo 200 caracteres, obligatorio.
+    El formato es libre, pueden ser dos campos separados (nombre, apellidos) o un campo todo junto.
+
+    Título del álbum: para la cubierta del álbum, máximo 200 caracteres, obligatorio.
+
+    Texto adicional: un texto con una dedicatoria o una descripción del álbum, máximo 4000 caracteres.
+
+    Correo electrónico: del destinatario del álbum, para realizar posibles notificaciones, máximo 200 caracteres, obligatorio.
+
+    Dirección: para el envío postal, con los típicos campos (calle, número, piso, puerta, código postal, localidad, provincia y país).
+    El formato es libre, decide una estructura de campos.
+
+    Color de la portada: selector de color, el color por defecto debe ser el negro.
+
+    Número de copias: obligatorio, valor mínimo y por defecto 1.
+
+    Resolución de las fotos: rango entre 150 y 900 DPI, en incrementos de 150. Opcional. Valor por defecto 150.
+
+    Álbum de fotos del portal sobre el que se basará el álbum solicitado a imprimir. Obligatorio. Se deberá escoger entre los álbumes del usuario.
+    Fecha de recepción: fecha en la que el usuario desea recibir el álbum.
+
+    Impresión a color: si el álbum se imprimirá en blanco y negro o a todo color.-->
+
+        <p> Aquí podrás solicitar un álbum impreso </p>
+
+        <!-- TABLA DE TARIFAS -->
+        <table style="width:100%">
+           <tr>
+             <th>Páginas</th>
+             <th>Resolución</th>
+               <th>Color</th>
+           </tr>
+           <tr>
+             <td>x</td>
+             <td>x</td>
+             <td>x</td>
+           </tr>
+           <tr>
+             <td>x</td>
+             <td>x</td>
+             <td>x</td>
+           </tr>
+        </table>
+
+        <form>
+            <label>Nombre: </label><input data-pagina="campo" type="text" name="nombre" placeholder="Nombre" maxlength="200" required><br>
+            <label>Título del álbum: </label><input data-pagina="campo" type="text" name="titulo" placeholder="Título del álbum" maxlength="200" required><br>
+            <label>Texto adicional: </label><input data-pagina="campo" type="text" name="texto" placeholder="Texto adicional" maxlength="4000"><br>
+            <label>Email: </label><input data-pagina="campo" type="email" name="email" placeholder="Email" maxlength="200" required><br>
+            <!--Direccion-->
+            <label>Dirección: </label><input data-pagina="campo" type="text" name="direccion" placeholder="Calle y número" required><br>
+            <label>Código postal: </label><input data-pagina="campo" type="number" name="cp" placeholder="Código postal" required><br>
+            <label>Localidad: </label><input data-pagina="campo" type="text" name="localidad" placeholder="Localidad" required><br>
+            <label>Provincia: </label><input data-pagina="campo" type="text" name="provincia" placeholder="Provincia" required><br>
+            <label>País: </label><input data-pagina="campo" type="text" name="pais" placeholder="País" required><br>
+
+            <label>Color: </label><input data-pagina="campo" type="color" name="color" required><br>
+            <label>Número de copias: </label><input data-pagina="campo" type="number" name="copias" value="1" min="1" required><br>
+            <label>Fecha: </label><input data-pagina="campo" type="date" name="fecha"><br>
+            <label>Resolución: </label><input data-pagina="campo" type="range" name="resolucion" min="150" max="900" value="150" step="150"><br>
+
+            <!-- Álbum -->
+
+            <label>Impresión: </label><input type="radio" name="imp" checked> Color <input type="radio" name="imp"> Blanco y negro <br>
+            <input type="submit" name="submit"><br>
+        </form>
+
+    </section>
+
+  </body>
+
+</html>
