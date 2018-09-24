@@ -1,3 +1,56 @@
 <!--  Página menú usuario registrado
     Contiene enlaces con las funciones que puede realizar un usuario registrado:
     modificar sus datos, darse de baja, visualizar sus álbumes, crear un álbum nuevo y solicitar un álbum impreso. -->
+
+    <!DOCTYPE html>
+    <html lang="es">
+
+      <head>
+          <meta charset="utf-8" />
+          <meta name="author" content="Javier Martinez y Monica Ramperez" />
+          <meta name="description" content="Pagina web de fotografia" />
+          <title>Imagehony</title>
+      </head>
+
+      <body>
+
+        <header>
+            <a id="arriba" href="index.html"><img src='logo.png' alt="Logotipo" width="200"></a>
+            <h2>Tu web de fotografía</h2p>
+        </header>
+
+        <nav>
+          <a href="busqueda.html">Búsqueda</a>
+        </nav>
+
+        <figure>
+          <img src='foto.jpg' style="width:50%">
+        </figure>
+
+        <section>
+          Nombre del usuario
+          <a href="index.html"> <span>Cerrar sesión</span> </a>
+        </section>
+
+        <ul>
+          <li> <a href="#modificar"> <span>Modificar datos</span> </a> </li>
+          <li> <a href="#baja"> <span>Darse de baja</span> </a> </li>
+          <li>
+            Álbumes
+            <ul>
+              <li> <a href="#misalbumes"> <span>Mis álbumes</span> </a> </li>
+              <li> <a href="#crearalbum"> <span>Crear nuevo</span> </a> </li>
+              <li> <a href="solicitaralbum.html"> <span>Solicitar álbum impreso</span> </a> </li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
+        <footer>
+            <a href="#arriba">Volver a index</a> <br>
+            <p>&copy;<time datetime="2018-09"> Septiembre 2018</time></p>
+            <p>Javier Martinez y Monica Ramperez</p>
+        </footer>
+
+      </body>
+    </html>
