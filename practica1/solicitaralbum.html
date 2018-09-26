@@ -15,7 +15,7 @@
 
     <header>
         <a id="arriba" href="index.html"><img src='logo.png' alt="Logotipo" width="200"></a>
-        <h2>Tu web de fotografía</h2p>
+        <h2>Tu web de fotografía</h2>
     </header>
 
     <section>
@@ -96,9 +96,9 @@
             <label>Provincia: </label><input data-pagina="campo" type="text" name="provincia" placeholder="Provincia" required><br>
             <label>País: </label><input data-pagina="campo" type="text" name="pais" placeholder="País" required><br>
 
-            <label>Color: </label><input data-pagina="campo" type="color" name="color" required><br>
+            <label>Color: </label><input data-pagina="campo" type="color" name="color"><br> <!-- warning puesto que color no lo soportan todos los navegadores-->
             <label>Número de copias: </label><input data-pagina="campo" type="number" name="copias" value="1" min="1" required><br>
-            <label>Fecha: </label><input data-pagina="campo" type="date" name="fecha"><br>
+            <label>Fecha: </label><input data-pagina="campo" type="date" name="fecha"><br> <!-- warning puesto que date no lo soportan todos los navegadores-->
             <label>Resolución: </label><input data-pagina="campo" type="range" name="resolucion" min="150" max="900" value="150" step="150"><br>
 
             <!-- Álbum -->
