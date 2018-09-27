@@ -24,38 +24,41 @@
 
     <section>
         <h2>Iniciar sesión</h2>
-        <form>
-            <label for="fnombre">Nombre: </label><input id="fnombre" type="text" placeholder="Nombre" required><br>
-            <label for="fpassword">Contraseña: </label><input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
-            <input type="submit" name="submit"><br/>
-        </form>
-        <a href="Registro.html">¡Regístrate!</a>
+        <fieldset>
+          <label for="fnombre">Nombre: </label><input id="fnombre" type="text" placeholder="Nombre" required><br>
+          <label for="fpassword">Contraseña: </label><input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
+          <input type="submit" name="submit"><br/>
+          <a href="Registro.html">¡Regístrate!</a>
+        </fieldset>
     </section>
 
-    <form>
+    <section>
+      <h2>Búsqueda</h2>
+      <form>
 
-      <fieldset class="filtrosBus">
+        <fieldset class="filtrosBus">
 
-        <label for="tituloBus">Título</label><br>
-        <input id="tituloBus" name="limpiarBuscar" type="text"><br>
+          <label for="tituloBus">Título</label><br>
+          <input id="tituloBus" name="limpiarBuscar" type="text"><br>
 
-        <label for="fechaBusIni">Fecha entre </label><br>
-        <input id="fechaBusIni" name="limpiarBuscar" type="date"> y <input id="fechaBusFin" name="limpiarBuscar" type="date"><br> <!-- warning puesto que date no lo soportan todos los navegadores-->
+          <label for="fechaBusIni">Fecha entre </label><br>
+          <input id="fechaBusIni" name="limpiarBuscar" type="date"> y <input id="fechaBusFin" name="limpiarBuscar" type="date"><br> <!-- warning puesto que date no lo soportan todos los navegadores-->
 
-        <label for="limpiarPaisBus">Pais</label><br>
+          <label for="limpiarPaisBus">Pais</label><br>
 
-        <select id="limpiarPaisBus">
-          <option value="---" hidden>------</option>
-          <option value="spa">España</option>
-          <option value="fr">Francia</option>
-          <option value="pt">Portugal</option>
-        </select>
+          <select id="limpiarPaisBus">
+            <option value="---" hidden>------</option>
+            <option value="spa">España</option>
+            <option value="fr">Francia</option>
+            <option value="pt">Portugal</option>
+          </select>
 
-      </fieldset>
+        </fieldset>
 
-      <button type="button">Buscar</button>
+        <button type="button">Buscar</button>
 
-    </form>
+      </form>
+    </section
 
     <section>
            <h2>Resultado</h2>
