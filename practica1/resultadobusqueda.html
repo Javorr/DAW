@@ -25,28 +25,25 @@
     <section>
         <h2>Iniciar sesión</h2>
         <form>
-            <label>Nombre: </label><input data-pagina="campo" type="text" name="nombre" placeholder="Nombre" required><br>
-            <label>Contraseña: </label><input data-pagina="campo" type="password" name="password" placeholder="Contraseña" required pattern="[A-Za-z0-9_-]{7,20}"><br>
+            <label for="fnombre">Nombre: </label><input id="fnombre" type="text" placeholder="Nombre" required><br>
+            <label for="fpassword">Contraseña: </label><input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
             <input type="submit" name="submit"><br/>
         </form>
         <a href="Registro.html">¡Regístrate!</a>
     </section>
 
     <form>
+
       <fieldset class="filtrosBus">
 
-        <label for="tituloBus">Título</label>
-        <br>
-        <input id="tituloBus" name="limpiarBuscar" type="text">
-        <br>
+        <label for="tituloBus">Título</label><br>
+        <input id="tituloBus" name="limpiarBuscar" type="text"><br>
 
-        <label for="fechaBusIni">Fecha</label>
-        <br>
-        Entre <input id="fechaBusIni" name="limpiarBuscar" type="date"> y <input id="fechaBusFin" name="limpiarBuscar" type="date"> <!-- warning puesto que date no lo soportan todos los navegadores-->
-        <br>
+        <label for="fechaBusIni">Fecha entre </label><br>
+        <input id="fechaBusIni" name="limpiarBuscar" type="date"> y <input id="fechaBusFin" name="limpiarBuscar" type="date"><br> <!-- warning puesto que date no lo soportan todos los navegadores-->
 
-        <label for="limpiarPaisBus">Pais</label>
-        <br>
+        <label for="limpiarPaisBus">Pais</label><br>
+
         <select id="limpiarPaisBus">
           <option value="---" hidden>------</option>
           <option value="spa">España</option>
@@ -56,8 +53,7 @@
 
       </fieldset>
 
-      <br>
-      <button onclick="crearURL(this);" type="button">Buscar</button>
+      <button type="button">Buscar</button>
 
     </form>
 

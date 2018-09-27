@@ -22,15 +22,16 @@
     <section>
         <h2>Regístrate</h2>
         <form>
-            <label>Nombre usuario: </label><input data-pagina="campo" type="text" name="nombre" placeholder="Nombre" required><br>
-            <label>Contraseña: </label><input data-pagina="campo" type="password" name="password" placeholder="Contraseña" required><br>
-            <label>Repetir contraseña: </label><input data-pagina="campo" type="password" name="password2" placeholder="Constraseña" required><br>
-            <label>Email: </label><input data-pagina="campo" type="email" name="email" placeholder="Email" required><br>
-            <label>Género: </label><input type="radio" name="genero" checked> Mujer <input type="radio" name="genero"> Hombre <input type="radio" name="genero"> Otro<br>
-            <label>Fecha de nacimiento: </label><input data-pagina="campo" type="date" name="fecha"  required><br> <!-- warning puesto que date no lo soportan todos los navegadores-->
-            <label>Ciudad: </label><input data-pagina="campo" type="text" name="ciudad" placeholder="Ciudad" required><br>
-            <label>País de residencia: </label><input data-pagina="campo" type="text" name="pais" placeholder="País" required><br>
-            <!-- FALTA LA FOTO -->
+            <label for="rnombre">Nombre usuario: </label><input id="rnombre" type="text" name="nombre" placeholder="Nombre" required><br>
+            <label for="rpassword">Contraseña: </label><input id="rpassword" type="password" name="password" placeholder="Contraseña" required><br>
+            <label for="rpassword2">Repetir contraseña: </label><input id="rpassword2" type="password" name="password2" placeholder="Constraseña" required><br>
+            <label for=remail"">Email: </label><input id="remail" type="email" name="email" placeholder="Email" required><br>
+            <label for="rgenero">Género: </label><input id="rgenero" type="radio" name="genero" checked> Mujer <input type="radio" name="genero"> Hombre <input type="radio" name="genero"> Otro<br>
+            <label for="rfecha">Fecha de nacimiento: </label><input id="rfecha" type="date" name="fecha"  required><br> <!-- warning puesto que date no lo soportan todos los navegadores-->
+            <label for="rciudad">Ciudad: </label><input id="rciudad" type="text" name="ciudad" placeholder="Ciudad" required><br>
+            <label for="rpais">País de residencia: </label><input id="rpais" type="text" name="pais" placeholder="País" required><br>
+            <label for="rfoto">Foto: </label><input id="rfoto" type="file" name="foto" required><br>
+
             <input type="submit" name="submit"><br />
         </form>
     </section>
@@ -38,8 +39,8 @@
     <section>
         <h2>Iniciar sesión</h2>
         <form>
-            <label>Nombre: </label><input data-pagina="campo" type="text" name="nombre" placeholder="Nombre" required><br>
-            <label>Contraseña: </label><input data-pagina="campo" type="password" name="password" placeholder="Contraseña" required pattern="[A-Za-z0-9_-]{7,20}"><br>
+            <label for="fnombre">Nombre: </label><input id="fnombre" type="text" placeholder="Nombre" required><br>
+            <label for="fpassword">Contraseña: </label><input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
             <input type="submit" name="submit"><br/>
         </form>
     </section>
