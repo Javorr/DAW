@@ -27,31 +27,31 @@
             <label for="rpassword">Contraseña: </label><input id="rpassword" type="password" name="password" placeholder="Contraseña" required><br>
             <label for="rpassword2">Repetir contraseña: </label><input id="rpassword2" type="password" name="password2" placeholder="Constraseña" required><br>
             <label for="remail">Email: </label><input id="remail" type="email" name="email" placeholder="Email" required><br>
-            <label for="rgenero">Género: </label><input id="rgenero" type="radio" name="genero" checked> Mujer <input type="radio" name="genero"> Hombre <input type="radio" name="genero"> Otro<br>
+            <label>Género:</label><input id="mgenero" type="radio" name="genero" checked> <label for="mgenero">Mujer</label> <input id="hgenero" type="radio" name="genero"> <label for="hgenero">Hombre</label> <input id="ogenero" type="radio" name="genero"> <label for="ogenero">Otro</label><br>
             <label for="rfecha">Fecha de nacimiento: </label><input id="rfecha" type="date" name="fecha"  required><br> <!-- warning puesto que date no lo soportan todos los navegadores-->
             <label for="rciudad">Ciudad: </label><input id="rciudad" type="text" name="ciudad" placeholder="Ciudad" required><br>
             <label for="rpais">País de residencia: </label><input id="rpais" type="text" name="pais" placeholder="País" required><br>
             <label for="rfoto">Foto: </label><input id="rfoto" type="file" name="foto" required><br>
 
-            <input type="submit" name="submit"><br />
+            <input type="submit" name="submit" value="Registrarse"><br />
           </fieldset>
         </form>
     </section>
-
+    <h3>¿Ya tienes cuenta? ¡Inicia sesión!</h3>
     <section>
         <h2>Iniciar sesión</h2>
-        <form>
+        <form action="usuario.html">
           <fieldset>
             <label for="fnombre">Nombre: </label><input id="fnombre" type="text" placeholder="Nombre" required><br>
             <label for="fpassword">Contraseña: </label><input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
-            <input type="submit" name="submit"><br/>
+            <input type="submit" name="submit" value="Iniciar sesión"><br/>
           </fieldset>
         </form>
     </section>
 
     <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
     <footer>
-        <a href="#arriba">Volver a index</a> <br>
+        <a href="index.html">Volver a index</a> <br>
         <p>&copy;<time datetime="2018-09"> Septiembre 2018</time></p>
         <p>Javier Martinez y Monica Ramperez</p>
     </footer>

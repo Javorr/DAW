@@ -20,12 +20,15 @@
 
     <section>
         <h2>Iniciar sesión</h2>
-        <fieldset>
-          <label for="fnombre">Nombre: </label><input id="fnombre" type="text" placeholder="Nombre" required><br>
-          <label for="fpassword">Contraseña: </label><input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
-          <input type="submit" name="submit"><br/>
-          <a href="Registro.html">¡Regístrate!</a>
-        </fieldset>
+        <form action="usuario.html">
+          <fieldset>
+            <label for="fnombre">Nombre: </label><input id="fnombre" type="text" placeholder="Nombre" required><br>
+            <label for="fpassword">Contraseña: </label><input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
+            <input type="submit" name="submit" value="Iniciar sesión"><br/>
+            <a href="Registro.html">¡Regístrate!</a>
+          </fieldset>
+        </form>
+
     </section>
 
     <form>
@@ -41,7 +44,7 @@
         <label for="limpiarPaisBus">Pais</label><br>
 
         <select id="limpiarPaisBus">
-          <option value="---" hidden>------</option>
+          <option value="---">------</option>
           <option value="spa">España</option>
           <option value="fr">Francia</option>
           <option value="pt">Portugal</option>
