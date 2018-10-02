@@ -172,3 +172,64 @@ input[type=button]{
     margin: 4px 2px;
     cursor: pointer;
 }
+
+.fotos {
+	padding-left: 20px;
+	transition: .2s;
+}
+
+.fotos:hover {
+	-ms-transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+body>ul{
+	list-style-type: none;
+}
+
+body>section>article>ul{
+	list-style-type: none;
+}
+
+body>section>article>h3>a{
+	text-decoration: none;
+	color: #76323F;
+	transition: color .4s ease-out;
+}
+
+body>section>article>h3>a:hover{
+	color: #98505E;
+}
+
+body>ul>li>a{
+	text-decoration: none;
+}
+
+body>ul>li>a>span{
+	color: #98505E;
+}
+
+body>ul>li>a>span:hover{
+	color: #76323F;
+}
+
+body>footer{
+	padding-top: 10px;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	overflow: hidden;
+	font-weight: bold;
+	text-align: center;
+	background-color: #76323F;
+}
+
+body>footer a{
+	color: white;
+	text-decoration: none;
+}
+
+body>footer a:hover{
+	color: #98505E;
+}
