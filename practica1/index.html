@@ -11,6 +11,7 @@
       <meta charset="utf-8" />
       <meta name="author" content="Javier Martinez y Monica Ramperez" />
       <meta name="description" content="Pagina web de fotografia" />
+      <link rel="stylesheet" type="text/css" href="estilos.css">
       <title>Imagehony</title>
   </head>
 
@@ -22,18 +23,20 @@
     </header>
 
     <nav>
-      <a href="busqueda.html">Búsqueda</a>
+      <form>
+        <label for="busquedarapida">Búsqueda: </label>
+        <input id="busquedarapida" name="busqueda" type="search" placeholder="Búsqueda"><br>
+      </form>
     </nav>
 
     <section>
-        <h2>Iniciar sesión</h2>
-        <form action="usuario.html">
-          <fieldset>
-            <label for="fnombre">Nombre: </label><input id="fnombre" type="text" placeholder="Nombre" required><br>
-            <label for="fpassword">Contraseña: </label><input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
+
+        <form action="usuario.html" id="inicio">
+            <h2>Iniciar sesión</h2>
+            <input id="fnombre" type="text" placeholder="Nombre" required><br>
+            <input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
             <input type="submit" name="submit" value="Iniciar sesión"><br/>
-            <a href="Registro.html">¡Regístrate!</a>
-          </fieldset>
+            <a href="Registro.html">¿No tienes cuenta? ¡Regístrate!</a>
         </form>
 
     </section>

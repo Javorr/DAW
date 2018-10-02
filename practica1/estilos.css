@@ -18,15 +18,152 @@ TAN
 *{
 	box-sizing: border-box;
     font-family: 'Josefine Sans', sans-serif;
-    color: #565656;
+    color:black;
 }
 
-
+/* Hasta los asteriscos esta solo copiado y pegado de PCW xd */
 body{
-	background-color:#D7CEC7;
+	background-color:#C09F80;
 	min-width:320px;
     max-width:1600px;
     margin:0 auto;
     padding: .5em;
 
 }
+
+body>header{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: white;
+    padding: .5em;
+    text-align: center;
+    background-color:#D7CEC7;
+}
+
+    body>header>a>img{
+        align-self: center;
+    }
+
+        body>header>div{
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+        }
+
+            body>header>div>h1{
+                margin: .2em 0;
+            }
+
+                body>header>div>p{
+                    border-top: 1px solid;
+                    border-bottom: 1px solid;
+                    margin:3;
+                    padding: .5em;
+                }
+
+/* *********************************************************************************************** */
+
+/* Formulario iniciar sesion */
+body>section>form#inicio{
+	width: 250px;
+  position: absolute;
+  top: 30%;
+  left: 90%;
+  margin: -184px 0px 0px -155px;
+  background: #D7CEC7;
+  padding: 20px 30px;
+  border-radius: 5px;
+	border: 2px solid black;
+
+}
+
+body>section>form>h2 {
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+body>section>form>a {
+  color: black;
+  text-decoration: none;
+	    			font-size : 13px;
+}
+
+body>section>form>a:hover {
+  color: #76323F;
+  text-decoration: none;
+	text-align: center;
+}
+
+input[type="text"], input[type="password"] {
+  width: 190px;
+  padding: 10px 10px;
+	margin: 7px 0px;
+	border: 2px solid #76323F;
+	border-radius: 4px;
+	background-color: white;
+	color: #565656;
+  outline: none;
+  color: #46485c;
+  font-size: 12px;
+}
+
+input[type="submit"] {
+  background:#76323F;
+	margin: 10px 0px;
+  border: 0;
+  width: 190px;
+  height: 40px;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+input[type="submit"]:hover {
+  background: #C09F80;
+}
+
+/*input{
+    border: 2px solid #76323F;
+    border-radius: 4px;
+		background-color: white;
+		color: #565656;
+		width: 90%;
+		padding: 12px 20px;
+		margin: 8px 18px;
+		box-sizing: border-box;
+		text-align: center;
+}
+
+input:focus {
+    border: 3px solid #555;
+		background-color: #D7CEC7;
+}
+
+input[type=search] {
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+		background-color: white;
+		background-position: 10px 10px;
+		background-repeat: no-repeat;
+		padding-left: 40px;
+}
+
+input[type=search]:focus {
+    width: 30%;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #76323F;
+    border: 2px solid black;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+*/
