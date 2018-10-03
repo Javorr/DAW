@@ -71,6 +71,11 @@ body>section>form#busquedarapida1{
 
 }
 
+#busquedarapida1>a{
+	font-size: 20px;
+	font-weight: bold;
+}
+
 body>section#barrabus{
   padding: 3px 0;
 }
@@ -209,6 +214,18 @@ body>ul>li>a>span{
 }
 
 body>ul>li>a>span:hover{
+	color: #76323F;
+}
+
+body>ul>li>ul>li>a{
+	text-decoration: none;
+}
+
+body>ul>li>ul>li>a>span{
+	color: #98505E;
+}
+
+body>ul>li>ul>li>a>span:hover{
 	color: #76323F;
 }
 
