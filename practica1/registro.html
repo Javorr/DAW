@@ -16,13 +16,25 @@
   <body>
 
     <header>
-        <a id="arriba" href="index.html"><img src='logo.png' alt="Logotipo" width="200"></a>
+        <a id="arriba" href="index.html"><img src='logo.png' alt="Logotipo" width="450px"></a>
         <h2>Tu web de fotografía</h2>
     </header>
 
     <section>
-        <h2>Regístrate</h2>
-        <form>
+
+        <form action="usuario.html" id="inicio">
+            <h2 id="ti">Iniciar sesión</h2>
+            <input id="fnombre" type="text" placeholder="Nombre" required><br>
+            <input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
+            <input id="botoni" type="submit" name="submit" value="Iniciar sesión"><br/>
+            <a href="Registro.html">¿No tienes cuenta? ¡Regístrate!</a>
+        </form>
+
+    </section>
+
+    <section>
+        <form action="index.html" id="registro">
+            <h2>Regístrate</h2>
             <label for="rnombre">Nombre usuario: </label><br><input id="rnombre" type="text" name="nombre" placeholder="Nombre" required><br>
             <label for="rpassword">Contraseña: </label><br><input id="rpassword" type="password" name="password" placeholder="Contraseña" required><br>
             <label for="rpassword2">Repetir contraseña: </label><br><input id="rpassword2" type="password" name="password2" placeholder="Constraseña" required><br>
@@ -35,19 +47,10 @@
             <input type="submit" name="submit" value="Registrarse"><br />
         </form>
     </section>
-    <h3>¿Ya tienes cuenta? ¡Inicia sesión!</h3>
-    <section>
-        <h2>Iniciar sesión</h2>
-        <form action="usuario.html">
-            <label for="fnombre">Nombre: </label><input id="fnombre" type="text" placeholder="Nombre" required><br>
-            <label for="fpassword">Contraseña: </label><input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
-            <input type="submit" name="submit" value="Iniciar sesión"><br/>
-        </form>
-    </section>
 
     <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
     <footer>
-        <a href="index.html">Volver a index</a> 
+        <a href="index.html">Volver a index</a>
         <p>&copy;<time datetime="2018-09"> Septiembre 2018</time></p>
         <p>Javier Martinez y Monica Ramperez</p>
     </footer>

@@ -15,25 +15,23 @@
   <body>
 
     <header>
-        <a id="arriba" href="index.html"><img src='logo.png' alt="Logotipo" width="200"></a>
+        <a id="arriba" href="index.html"><img src='logo.png' alt="Logotipo" width="450px"></a>
         <h2>Tu web de fotografía</h2>
     </header>
 
     <section>
       <form action="usuario.html" id="inicio">
-          <h2>Iniciar sesión</h2>
+            <h2 id="ti">Iniciar sesión</h2>
           <input id="fnombre" type="text" placeholder="Nombre" required><br>
           <input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
-          <input type="submit" name="submit" value="Iniciar sesión"><br/>
+          <input id="botoni" type="submit" name="submit" value="Iniciar sesión"><br/>
           <a href="Registro.html">¿No tienes cuenta? ¡Regístrate!</a>
       </form>
 
     </section>
-
+    <section>
     <form>
-
-      <fieldset class="filtrosBus">
-
+        <h2>Filtros de búsqueda</h2>
         <label for="tituloBus">Título</label><br>
         <input id="tituloBus" name="limpiarBuscar" type="search"><br>
 
@@ -49,10 +47,8 @@
           <option value="pt">Portugal</option>
         </select>
 
-      </fieldset>
-
       <button type="button">Buscar</button>
-
+    </section>
     </form>
 
     <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
