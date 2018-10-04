@@ -51,7 +51,7 @@ body>header>h2{
 #sesioniniciada{
 	width: 250px;
   position: absolute;
-	top: 2.5%;
+  top: 2.5%;
   left: 80%;
   background: #D7CEC7;
   padding: 20px 30px;
@@ -295,6 +295,7 @@ body>ul{
 body>section>article>ul{
 	list-style-type: none;
 }
+
 body>section>ul{
 	list-style-type: circle;
 }
