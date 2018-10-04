@@ -107,14 +107,6 @@ body>section{
 		border: 2px solid black;
 }
 
-
-body>section#album{
-  padding: 3px 50px 8px 50px;
-	background: #D7CEC7;
-	border-radius: 5px;
-	border: 2px solid black;
-}
-
 body>section>form{
 	background: #D7CEC7;
   padding: 20px 100px;
