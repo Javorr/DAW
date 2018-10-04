@@ -20,6 +20,19 @@
     </header>
 
     <section>
+
+        <div id="sesioniniciada">
+            <figure>
+              <a href="usuario.html"><img src='icon.svg' alt="Foto del usuario" style="width:80%"></a>
+            </figure>
+            <h2 id="ti">@usuario</h2>
+            <a href="usuario.html">Ver perfil</a><br>
+            <a href="index.html">Cerrar sesión</a>
+        </div>
+
+    </section>
+
+    <section id="album">
         <h2>Solicita tu álbum</h2>
 
 <!--  El formulario de solicitud de un álbum impreso contiene lo siguiente:
@@ -92,9 +105,8 @@
 
       <section>
 
-        <form>
+        <form action="recibiralbum.html">
             <h2>Solicitud de álbum</h2>
-            <fieldset>
               <label for="snombre">Nombre: </label><input id="snombre" type="text" name="nombre" placeholder="Nombre" maxlength="200" required><br>
               <label for="semail">Email: </label><input id="semail" type="email" name="email" placeholder="Email" maxlength="200" required><br>
 
@@ -105,11 +117,9 @@
               <label for="sprovincia">Provincia: </label><input id="sprovincia" type="text" name="provincia" placeholder="Provincia" required><br>
               <label for="spais">País: </label><input id="spais" type="text" name="pais" placeholder="País" required><br>
               <label for="sfecha">Fecha de envío: </label><input id="sfecha" type="date" name="fecha"> <!-- warning puesto que date no lo soportan todos los navegadores-->
-            </fieldset>
 
-            <fieldset>
               <label for="stitulo">Título del álbum: </label><input id="stitulo" type="text" name="titulo" placeholder="Título del álbum" maxlength="200" required><br>
-              <label for="stexto">Texto adicional: </label><textarea id="stexto" name="textoadicional" rows="3" cols="40" maxlength="4000">Escribe una dedicatoria o una descripción (opcional)</textarea><br>
+              <label for="stexto">Texto adicional: </label><br><textarea id="stexto" name="textoadicional" rows="3" cols="40" maxlength="4000">Escribe una dedicatoria o una descripción (opcional)</textarea><br>
               <label for="scolor">Color: </label><input id="scolor" type="color" name="color"><br> <!-- warning puesto que color no lo soportan todos los navegadores-->
               <label for="snum">Número de copias: </label><input id="snum" type="number" name="copias" value="1" min="1" required><br>
 
@@ -132,7 +142,7 @@
               </select><br>
 
               <label>Impresión: </label><input  id="cimpresion" type="radio" name="imp" checked> <label for="cimpresion">Color</label> <input id="bynimpresion" type="radio" name="imp"> <label for="bynimpresion">Blanco y negro</label> <br>
-            </fieldset>
+
             <input type="submit" name="submit" value="Enviar"><br>
         </form>
 

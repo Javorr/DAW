@@ -19,13 +19,6 @@
         <h2>Tu web de fotografía</h2>
     </header>
 
-    <section id="barrabus">
-      <form action="resultadobusqueda.html" id="busquedarapida1">
-        <a href="busqueda.html">Búsqueda: </a>
-        <input id="busquedarapida" name="busqueda" type="search" placeholder="Búsqueda"><br>
-      </form>
-    </section>
-
     <section>
       <form action="usuario.html" id="inicio">
           <h2 id="ti">Iniciar sesión</h2>
@@ -39,10 +32,9 @@
     </section>
 
     <section>
-      <h2>Búsqueda</h2>
-      <form>
 
-        <fieldset class="filtrosBus">
+      <form>
+      <h2>Filtros de búsqueda</h2>
 
           <label for="tituloBus">Título</label><br>
           <input id="tituloBus" name="limpiarBuscar" type="text"><br>
@@ -59,9 +51,7 @@
             <option value="pt">Portugal</option>
           </select>
 
-        </fieldset>
-
-        <button type="button">Buscar</button>
+          <input type="submit" name="submit" value="Buscar"><br />
 
       </form>
     </section>

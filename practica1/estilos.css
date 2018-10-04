@@ -48,7 +48,18 @@ body>header>h2{
 }
 
 
-
+body>section>div#sesioniniciada{
+	width: 250px;
+  position: absolute;
+  top: 29%;
+  left: 90%;
+  margin: -184px 0px 0px -155px;
+  background: #D7CEC7;
+  padding: 20px 30px;
+  border-radius: 5px;
+	border: 2px solid black;
+	text-align: center;
+}
 
 body>section>form#inicio{
 	width: 250px;
@@ -81,7 +92,21 @@ body>section#barrabus{
 }
 
 body>section{
-  padding: 3px 50px;
+  padding: 3px 50px 8px 50px;
+}
+
+body>section#album{
+  padding: 3px 50px 8px 50px;
+	background: #D7CEC7;
+	border-radius: 5px;
+	border: 2px solid black;
+}
+
+body>section#perfil{
+  padding: 3px 50px 8px 50px;
+	background: #D7CEC7;
+	border-radius: 5px;
+	border: 2px solid black;
 }
 
 body>section>form{
@@ -103,7 +128,7 @@ body>section>form>h2#ti {
 body>section>form>a {
   color: black;
   text-decoration: none;
-	    			font-size : 13px;
+	font-size : 13px;
 }
 
 body>section>form>a:hover {
@@ -112,7 +137,27 @@ body>section>form>a:hover {
 	text-align: center;
 }
 
-input[type="text"], input[type="password"], [type="email"], [type="date"] {
+body>section>div>h2 {
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+body>section>div>a {
+  color: black;
+  text-decoration: none;
+	font-size : 13px;
+}
+
+body>section>div>a:hover {
+  color: #76323F;
+  text-decoration: none;
+	text-align: center;
+}
+
+input[type="text"], [type="color"], [type="number"], input[type="password"], [type="email"], [type="date"] {
   width: 100%;
   padding: 10px 10px;
 	margin: 7px 0px;
@@ -125,8 +170,27 @@ input[type="text"], input[type="password"], [type="email"], [type="date"] {
   font-size: 12px;
 }
 
-input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="date"]:focus {
+input[type="color"]{
+	height: 40px;
+}
+
+input[type="text"]:focus, [type="color"]:focus, input[type="password"]:focus, [type="number"]:focus, input[type="email"]:focus, input[type="date"]:focus {
 	border: 4px solid #76323F;
+}
+
+textarea{
+	width: 100%;
+	padding: 10px 10px;
+	margin: 7px 0px;
+	border: 2px solid #76323F;
+	border-radius: 4px;
+	background-color: white;
+	color: #565656;
+	outline: none;
+	color: #46485c;
+	font-size: 12px;
+	max-width: 1200px;
+	max-height: 250px;
 }
 
 input[type="submit"]#botoni {
@@ -157,7 +221,7 @@ input[type=search] {
 }
 
 input[type=search]:focus {
-    width: 95%;
+    width: 90%;
 }
 
 input[type=button]{
@@ -174,6 +238,37 @@ input[type="radio"] {
 	background-color: #f1f1f1;
 
 }
+
+select {
+	width: 100%;
+  padding: 10px 10px;
+	margin: 7px 0px;
+	border: 2px solid #76323F;
+	border-radius: 4px;
+	background-color: white;
+	color: #565656;
+  outline: none;
+  color: #46485c;
+  font-size: 12px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td, caption {
+   border: 1px solid black;
+	 padding: 15px;
+	 text-align: center;
+}
+
+caption{
+	background-color: #565656;
+	color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(odd) {background-color: #D7CEC7;}
 
 
 .fotos {

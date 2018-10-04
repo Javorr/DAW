@@ -30,26 +30,29 @@
 
     </section>
     <section>
-    <form>
-        <h2>Filtros de búsqueda</h2>
-        <label for="tituloBus">Título</label><br>
-        <input id="tituloBus" name="limpiarBuscar" type="search"><br>
+      <form action="resultadobusqueda.html">
+      <h2>Filtros de búsqueda</h2>
 
-        <label for="fechaBusIni">Fecha entre </label><br>
-        <input id="fechaBusIni" name="limpiarBuscar" type="date"> y <input id="fechaBusFin" name="limpiarBuscar" type="date"><br> <!-- warning puesto que date no lo soportan todos los navegadores-->
+          <label for="tituloBus">Título</label><br>
+          <input id="tituloBus" name="limpiarBuscar" type="text"><br>
 
-        <label for="limpiarPaisBus">Pais</label><br>
+          <label for="fechaBusIni">Fecha entre </label><br>
+          <input id="fechaBusIni" name="limpiarBuscar" type="date"> y <input id="fechaBusFin" name="limpiarBuscar" type="date"><br> <!-- warning puesto que date no lo soportan todos los navegadores-->
 
-        <select id="limpiarPaisBus">
-          <option value="---">------</option>
-          <option value="spa">España</option>
-          <option value="fr">Francia</option>
-          <option value="pt">Portugal</option>
-        </select>
+          <label for="limpiarPaisBus">Pais</label><br>
 
-      <button type="button">Buscar</button>
+          <select id="limpiarPaisBus">
+            <option value="---">------</option>
+            <option value="spa">España</option>
+            <option value="fr">Francia</option>
+            <option value="pt">Portugal</option>
+          </select>
+
+          <input type="submit" name="submit" value="Buscar"><br />
+
+      </form>
     </section>
-    </form>
+
 
     <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
     <footer>
