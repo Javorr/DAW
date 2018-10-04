@@ -95,14 +95,20 @@ body>section{
   padding: 3px 50px 8px 50px;
 }
 
-body>section#album{
-  padding: 3px 50px 8px 50px;
-	background: #D7CEC7;
-	border-radius: 5px;
-	border: 2px solid black;
+.usu{
+	text-align: center;
 }
 
-body>section#perfil{
+.perfilusu{
+	list-style-type:none;
+    background: #D7CEC7;
+    padding: 20px;
+		border-radius: 5px;
+		border: 2px solid black;
+}
+
+
+body>section#album{
   padding: 3px 50px 8px 50px;
 	background: #D7CEC7;
 	border-radius: 5px;
