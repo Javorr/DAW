@@ -17,7 +17,7 @@ TAN
 
 *{
 	box-sizing: border-box;
-    font-family: 'Josefine Sans', sans-serif;
+		font-family: 'Nunito', sans-serif;
     color:black;
 }
 
@@ -44,14 +44,15 @@ body>header{
 
 body>header>h2{
 	font-size: 15px;
-	padding: 0 7%;
+	padding: 0 97px;
+	color: #E8E5DE;
 }
 
 
 #sesioniniciada{
 	width: 250px;
   position: absolute;
-  top: 2.5%;
+  top: 3.5%;
   right: 5%;
   background: #D7CEC7;
   padding: 20px 30px;
@@ -63,7 +64,7 @@ body>header>h2{
 #inicio{
 	width: 250px;
   position: absolute;
-  top: 2.5%;
+  top: 2%;
   right: 5%;
   background: #D7CEC7;
   padding: 20px 30px;
@@ -205,16 +206,12 @@ input[type="submit"] {
 	margin: auto;
 	display: block;
   border: 0;
-  width: 190px;
+  width: 188px;
   height: 40px;
   border-radius: 3px;
   color: white;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
-}
-
-input[type="submit"]#botoni {
-	margin: 0;
 }
 
 
