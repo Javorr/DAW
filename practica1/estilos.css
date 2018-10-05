@@ -52,7 +52,7 @@ body>header>h2{
 	width: 250px;
   position: absolute;
   top: 2.5%;
-  right: 10%;
+  right: 5%;
   background: #D7CEC7;
   padding: 20px 30px;
   border-radius: 5px;
@@ -375,13 +375,14 @@ body>footer a:hover{
 
 #fotoendetalle>ul{
 	list-style-type: none;
-	padding-left: 122px;
+	padding-left: 10%;
 }
 
 #fotoendetalle>img{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	width: 100%;
 }
 
 #fotoendetalle>ul>li>a{
