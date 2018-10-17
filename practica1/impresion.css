@@ -23,31 +23,51 @@ TAN
   margin: 0.5cm !important;
   }
 
+  * {
+    font: 12pt Georgia, "Times New Roman", Times, serif !important;
+    color: #000 !important;
+    background: white !important;
+  }
+
   body {
     margin:0 !important;
     padding:0 !important;
     border:0 !important;
     float: none !important;
     width: auto !important;
-    background: white !important;
-    line-height: 1.3em !important;
-    word-spacing:1px !important;
-    letter-spacing:0.2px !important;
-    font: 12pt Georgia, "Times New Roman", Times, serif !important;
-    color: #000 !important;
+    flex: none !important;
   }
 
   .columnas{
+    flex: none !important;
     display:block !important;
-    width: 300px !important;
+    text-align: center !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .columnas>article{
-  	width: 100px !important;
+  	display: block !important;
+    text-align: center !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .fotos {
   max-width: 500px !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  }
+
+  article {
+  page-break-inside: avoid;
+  }
+
+  h3 {
+    page-break-after: avoid;
   }
 
   h2 {
@@ -58,6 +78,13 @@ TAN
   margin: 0 !important;
   list-style: none !important;
   }
+
+
+  a:after {
+    content: " (" attr(href) ")";
+    font-size: 80%;
+  }
+
 
   #inicio, #barrabus, footer {
     display: none !important;
