@@ -18,7 +18,7 @@ TAN
 *{
 	box-sizing: border-box;
 		font-family: 'Nunito', sans-serif;
-    color:black;
+    color:#000000;
 }
 
 body{
@@ -38,38 +38,38 @@ body>header{
     padding: .5em;
     text-align: left;
     background-color:#76323F;
-		border-radius: 5px;
-		border: 2px solid black;
+		border-radius: 0.5em;
+		border: 0.15em solid #000000;
 }
 
 body>header>h2{
-	font-size: 15px;
-	padding: 0 97px;
+	font-size: 1.5em;
+	padding: 0 4em;
 	color: #E8E5DE;
 }
 
 
 #sesioniniciada{
-	width: 250px;
+	width: 21em;
   position: absolute;
   top: 3.5%;
   right: 5%;
   background: #D7CEC7;
   padding: 20px 30px;
   border-radius: 5px;
-	border: 2px solid black;
+  border: 0.15em solid #000000;
 	text-align: center;
 }
 
 #inicio{
-	width: 250px;
+	width: 21em;
   position: absolute;
   top: 2%;
   right: 5%;
   background: #D7CEC7;
   padding: 20px 30px;
   border-radius: 5px;
-	border: 2px solid black;
+	border: 0.15em solid #000000;
 }
 
 #busquedarapida1{
@@ -77,7 +77,7 @@ body>header>h2{
   background: #D7CEC7;
   padding: 20px 30px;
   border-radius: 5px;
-	border: 2px solid black;
+  border: 0.15em solid #000000;
 
 }
 
@@ -103,14 +103,14 @@ body>section{
     background: #D7CEC7;
     padding: 20px;
 		border-radius: 5px;
-		border: 2px solid black;
+    border: 0.15em solid #000000;
 }
 
 #album{
 	background: #D7CEC7;
 	padding: 20px 60px;
 	border-radius: 5px;
-	border: 2px solid black;
+  border: 0.15em solid #000000;
 	width: 60%;
 }
 
@@ -122,19 +122,19 @@ body>section>form{
 	background: #D7CEC7;
   padding: 20px 100px;
   border-radius: 5px;
-	border: 2px solid black;
+  border: 0.15em solid #000000;
 	width: 100%;
 }
 
 body>section>form>h2#ti {
-  color: black;
+  color: #000000;
   font-size: 15px;
   text-align: center;
   margin-bottom: 10px;
 }
 
 body>section>form>a {
-  color: black;
+  color: #000000;
   text-decoration: none;
 	font-size : 13px;
 }
@@ -146,14 +146,14 @@ body>section>form>a:hover {
 }
 
 body>section>div>h2 {
-  color: black;
+  color: #000000;
   font-size: 15px;
   text-align: center;
   margin-bottom: 10px;
 }
 
 body>section>div>a {
-  color: black;
+  color: #000000;
   text-decoration: none;
 	font-size : 13px;
 }
@@ -168,7 +168,7 @@ input[type="text"], [type="color"], [type="number"], input[type="password"], [ty
   width: 100%;
   padding: 10px 10px;
 	margin: 7px 0px;
-	border: 2px solid #76323F;
+  border: 0.15em solid #000000;
 	border-radius: 4px;
 	background-color: white;
 	color: #565656;
@@ -231,7 +231,7 @@ input[type=search]:focus {
 
 input[type=button]{
     background-color: #76323F;
-    border: 2px solid black;
+    border: 2px solid #000000;
     color: white;
     padding: 16px 32px;
     text-decoration: none;
@@ -262,7 +262,7 @@ table {
 }
 
 table, th, td, caption {
-   border: 1px solid black;
+   border: 1px solid #000000;
 	 padding: 15px;
 	 text-align: center;
 }
@@ -278,7 +278,7 @@ tr:nth-child(odd) {background-color: #D7CEC7;}
 
 .fotos {
 	padding-left: 20px;
-	transition: .2s;
+	transition: .3s;
 }
 
 .fotos:hover {
@@ -303,6 +303,7 @@ body>section>article>h3>a{
 	text-decoration: none;
 	color: #76323F;
 	transition: color .4s ease-out;
+
 }
 
 body>section>article>h3>a:hover{
@@ -343,7 +344,7 @@ body>footer{
 	text-align: center;
 	background-color: #76323F;
 	border-radius: 5px;
-	border: 2px solid black;
+	border: 2px solid #000000;
 }
 
 body>footer a{
@@ -404,7 +405,7 @@ justify-content: space-evenly;
   text-align: justify;
   text-indent: 0;
 	border-radius: 5px;
-  border: 2px solid black;
+  border: 2px solid #000000;
 	padding: 5% 5%;
 	background: #D7CEC7;
 }
