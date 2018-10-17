@@ -1,0 +1,65 @@
+/*
+PALETA DE COLORES:
+
+GRAIN
+#D7CEC7
+
+BLACKBOARD
+#565656
+
+OXBLOOD
+#76323F
+
+TAN
+#C09F80*/
+
+/*Nunito */
+
+
+
+@media print {
+
+  @page {
+  margin: 0.5cm !important;
+  }
+
+  body {
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    float: none !important;
+    width: auto !important;
+    background: white !important;
+    line-height: 1.3em !important;
+    word-spacing:1px !important;
+    letter-spacing:0.2px !important;
+    font: 12pt Georgia, "Times New Roman", Times, serif !important;
+    color: #000 !important;
+  }
+
+  .columnas{
+    display:block !important;
+    width: 300px !important;
+  }
+
+  .columnas>article{
+  	width: 100px !important;
+  }
+
+  .fotos {
+  max-width: 500px !important;
+  }
+
+  h2 {
+  font-size: 14pt !important;
+  }
+
+  ul {
+  margin: 0 !important;
+  list-style: none !important;
+  }
+
+  #inicio, #barrabus, footer {
+    display: none !important;
+  }
+}
