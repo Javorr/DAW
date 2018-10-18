@@ -409,12 +409,28 @@ justify-content: space-evenly;
 	background: #D7CEC7;
 }
 
+.desplegable{
+	display: none;
+}
+
 /*QUERIES*/
 
 /*Mediano*/
 @media all and (max-width: 750px){
 	body{
 		background-color: yellow;
+	}
+
+	.desplegable:hover #inicio {
+			display: block;
+	}
+
+	.desplegable {
+		display: inline-block;
+		padding: 6px 3px;
+		background: #D7CEC7;
+		border-radius: 5px;
+		border: 2px solid black;
 	}
 
 	body>header{
@@ -439,13 +455,13 @@ justify-content: space-evenly;
 	}
 
 	#inicio{
-		width: 100%;
-	  position: inherit;
-	  top: inherit;
-	  right: inherit;
-	  background: #D7CEC7;
-	  padding: 20px 30px;
-	  border-radius: 5px;
+		display: none;
+		position: relative;
+		left: auto;
+		width: 85%;
+		height: 50%;
+		background: #D7CEC7;
+		border-radius: 5px;
 		border: 2px solid black;
 	}
 
@@ -459,65 +475,5 @@ justify-content: space-evenly;
 		border-radius: 5px;
 		border: 2px solid black;
 	}
-
-}
-
-.desplegable{
-	display: none;
-}
-
-/*Hamburguesa*/
-@media all and (max-width: 400px){
-	body{
-		background-color: tomato;
-	}
-
-	.desplegable {
-		display: inline-block;
-		padding: 6px 3px;
-		background: #D7CEC7;
-		border-radius: 5px;
-		border: 2px solid black;
-	}
-
-	#inicio{
-		display: none;
-		position: relative;
-		left: auto;
-		width: 85%;
-		height: 50%;
-		background: #D7CEC7;
-		border-radius: 5px;
-		border: 2px solid black;
-	}
-
-	.desplegable:hover #inicio {
-	    display: block;
-	}
-
-	#barrabus{
-		position: relative;
-		left: auto;
-		width: 85%;
-		height: 60%;
-		background: #D7CEC7;
-		border-radius: 5px;
-		border: 2px solid black;
-	}
-
-
-	body>header{
-			display: flex;
-			flex-direction: column;
-			overflow: hidden;
-			padding: .5em;
-			text-align: center;
-	}
-
-
-	body>header>h2{
-		align-self: center;
-	}
-
 
 }
