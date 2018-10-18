@@ -108,6 +108,7 @@ body>section{
 	border-radius: 5px;
 	border: 2px solid black;
 	width: 60%;
+		list-style-type: circle;
 }
 
 #albumsolicitar{
@@ -283,7 +284,7 @@ tr:nth-child(odd) {background-color: #D7CEC7;}
 }
 
 body>ul{
-	list-style-type: none;
+	list-style-type: circle;
 }
 
 body>section>article>ul{
@@ -410,16 +411,20 @@ justify-content: space-evenly;
 
 /*QUERIES*/
 
-/*Mediano*/
+
 @media all and (max-width: 750px){
-	body{
-		background-color: yellow;
-	}
+
 
 	.desplegable:hover #inicio {
 			display: block;
 			width: 90%;
 	}
+
+
+		.desplegable:hover #sesioniniciada {
+				display: block;
+				width: 90%;
+		}
 
 	.desplegable:hover span {
 			display: none;
@@ -472,14 +477,24 @@ justify-content: space-evenly;
 	}
 
 	#sesioniniciada{
-		width: 100%;
-		position: inherit;
-		top: inherit;
-		right: inherit;
+		display: none;
+		position: relative;
+		left: auto;
+		width: 85%;
+		height: 50%;
 		background: #D7CEC7;
-		padding: 20px 30px;
 		border-radius: 5px;
 		border: 2px solid black;
+		padding: 40px 40px;
+		left: 4%;
+	}
+
+	#fotoendetalle{
+		width: 100%;
+	}
+
+	#fotoendetalle>ul{
+		padding-left: 3%;
 	}
 
 }
