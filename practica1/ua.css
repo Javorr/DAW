@@ -36,7 +36,7 @@ form{
 
 
 body{
-	background-color:#C09F80;
+	background-color:#dcba9b;
 	min-width:320px;
     max-width:1600px;
     margin:0 auto;
@@ -73,6 +73,7 @@ body>header>h2{
   border-radius: 0.5em;
   border: 0.15em solid #000000;
 	text-align: center;
+	font-size: 1em;
 }
 
 #inicio{
@@ -124,7 +125,7 @@ body>section{
 
 #album{
 	background: #D7CEC7;
-	padding: 0.2em 0.6em;
+	padding: 0.2em 2em;
 	border-radius: 5px;
   border: 0.15em solid #000000;
 	width: 60%;
@@ -155,9 +156,8 @@ body>section>form>a {
 	font-size : 1.1em;
 }
 
-body>section>form>a:hover {
-  color: #76323F;
-  text-decoration: none;
+body>section>form>a:hover, body>section>form>a:focus {
+  text-decoration: underline double #000000;
 	text-align: center;
 }
 
@@ -171,13 +171,13 @@ body>section>div>h2 {
 body>section>div>a { /*Caja inicio sesion*/
   color: #000000;
   text-decoration: none;
-	font-size : 0.9em;
+	font-size : 1em;
 }
 
-body>section>div>a:hover {
-  color: #76323F;
+body>section>div>a:hover, body>section>div>a:focus {
   text-decoration: none;
 	text-align: center;
+	text-decoration: underline double #000000;
 }
 
 input[type="text"], [type="color"], [type="number"], input[type="password"], [type="email"], [type="date"] {
@@ -203,6 +203,7 @@ input[type="color"]{
 
 input[type="text"]:focus, input[type="color"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="date"]:focus, textarea:focus {
 	border: 0.25em solid #76323F;
+	background-color: #f3f93f;
 }
 
 textarea{
@@ -243,8 +244,11 @@ input[type="submit"] {
 }
 
 
-input[type="submit"]:hover {
-  background: #C09F80;
+input[type="submit"]:hover, input[type="submit"]:focus {
+	border: 0.25em solid #76323F;
+	background-color: #f3f93f;
+	color: #000000;
+	width: 40%;
 }
 
 
@@ -255,6 +259,8 @@ input[type=search] {
 
 input[type=search]:focus {
     width: 90%;
+		border: 0.25em solid #76323F;
+		background-color: #f3f93f;
 }
 
 input[type=button]{
@@ -285,6 +291,11 @@ select {
   font-size: 1.2em;
 }
 
+select:focus{
+	border: 0.25em solid #76323F;
+	background-color: #f3f93f;
+}
+
 table {
     border-collapse: collapse;
 }
@@ -305,14 +316,15 @@ tr:nth-child(odd) {background-color: #D7CEC7;}
 
 
 .fotos {
-	padding-left: 2em;
 	transition: .3s;
 }
 
-.fotos:hover {
+.fotos:hover{
 	-ms-transform: scale(1.1);
 	-webkit-transform: scale(1.1);
 	transform: scale(1.1);
+	border: 0.3em solid #000000;
+
 }
 
 body>ul{
@@ -329,13 +341,14 @@ body>section>ul{
 
 body>section>article>h3>a{
 	text-decoration: none;
-	color: #76323F;
+	color: #771313;
 	transition: color .4s ease-out;
 
 }
 
-body>section>article>h3>a:hover{
-	color: #000000;
+body>section>article>h3>a:hover, body>section>article>h3>a:focus{
+	color:  #000000;
+	 text-decoration: underline double #000000;
 }
 
 #perfil>ul>li>a{
@@ -344,10 +357,13 @@ body>section>article>h3>a:hover{
 
 #perfil>ul>li>a>span{
 	color: #98505E;
+	font-size: 1.3em;
 }
 
-#perfil>ul>li>a>span:hover{
-	color: #76323F;
+#perfil>ul>li>a>span:hover, #perfil>ul>li>a>span:focus{
+	color:  #000000;
+	text-decoration: underline double #000000;
+
 }
 
 #perfil>ul>li>ul>li>a{
@@ -358,8 +374,9 @@ body>section>article>h3>a:hover{
 	color: #98505E;
 }
 
-#perfil>ul>li>ul>li>a>span:hover{
-	color: #76323F;
+#perfil>ul>li>ul>li>a>span:hover, #perfil>ul>li>ul>li>a>span:focus{
+	color:  #000000;
+	text-decoration: underline double #000000;
 }
 
 body>footer{
@@ -380,8 +397,9 @@ body>footer a{
 	text-decoration: none;
 }
 
-body>footer a:hover{
-	color:#FFBF00;
+body>footer>a:hover, body>footer>a:focus{
+	color:  #f3f93f;
+	text-decoration: underline double #f3f93f;
 }
 
 .columnas{
@@ -419,11 +437,12 @@ justify-content: space-evenly;
 }
 
 #fotoendetalle>ul>li>a>span{
-	color: #98505E;
+	color: #771313;
 }
 
-#fotoendetalle>ul>li>a>span:hover{
-	color: #76323F;
+#fotoendetalle>ul>li>a>span:hover, #fotoendetalle>ul>li>a>span:focus{
+	color:  #000000;
+	text-decoration: underline double #000000;
 }
 
 #fotoendetalle {
