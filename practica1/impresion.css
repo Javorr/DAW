@@ -38,6 +38,10 @@ TAN
     page-break-after: avoid;
   }
 
+  form {
+  page-break-inside: avoid;
+  }
+
   article {
   page-break-inside: avoid;
   }
@@ -87,7 +91,7 @@ TAN
   }
 
 
-  #inicio, #barrabus, #sesioniniciada, footer {
+  #inicio, #barrabus, #sesioniniciada, .desplegable, footer {
     display: none !important;
   }
 }
