@@ -449,4 +449,15 @@ justify-content: space-evenly;
 		border: 2px solid black;
 	}
 
+	#sesioniniciada{
+		width: 100%;
+		position: inherit;
+		top: inherit;
+		right: inherit;
+		background: #D7CEC7;
+		padding: 20px 30px;
+		border-radius: 5px;
+		border: 2px solid black;
+	}
+
 }
