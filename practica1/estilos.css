@@ -489,6 +489,10 @@ justify-content: space-evenly;
 		left: 4%;
 	}
 
+	#botoni{
+		width: 60%;
+	}
+
 	#fotoendetalle{
 		width: 100%;
 	}
@@ -497,4 +501,10 @@ justify-content: space-evenly;
 		padding-left: 3%;
 	}
 
+}
+
+@media all and (max-width: 430px){
+.fotos{
+	width: 300px;
+}
 }
