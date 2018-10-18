@@ -80,11 +80,17 @@ body>header>h2{
 #busquedarapida1>a{
 	font-size: 20px;
 	font-weight: bold;
+	text-decoration: none;
+}
+
+#busquedarapida1>a:hover{
+	text-decoration: underline;
 }
 
 #barrabus{
   padding: 3px 0;
 }
+
 
 body>section{
   padding: 3px 50px 8px 50px;
@@ -417,6 +423,8 @@ justify-content: space-evenly;
 #declaracion{
 	padding: .3em 1.3em;
 }
+
+
 /*QUERIES*/
 
 
