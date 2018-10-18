@@ -455,3 +455,72 @@ justify-content: space-evenly;
 	padding: 3% 3%;
 	background: #D7CEC7;
 }
+
+.desplegable{
+	display: none;
+}
+
+/*QUERIES*/
+
+/*Mediano*/
+@media all and (max-width: 750px){
+	body{
+		background-color: yellow;
+	}
+
+	.desplegable:hover #inicio {
+			display: block;
+	}
+
+	.desplegable {
+		display: inline-block;
+		padding: 6px 3px;
+		background: #D7CEC7;
+		border-radius: 5px;
+		border: 2px solid black;
+	}
+
+	body>header{
+	    display: flex;
+	    flex-direction: column;
+	    overflow: hidden;
+	    padding: .5em;
+	    text-align: center;
+	}
+
+
+	body>header>h2{
+		align-self: center;
+	}
+
+	body>section{
+		padding: 0.5em .5em 0.5em .5em;
+	}
+
+	body>section>form{
+		padding: .1em 1em;
+	}
+
+	#inicio{
+		display: none;
+		position: relative;
+		left: auto;
+		width: 85%;
+		height: 50%;
+		background: #D7CEC7;
+		border-radius: 5px;
+		border: 2px solid black;
+	}
+
+	#sesioniniciada{
+		width: 100%;
+		position: inherit;
+		top: inherit;
+		right: inherit;
+		background: #D7CEC7;
+		padding: 20px 30px;
+		border-radius: 5px;
+		border: 2px solid black;
+	}
+
+}
