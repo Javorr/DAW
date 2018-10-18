@@ -461,3 +461,63 @@ justify-content: space-evenly;
 	}
 
 }
+
+.desplegable{
+	display: none;
+}
+
+/*Hamburguesa*/
+@media all and (max-width: 400px){
+	body{
+		background-color: tomato;
+	}
+
+	.desplegable {
+		display: inline-block;
+		padding: 6px 3px;
+		background: #D7CEC7;
+		border-radius: 5px;
+		border: 2px solid black;
+	}
+
+	#inicio{
+		display: none;
+		position: relative;
+		left: auto;
+		width: 85%;
+		height: 50%;
+		background: #D7CEC7;
+		border-radius: 5px;
+		border: 2px solid black;
+	}
+
+	.desplegable:hover #inicio {
+	    display: block;
+	}
+
+	#barrabus{
+		position: relative;
+		left: auto;
+		width: 85%;
+		height: 60%;
+		background: #D7CEC7;
+		border-radius: 5px;
+		border: 2px solid black;
+	}
+
+
+	body>header{
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+			padding: .5em;
+			text-align: center;
+	}
+
+
+	body>header>h2{
+		align-self: center;
+	}
+
+
+}
