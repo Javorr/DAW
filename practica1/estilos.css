@@ -140,6 +140,7 @@ body>section>form>h2#ti {
   color: #76323F;
   text-decoration: none;
 	text-align: center;
+	text-decoration: underline double #76323F;
 }
 
 body>section>div>h2 {
@@ -159,6 +160,7 @@ body>section>div>a:hover {
   color: #76323F;
   text-decoration: none;
 	text-align: center;
+	text-decoration: underline double #76323F;
 }
 
 input[type="text"], [type="color"], [type="number"], input[type="password"], [type="email"], [type="date"] {
@@ -302,7 +304,8 @@ body>section>article>h3>a{
 }
 
 body>section>article>h3>a:hover{
-	color: #98505E;
+	color: #000000;
+	text-decoration: underline double #000000;
 }
 
 #perfil>ul>li>a{
@@ -315,6 +318,7 @@ body>section>article>h3>a:hover{
 
 #perfil>ul>li>a>span:hover{
 	color: #76323F;
+	text-decoration: underline double  #76323F;
 }
 
 #perfil>ul>li>ul>li>a{
@@ -348,7 +352,8 @@ body>footer a{
 }
 
 body>footer a:hover{
-	color: #C09F80;
+	color:  #f3f93f;
+	text-decoration: underline double #f3f93f;
 }
 
 .columnas{
