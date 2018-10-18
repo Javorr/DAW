@@ -29,6 +29,19 @@ TAN
     background: white !important;
   }
 
+  article {
+  page-break-inside: avoid;
+  }
+
+  h3 {
+    page-break-after: avoid;
+  }
+
+  h2 {
+  font-size: 14pt !important;
+  page-break-after: avoid;
+  }
+
   body {
     margin:0 !important;
     padding:0 !important;
@@ -62,18 +75,6 @@ TAN
   margin-right: auto !important;
   }
 
-  article {
-  page-break-inside: avoid;
-  }
-
-  h3 {
-    page-break-after: avoid;
-  }
-
-  h2 {
-  font-size: 14pt !important;
-  }
-
   ul {
   margin: 0 !important;
   list-style: none !important;
@@ -86,7 +87,7 @@ TAN
   }
 
 
-  #inicio, #barrabus, footer {
+  #inicio, #barrabus, #sesioniniciada, footer {
     display: none !important;
   }
 }
