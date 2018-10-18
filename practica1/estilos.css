@@ -41,11 +41,11 @@ body>header{
     background-color:#76323F;
 		border-radius: 5px;
 		border: 2px solid black;
+		padding: 0.5em 8em;
 }
 
 body>header>h2{
 	font-size: 15px;
-	padding: 0 97px;
 	color: #E8E5DE;
 }
 
@@ -278,7 +278,6 @@ tr:nth-child(odd) {background-color: #D7CEC7;}
 
 
 .fotos {
-	padding-left: 20px;
 	transition: .2s;
 }
 
@@ -409,4 +408,45 @@ justify-content: space-evenly;
 	padding: 5% 5%;
 	background: #D7CEC7;
 }
-*/
+
+/*QUERIES*/
+
+/*Mediano*/
+@media all and (max-width: 750px){
+	body{
+		background-color: yellow;
+	}
+
+	body>header{
+	    display: flex;
+	    flex-direction: column;
+	    overflow: hidden;
+	    padding: .5em;
+	    text-align: center;
+	}
+
+
+	body>header>h2{
+		align-self: center;
+	}
+
+	body>section{
+		padding: 0.5em .5em 0.5em .5em;
+	}
+
+	body>section>form{
+		padding: .1em 1em;
+	}
+
+	#inicio{
+		width: 100%;
+	  position: inherit;
+	  top: inherit;
+	  right: inherit;
+	  background: #D7CEC7;
+	  padding: 20px 30px;
+	  border-radius: 5px;
+		border: 2px solid black;
+	}
+
+}
