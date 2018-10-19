@@ -84,14 +84,52 @@ TAN
   list-style: none !important;
   }
 
+  form:after {
+    content: " (" attr(action) ")";
+    font-size: 80%;
+    color: red;
+    text-decoration: underline;
+  }
+
+  #arriba:after {
+    display: none;
+  }
 
   a:after {
     content: " (" attr(href) ")";
     font-size: 80%;
+    color: red;
+    text-decoration: underline;
   }
 
 
   #inicio, #barrabus, #sesioniniciada, .desplegable, footer {
     display: none !important;
+  }
+
+  ::-webkit-input-placeholder {
+    opacity: 0;
+  }
+  :-moz-placeholder {
+     opacity: 0;
+  }
+  ::-moz-placeholder {
+     opacity: 0;
+  }
+  :-ms-input-placeholder {
+     opacity: 0;
+  }
+
+  textarea::-webkit-input-placeholder {
+      opacity: 0;
+  }
+  textarea:-moz-placeholder {
+     opacity: 0;
+  }
+  textarea::-moz-placeholder {
+     opacity: 0;
+  }
+  textarea:-ms-input-placeholder {
+     opacity: 0;
   }
 }
