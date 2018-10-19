@@ -18,7 +18,7 @@ TAN
 }
 
 body{
-	background-color:#C09F80;
+	background-color:#f4d5ba;
 	min-width:320px;
     max-width:1600px;
     margin:0 auto;
@@ -360,6 +360,10 @@ body>footer a{
 body>footer a:hover{
 	color:  #f3f93f;
 	text-decoration: underline double #f3f93f;
+}
+
+body>footer>p, body>footer>p>time {
+	color: #E8E5DE;
 }
 
 .columnas{

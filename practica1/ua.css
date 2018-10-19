@@ -401,6 +401,10 @@ body>footer>a:hover, body>footer>a:focus{
 	text-decoration: underline double #f3f93f;
 }
 
+body>footer>p, body>footer>p>time {
+	color: #E8E5DE;
+}
+
 .columnas{
 	display: flex;
 	flex-wrap: wrap;
