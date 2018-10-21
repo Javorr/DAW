@@ -121,7 +121,7 @@
 
       <section>
 
-        <form action="recibiralbum.html">
+        <form action="recibiralbum.php" method="POST">
             <h2>Solicitud de álbum</h2>
               <label for="snombre">Nombre: </label><input id="snombre" type="text" name="nombre" placeholder="Nombre" maxlength="200" required><br>
               <label for="semail">Email: </label><input id="semail" type="email" name="email" placeholder="Email" maxlength="200" required><br>
@@ -140,24 +140,26 @@
               <label for="snum">Número de copias: </label><input id="snum" type="number" name="copias" value="1" min="1" required><br>
 
               <label for="sresolucion">Resolucion</label>
-              <select id="sresolucion">
+              <select id="sresolucion" name="reso">
                 <option value="150">150 DPI</option>
                 <option value="300">300 DPI</option>
                 <option value="450">450 DPI</option>
-                <option value="150">600 DPI</option>
-                <option value="300">750 DPI</option>
-                <option value="450">900 DPI</option>
+                <option value="600">600 DPI</option>
+                <option value="750">750 DPI</option>
+                <option value="900">900 DPI</option>
                 <option value="---">------</option>
               </select><br>
 
               <label for="salbum">Álbum</label>
-              <select id="salbum">
+              <select id="salbum" name="alb">
                 <option value="1">Mi álbum 1</option>
                 <option value="2">Mi álbum 2</option>
                 <option value="2">Mi álbum 3</option>
               </select><br>
 
-              <label>Impresión: </label><input  id="cimpresion" type="radio" name="imp" checked> <label for="cimpresion">Color</label> <input id="bynimpresion" type="radio" name="imp"> <label for="bynimpresion">Blanco y negro</label> <br>
+              <label>Impresión: </label>
+              <input  id="cimpresion" type="radio"  name="imp" value="1" checked> <label for="cimpresion">Color</label>
+              <input id="bynimpresion" name="imp" value="2" type="radio"> <label for="bynimpresion">Blanco y negro</label> <br>
 
             <input type="submit" name="submit" value="Enviar"><br>
         </form>

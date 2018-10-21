@@ -48,27 +48,59 @@
 
         </section>
 
-        <section >
-          <h2>Confirmación del pedido</h2>
-          <p>El pedido con los siguientes datos ha sido procesado.</p>
-          <ul id="album">
-              <li>Nombre: </li>
-              <li>Título del álbum: </li>
-              <li>Texto adicional: </li>
-              <li>Email: </li>
-              <li>Dirección: </li>
-              <li>Código postal: </li>
-              <li>Localidad: </li>
-              <li>Provincia: </li>
-              <li>País: </li>
-              <li>Número de copias: </li>
-              <li>Fecha: </li>
-              <li>Resolución: </li>
-              <li>Álbum: </li>
-              <li>Impresión: </li>
-              <li>Coste: </li>
-          </ul>
-        </section>
+        <?php
+
+        $nombre = $_POST['nombre'];
+        $email = $_POST['email'];
+        $direccion = $_POST['direccion'];
+        $cp = $_POST['cp'];
+        $localidad = $_POST['localidad'];
+        $provincia = $_POST['provincia'];
+        $pais = $_POST['pais'];
+        $fecha = $_POST['fecha'];
+        $titulo = $_POST['titulo'];
+        $textoadicional = $_POST['textoadicional'];
+        $reso = $_POST['reso'];
+        $copias = $_POST['copias'];
+        $alb = $_POST['alb'];
+        $imp = $_POST['imp'];
+
+        $pag=10;
+        $fotos = 10;
+
+        if($pag<5) $dineros = $pag * 0.1;
+        if($pag>=5 & $copias<=10) $dineros = $pag * 0.08;
+        if($pag>=11) $dineros = $pag * 0.07;
+
+
+        echo "
+
+            <section >
+                  <h2>Confirmación del pedido</h2>
+                  <p>El pedido con los siguientes datos ha sido procesado.</p>
+                  <ul id='album'>
+                      <li>Nombre: ".$nombre." </li>
+                      <li>Título del álbum: ".$titulo." </li>
+                      <li>Texto adicional: ".$textoadicional."</li>
+                      <li>Email: ".$email."</li>
+                      <li>Dirección: ".$direccion." </li>
+                      <li>Código postal: ".$cp." </li>
+                      <li>Localidad: ".$localidad." </li>
+                      <li>Provincia: ".$provincia." </li>
+                      <li>País: ".$pais."</li>
+                      <li>Número de copias: ".$copias."</li>
+                      <li>Fecha: ".$fecha." </li>
+                      <li>Resolución: ".$reso." </li>
+                      <li>Álbum: ".$alb."</li>
+                      <li>Impresión: ".$imp." </li>
+                      <li>Coste: ".$dineros."</li>
+                  </ul>
+                </section>
+
+                ";
+
+
+        ?>
 
         <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
         <footer>

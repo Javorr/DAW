@@ -49,7 +49,7 @@
         <ul class="perfilusu">
           <li> <a href="#misalbumes"> <span>Mis álbumes</span> </a> </li>
           <li> <a href="#crearalbum"> <span>Crear nuevo</span> </a> </li>
-          <li> <a href="solicitaralbum.html"> <span>Solicitar álbum impreso</span> </a> </li>
+          <li> <a href="solicitaralbum.php"> <span>Solicitar álbum impreso</span> </a> </li>
         </ul>
 
       </section>
