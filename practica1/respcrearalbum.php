@@ -49,8 +49,8 @@
     </section>
 
     <?php
-    $titulo=$_get["titulo"];
-    $descripcion=$_get["descripcion"];
+    $titulo=$_POST["titulo"];
+    $descripcion=$_POST["descripcion"];
     echo "Has creado el álbum '$titulo' con descripción '$descripcion' de manera exitosa.";
     ?>
 

@@ -50,7 +50,7 @@
 
       <section>
 
-        <form action="respcrearalbum.php" method="get">
+        <form action="respcrearalbum.php" method="POST">
             <h2>Creación de álbum</h2>
               <label for="ctitulo">Título: </label><input id="ctitulo" type="text" name="titulo" placeholder="Título" maxlength="200" required><br>
               <label for="cdescripcion">Descripción: </label><input id="cdescripcion" type="text" name="descripcion" placeholder="Descripción" maxlength="200" required><br> <br>
