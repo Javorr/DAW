@@ -51,7 +51,7 @@
     <?php
     $titulo=$_POST["titulo"];
     $descripcion=$_POST["descripcion"];
-    echo "Has creado el álbum '$titulo' con descripción '$descripcion' de manera exitosa.";
+    echo "<p>Has creado el álbum '$titulo' con descripción '$descripcion' de manera exitosa.</p>";
     ?>
 
     <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->

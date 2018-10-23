@@ -1,6 +1,5 @@
-<!--  Página con el formulario de registro como nuevo usuario
-    Contiene un formulario con los datos necesarios para registrarse
-    (nombre de usuario, contraseña, repetir contraseña, dirección de email, sexo, fecha de nacimiento, ciudad y país de residencia, foto).  -->
+<!--  Respuesta página con el formulario de registro como nuevo usuario
+    Muestra los datos que el usuario ha introducido en el formulario de registro. Se debe comprobar que se ha escrito algo en el nombre de usuario, en la contraseña y en repetir contraseña, y que contraseña y repetir contraseña coinciden. La validación del resto de campos del formulario se implementará en una próxima práctica. Importante: en esta página no se debe mostrar la fotografía de perfil seleccionada por el usuario, la subida de ficheros al servidor se implementará en una próxima práctica.   -->
 
 <!DOCTYPE html>
 <html lang="es">
@@ -46,21 +45,34 @@
         </form>
     </section>
 
-    <section>
-        <form action="respregistro.php" id="registro" method="POST">
-            <h2>Regístrate</h2>
-            <label for="rnombre">Nombre usuario: </label><br><input id="rnombre" type="text" name="nombre" placeholder="Nombre" required><br>
-            <label for="rpassword">Contraseña: </label><br><input id="rpassword" type="password" name="password" placeholder="Contraseña" required><br>
-            <label for="rpassword2">Repetir contraseña: </label><br><input id="rpassword2" type="password" name="password2" placeholder="Constraseña" required><br>
-            <label for="remail">Email: </label><br><input id="remail" type="email" name="email" placeholder="Email" required><br>
-            <label for="rfecha">Fecha de nacimiento: </label><br><input id="rfecha" type="date" name="fecha"  required><br> <!-- warning puesto que date no lo soportan todos los navegadores-->
-            <label for="rciudad">Ciudad: </label><br><input id="rciudad" type="text" name="ciudad" placeholder="Ciudad" required><br>
-            <label for="rpais">País de residencia: </label><br><input id="rpais" type="text" name="pais" placeholder="País" required><br>
-            <label>Género:</label><br><input id="mgenero" type="radio" name="genero" checked><label for="mgenero">Mujer</label> <input id="hgenero" type="radio" name="genero"><label for="hgenero">Hombre</label> <input id="ogenero" type="radio" name="genero"> <label for="ogenero">Otro</label><br><br>
-            <label for="rfoto">Foto: </label><br><input id="rfoto" type="file" name="foto" required><br>
-            <input type="submit" name="submit" value="Registrarse"><br />
-        </form>
-    </section>
+    <?php
+    $rnombre=$_POST['nombre'];
+    $rpass=$_POST['password'];
+    $rpass2=$_POST['password2'];
+    $remail=$_POST['email'];
+    $rfecha=$_POST['fecha'];
+    $rciudad=$_POST['ciudad'];
+    $rpais=$_POST['pais'];
+    $rgenero=$_POST['genero'];
+
+    if (!(empty($rnombre) && empty($rpass) && empty($rpass2) )) { //si se ha escrito algo en los campos
+      if ($rpass == $rpass2) { //si contraseña y repetir contraseña se repiten entonces se habran realizado las comprobaciones y se mostrara la informacion introducida
+
+        echo "            <section>
+                          <h2>Registro realizado con éxito</h2>
+                          <p><b>Inserción realizada, tus datos son:</b></p>
+                            <p>Nombre usuario: $rnombre.</p>
+                            <p>Contraseña: $rpass.</p>
+                            <p>Email: $remail.</p>
+                            <p>Fecha de nacimiento: $rfecha.</p>
+                            <p>Ciudad: $rciudad.</p>
+                            <p>País de residencia: $rpais.</p>
+                            <p>Género: $rgenero.</p>
+                        </section>";
+      }
+    }
+
+     ?>
 
     <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
     <footer>
