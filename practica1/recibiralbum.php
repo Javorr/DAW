@@ -69,8 +69,11 @@
         $fotos = 10;
 
         if($pag<5) $dineros = $pag * 0.1;
-        if($pag>=5 & $copias<=10) $dineros = $pag * 0.08;
+        if($pag>=5 & $pag<=10) $dineros = $pag * 0.08;
         if($pag>=11) $dineros = $pag * 0.07;
+
+        if($imp == "Color") $dineros=$dineros+($fotos * 0.05);
+        if($reso != "150" && $reso != "300" && $reso != "---") $dineros=$dineros+($fotos * 0.02);
 
 
         echo "

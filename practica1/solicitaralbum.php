@@ -113,7 +113,7 @@
              <td>0,05€ por foto</td>
            </tr>
            <tr>
-             <td>Resolución</td>
+             <td>Resolución > 300 DPI</td>
              <td>0,02€ por foto</td>
            </tr>
         </table><br>
@@ -158,8 +158,8 @@
               </select><br>
 
               <label>Impresión: </label>
-              <input  id="cimpresion" type="radio"  name="imp" value="1" checked> <label for="cimpresion">Color</label>
-              <input id="bynimpresion" name="imp" value="2" type="radio"> <label for="bynimpresion">Blanco y negro</label> <br>
+              <input  id="cimpresion" type="radio"  name="imp" value="Color" checked> <label for="cimpresion">Color</label>
+              <input id="bynimpresion" type="radio" name="imp" value="Blanco y negro"> <label for="bynimpresion">Blanco y negro</label> <br>
 
             <input type="submit" name="submit" value="Enviar"><br>
         </form>
