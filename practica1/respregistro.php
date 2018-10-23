@@ -61,13 +61,13 @@
         echo "            <section>
                           <h2>Registro realizado con éxito</h2>
                           <p><b>Inserción realizada, tus datos son:</b></p>
-                            <p>Nombre usuario: $rnombre.</p>
-                            <p>Contraseña: $rpass.</p>
-                            <p>Email: $remail.</p>
-                            <p>Fecha de nacimiento: $rfecha.</p>
-                            <p>Ciudad: $rciudad.</p>
-                            <p>País de residencia: $rpais.</p>
-                            <p>Género: $rgenero.</p>
+                            <p>Nombre usuario: ".$rnombre.".</p>
+                            <p>Contraseña: ".$rpass.".</p>
+                            <p>Email: ".$remail.".</p>
+                            <p>Fecha de nacimiento: ".$rfecha.".</p>
+                            <p>Ciudad: ".$rciudad.".</p>
+                            <p>País de residencia: ".$rpais.".</p>
+                            <p>Género: ".$rgenero.".</p>
                         </section>";
       }
     }
