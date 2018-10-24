@@ -27,18 +27,18 @@
         <div class="desplegable">
           <span>Iniciar sesión / Registro</span>
 
-          <form action="usuario.html" id="inicio">
+          <form action="controlacceso.php" id="inicio">
               <h2 id="ti">Iniciar sesión</h2>
-              <input id="fnombre" type="text" placeholder="Nombre" required><br>
+              <input id="fnombre" type="text" name="nombre" placeholder="Nombre" required><br>
               <input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
               <input id="botoni" type="submit" name="submit" value="Iniciar sesión"><br/>
               <a id="linkre" href="Registro.html">¿No tienes cuenta? ¡Regístrate!</a>
           </form>
         </div>
 
-        <form action="usuario.html" id="inicio">
+        <form action="controlacceso.php" id="inicio">
             <h2 id="ti">Iniciar sesión</h2>
-            <input id="fnombre" type="text" placeholder="Nombre" required><br>
+            <input id="fnombre" type="text" name="nombre" placeholder="Nombre" required><br>
             <input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
             <input id="botoni" type="submit" name="submit" value="Iniciar sesión"><br/>
             <a id="linkre" href="Registro.html">¿No tienes cuenta? ¡Regístrate!</a>
@@ -76,7 +76,7 @@
       $titulo = $_GET['titulo']; if($titulo=='') $titulo = '---';
       $fechai = $_GET['fechai']; if($fechai=='') $fechai = '---';
       $fechaf = $_GET['fechaf']; if($fechaf=='') $fechaf = '---';
-      
+
       $pais = $_GET['pais'];
       if($pais == '---') $paisl = '---';
       if($pais == 'spa') $paisl = 'España';
