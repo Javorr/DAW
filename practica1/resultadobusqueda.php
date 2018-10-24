@@ -1,5 +1,5 @@
-<!--  Página con el formulario de búsqueda
-    Contiene un formulario para realizar una búsqueda de fotos con los siguientes criterios: título, fecha y país. -->
+<!--  Página con el listado resultado de una búsqueda
+    Contiene un listado con un resumen (foto, título, fecha y país) de las fotos que cumplen los criterios de una búsqueda. -->
 
 <!DOCTYPE html>
 <html lang="es">
@@ -69,6 +69,76 @@
       </form>
     </section>
 
+    <h2>Resultado</h2>
+
+    <?php
+
+      $titulo = $_GET['titulo']; if($titulo=='') $titulo = '---';
+      $fechai = $_GET['fechai']; if($fechai=='') $fechai = '---';
+      $fechaf = $_GET['fechaf']; if($fechaf=='') $fechaf = '---';
+      
+      $pais = $_GET['pais'];
+      if($pais == '---') $paisl = '---';
+      if($pais == 'spa') $paisl = 'España';
+      if($pais == 'fr') $paisl = 'Francia';
+      if($pais == 'pt') $paisl = 'Portugal';
+
+      echo "<p>Resultados para fotos con título: ".$titulo." entre ".$fechai." y ".$fechaf." de ".$paisl."</>";
+    ?>
+
+    <section class="columnas">
+
+               <article>
+                   <h3 title="Fotografia 1"><a href="detallefoto.php?id=1">Fotografía 1</a></h3>
+                   <a href="detallefoto.php?id=1"><img class="fotos" src='foto.jpg' alt="Fotografía" width="400"></a>
+
+                    <ul>
+                      <li><time datetime="2018-09">Septiembre 2018</time></li>
+                      <li>España</li>
+                    </ul>
+               </article>
+
+               <article>
+                   <h3 title="Fotografia 2"><a href="detallefoto.php?id=2">Fotografía 2</a></h3>
+                   <a href="detallefoto.php?id=2"><img class="fotos" src='foto.jpg' alt="Fotografía" width="400"></a>
+
+                    <ul>
+                      <li><time datetime="2018-09">Septiembre 2018</time></li>
+                      <li>España</li>
+                    </ul>
+               </article>
+
+               <article>
+                   <h3 title="Fotografia 3"><a href="detallefoto.php?id=3">Fotografía 3</a></h3>
+                   <a href="detallefoto.php?id=3"><img class="fotos" src='foto.jpg' alt="Fotografía" width="400"></a>
+
+                    <ul>
+                      <li><time datetime="2018-09">Septiembre 2018</time></li>
+                      <li>España</li>
+                    </ul>
+               </article>
+
+               <article>
+                   <h3 title="Fotografia 4"><a href="detallefoto.php?id=4">Fotografía 4</a></h3>
+                   <a href="detallefoto.php?id=4"><img class="fotos" src='foto.jpg' alt="Fotografía" width="400"></a>
+
+                    <ul>
+                      <li><time datetime="2018-09">Septiembre 2018</time></li>
+                      <li>España</li>
+                    </ul>
+               </article>
+
+               <article>
+                   <h3 title="Fotografia 5"><a href="detallefoto.php?id=5">Fotografía 5</a></h3>
+                   <a href="detallefoto.php?id=5"><img class="fotos" src='foto.jpg' alt="Fotografía" width="400"></a>
+
+                    <ul>
+                      <li><time datetime="2018-09">Septiembre 2018</time></li>
+                      <li>España</li>
+                    </ul>
+               </article>
+
+    </section>
 
     <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
     <footer>
