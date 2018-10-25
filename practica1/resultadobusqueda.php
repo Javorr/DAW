@@ -35,6 +35,7 @@
 
     <?php
 
+      error_reporting(0);
       $titulo = $_GET['titulo']; if($titulo=='') $titulo = '---';
       $fechai = $_GET['fechai']; if($fechai=='') $fechai = '---';
       $fechaf = $_GET['fechaf']; if($fechaf=='') $fechaf = '---';

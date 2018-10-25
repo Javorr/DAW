@@ -17,5 +17,15 @@ require_once("requires/sinsesion.php");
     <?php require_once("requires/fotos.php"); ?>
 
     <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
-    <?php $volver="#arriba"; 
-    require_once("requires/pie.php"); ?>
+    <?php $volver="#arriba";
+    require_once("requires/pie.php");
+
+
+    error_reporting(0);
+    $error = $_GET['error'];
+
+    if($error=='true'){
+      $message = "Usuario incorrecto";
+    echo "<script type='text/javascript'>alert('$message');</script>";
+}
+    ?>
