@@ -7,7 +7,7 @@
           <input id="fnombre" type="text" name="nombre" placeholder="Nombre" required><br>
           <input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
           <input id="botoni" type="submit" name="submit" value="Iniciar sesión"><br/>
-          <a id="linkre" href="Registro.html">¿No tienes cuenta? ¡Regístrate!</a>
+          <a id="linkre" href="Registro.php">¿No tienes cuenta? ¡Regístrate!</a>
       </form>
     </div>
 
@@ -16,6 +16,6 @@
         <input id="fnombre" type="text" name="nombre" placeholder="Nombre" required><br>
         <input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
         <input id="botoni" type="submit" name="submit" value="Iniciar sesión"><br/>
-        <a id="linkre" href="Registro.html">¿No tienes cuenta? ¡Regístrate!</a>
+        <a id="linkre" href="Registro.php">¿No tienes cuenta? ¡Regístrate!</a>
     </form>
 </section>

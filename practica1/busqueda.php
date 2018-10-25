@@ -1,5 +1,5 @@
-<!--  Página con el listado resultado de una búsqueda
-    Contiene un listado con un resumen (foto, título, fecha y país) de las fotos que cumplen los criterios de una búsqueda. -->
+<!--  Página con el formulario de búsqueda
+    Contiene un formulario para realizar una búsqueda de fotos con los siguientes criterios: título, fecha y país. -->
 
     <?php
     require_once("requires/cabecera.php");
@@ -31,24 +31,6 @@
       </form>
     </section>
 
-    <h2>Resultado</h2>
-
-    <?php
-
-      $titulo = $_GET['titulo']; if($titulo=='') $titulo = '---';
-      $fechai = $_GET['fechai']; if($fechai=='') $fechai = '---';
-      $fechaf = $_GET['fechaf']; if($fechaf=='') $fechaf = '---';
-
-      $pais = $_GET['pais'];
-      if($pais == '---') $paisl = '---';
-      if($pais == 'spa') $paisl = 'España';
-      if($pais == 'fr') $paisl = 'Francia';
-      if($pais == 'pt') $paisl = 'Portugal';
-
-      echo "<p>Resultados para fotos con título: ".$titulo." entre ".$fechai." y ".$fechaf." de ".$paisl."</>";
-
-      require_once("requires/fotos.php");
-    ?>
 
     <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
     <?php $volver="index.php";

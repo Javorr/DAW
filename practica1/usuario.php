@@ -2,43 +2,20 @@
     Contiene enlaces con las funciones que puede realizar un usuario registrado:
     modificar sus datos, darse de baja, visualizar sus álbumes, crear un álbum nuevo y solicitar un álbum impreso. -->
 
-    <!DOCTYPE html>
-    <html lang="es">
-
-      <head>
-        <meta charset="utf-8" />
-        <meta name="author" content="Javier Martinez y Monica Ramperez" />
-        <meta name="description" content="Pagina web de fotografia" />
-
-        <link rel="stylesheet" type="text/css" href="estilos.css" title="Default Style"/>
-        <link rel="alternate stylesheet" type="text/css" href="ua.css" title="UA Style"/>
-        <link rel="stylesheet" type="text/css" href="impresion.css" media="print"/>
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-          <title>Imagehony</title>
-      </head>
-
-      <body>
-
-        <header>
-            <a id="arriba" href="index.html"><img src='logo.png' alt="Logotipo" width="300"></a>
-            <h2>Tu web de fotografía</h2>
-        </header>
-
-        <section id="barrabus">
-          <form action="resultadobusqueda.html" id="busquedarapida1">
-            <a href="busqueda.html">Búsqueda: </a>
-            <input id="busquedarapida" name="busqueda" type="search" placeholder="Búsqueda"><br>
-          </form>
-        </section>
+    <?php
+    require_once("requires/cabecera.php");
+    require_once("requires/inicio.php");
+    require_once("requires/barrabusqueda.php");
+     ?>
 
         <section id="perfil">
         <figure>
-          <img src='icon.svg' alt="Foto del usuario" style="width:15%">
+          <img src='images/icon.svg' alt="Foto del usuario" style="width:15%">
         </figure>
 
         <div>
           <p>@usuario</p>
-          <a href="index.html">Cerrar sesión</a>
+          <a href="index.php">Cerrar sesión</a>
         </div>
 
         <ul class="perfilusu">
@@ -48,27 +25,11 @@
 
         <ul class="perfilusu">
           <li> <a href="#misalbumes"> <span>Mis álbumes</span> </a> </li>
-          <li> <a href="#crearalbum"> <span>Crear nuevo</span> </a> </li>
+          <li> <a href="crearalbum.php"> <span>Crear nuevo</span> </a> </li>
           <li> <a href="solicitaralbum.php"> <span>Solicitar álbum impreso</span> </a> </li>
         </ul>
 
       </section>
         <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
-        <footer>
-          <a href="#arriba">Volver a index</a><br>
-          <a href="accesibilidad.html">Declaración de accesibilidad</a>
-            <p>&copy;<time datetime="2018-09"> Septiembre 2018</time></p>
-
-            <p>
-              <a href="http://jigsaw.w3.org/css-validator/check/referer">
-                  <img style="border:0;width:88px;height:31px"
-                      src="http://jigsaw.w3.org/css-validator/images/vcss"
-                      alt="¡CSS Válido!" />
-              </a>
-            </p>
-
-        <p>Javier Martínez y Mónica Rampérez</p>
-        </footer>
-
-      </body>
-    </html>
+        <?php $volver="index.php";
+        require_once("requires/pie.php"); ?>

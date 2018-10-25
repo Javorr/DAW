@@ -1,6 +1,6 @@
 <footer>
-  <a href="#arriba">Volver a index</a><br>
-  <a href="accesibilidad.html">Declaración de accesibilidad</a>
+  <a href="<?php echo $volver; ?>">Volver a index</a><br>
+  <a href="accesibilidad.php">Declaración de accesibilidad</a>
     <p>&copy;<time datetime="2018-09"> Septiembre 2018</time></p>
 
     <p>
