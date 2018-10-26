@@ -5,14 +5,14 @@
                <a href="detallefoto.php?id=1"><img class="fotos" src='images/foto.jpg' alt="Fotografía" width="400"></a>
 
                 <ul>
-                  <li><time datetime="2018-09">Septiembre 2018</time></li>
-                  <li>España</li>
+                  <li><time datetime="2018-09">Octubre 2018</time></li>
+                  <li>Alemania</li>
                 </ul>
            </article>
 
            <article>
                <h3 title="Fotografia 2"><a href="detallefoto.php?id=2">Fotografía 2</a></h3>
-               <a href="detallefoto.php?id=2"><img class="fotos" src='images/foto.jpg' alt="Fotografía" width="400"></a>
+               <a href="detallefoto.php?id=2"><img class="fotos" src='images/foto1.jpg' alt="Fotografía" width="400"></a>
 
                 <ul>
                   <li><time datetime="2018-09">Septiembre 2018</time></li>
@@ -25,14 +25,14 @@
                <a href="detallefoto.php?id=3"><img class="fotos" src='images/foto.jpg' alt="Fotografía" width="400"></a>
 
                 <ul>
-                  <li><time datetime="2018-09">Septiembre 2018</time></li>
-                  <li>España</li>
+                  <li><time datetime="2018-09">Octubre 2018</time></li>
+                  <li>Alemania</li>
                 </ul>
            </article>
 
            <article>
                <h3 title="Fotografia 4"><a href="detallefoto.php?id=4">Fotografía 4</a></h3>
-               <a href="detallefoto.php?id=4"><img class="fotos" src='images/foto.jpg' alt="Fotografía" width="400"></a>
+               <a href="detallefoto.php?id=4"><img class="fotos" src='images/foto1.jpg' alt="Fotografía" width="400"></a>
 
                 <ul>
                   <li><time datetime="2018-09">Septiembre 2018</time></li>
@@ -45,8 +45,8 @@
                <a href="detallefoto.php?id=5"><img class="fotos" src='images/foto.jpg' alt="Fotografía" width="400"></a>
 
                 <ul>
-                  <li><time datetime="2018-09">Septiembre 2018</time></li>
-                  <li>España</li>
+                  <li><time datetime="2018-09">Octubre 2018</time></li>
+                  <li>Alemania</li>
                 </ul>
            </article>
 

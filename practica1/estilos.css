@@ -31,12 +31,11 @@ body>header{
     flex-direction: column;
     overflow: hidden;
     color: white;
-    padding: .5em;
     text-align: left;
     background-color:#76323F;
 		border-radius: 5px;
 		border: 2px solid black;
-		padding: 0.5em 8em;
+		padding: 1.3em 8em;
 }
 
 body>header>h2{

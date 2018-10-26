@@ -6,9 +6,7 @@
   require_once("requires/inicio.php");
   require_once("requires/barrabusqueda.php");
   require_once("requires/ensesion.php");
-   ?>
 
-      <?php
         $id = $_GET['id'];
 
         //Foto para los id pares
@@ -30,20 +28,21 @@
           $foto = "images/foto2.jpg";
         }
 
-        echo "<h1>Detalles de la foto</h1>
+echo<<<EOF
+
+        <h1>Detalles de la foto</h1>
 
         <figure id='fotoendetalle'>
-          <img src='".$foto."' alt='Fotografía' style='width:100%'>
-          <figcaption>".$nombre."</figcaption>
+          <img src='$foto' alt='Fotografía' style='width:100%'>
+          <figcaption>$nombre</figcaption>
 
           <ul>
-            <li><time datetime=".$fecha."</time></li>
-            <li>".$pais."</li>
-            <li> Perteneciente al álbum ".$album." del usuario ".$usuario."</li>
+            <li><time datetime=$fecha</time></li>
+            <li>$pais</li>
+            <li> Perteneciente al álbum $album del usuario $usuario</li>
           </ul>
-        </figure>"
-      ?>
+        </figure>
+EOF;
 
-    <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
-    <?php $volver="index.php";
+       $volver="index.php";
     require_once("requires/pie.php"); ?>

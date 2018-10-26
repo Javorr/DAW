@@ -11,26 +11,28 @@
     $rnombre=$_POST['nombre'];
     $rpass=$_POST['password'];
     $rpass2=$_POST['password2'];
-    $remail=$_POST['email'];
-    $rfecha=$_POST['fecha'];
-    $rciudad=$_POST['ciudad'];
-    $rpais=$_POST['pais'];
-    $rgenero=$_POST['genero'];
 
     if (!(empty($rnombre) && empty($rpass) && empty($rpass2) )) { //si se ha escrito algo en los campos
       if ($rpass == $rpass2) { //si contraseña y repetir contraseña se repiten entonces se habran realizado las comprobaciones y se mostrara la informacion introducida
-
-        echo "            <section>
+echo<<<EOF
+                        <section>
                           <h2>Registro realizado con éxito</h2>
                           <p><b>Inserción realizada, tus datos son:</b></p>
-                            <p>Nombre usuario: ".$rnombre.".</p>
-                            <p>Contraseña: ".$rpass.".</p>
-                            <p>Email: ".$remail.".</p>
-                            <p>Fecha de nacimiento: ".$rfecha.".</p>
-                            <p>Ciudad: ".$rciudad.".</p>
-                            <p>País de residencia: ".$rpais.".</p>
-                            <p>Género: ".$rgenero.".</p>
-                        </section>";
+                          <ul>
+                            <li>Nombre usuario: $rnombre.</li>
+                            <li>Contraseña: $rpass.</li>
+                            <li>Email: {$_POST['email']}.</li>
+                            <li>Fecha de nacimiento: {$_POST['fecha']}.</li>
+                            <li>Ciudad: {$_POST['ciudad']}.</li>
+                            <li>País de residencia: {$_POST['pais']}.</li>
+                            <li>Género: {$_POST['genero']}.</li>
+                          </ul>
+                        </section>
+EOF;
+
+      }
+      else {
+        echo "Registro incorrecto. <br><br>";
       }
     }
 
