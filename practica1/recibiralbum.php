@@ -2,6 +2,7 @@
     Muestra una confirmación de que se ha registrado la solicitud de un álbum y también muestra el coste del álbum. -->
 
     <?php
+    session_start();
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/ensesion.php");

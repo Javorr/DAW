@@ -2,6 +2,7 @@
     Contiene un listado con un resumen (foto, título, fecha y país) de las fotos que cumplen los criterios de una búsqueda. -->
 
     <?php
+    session_start();
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/sinsesion.php");
@@ -29,6 +30,6 @@ EOF;
 
       require_once("requires/fotos.php");
 
-      
+
      $volver="index.php";
     require_once("requires/pie.php"); ?>

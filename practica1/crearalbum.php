@@ -2,6 +2,7 @@
     Contiene un formulario con los datos necesarios para crear un álbum (título y descripción). -->
 
     <?php
+    session_start();
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/ensesion.php");

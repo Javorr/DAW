@@ -3,6 +3,7 @@
     modificar sus datos, darse de baja, visualizar sus álbumes, crear un álbum nuevo y solicitar un álbum impreso. -->
 
     <?php
+    session_start();
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/barrabusqueda.php");
@@ -15,7 +16,7 @@
         </figure>
 
         <div>
-          <p>@usuario</p>
+          <p><?php echo $_SESSION['nombre']; ?></p>
           <a href="index.php">Cerrar sesión</a>
         </div>
 

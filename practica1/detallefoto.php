@@ -2,6 +2,7 @@
   Muestra toda la información sobre una foto seleccionada en la página anterior (foto, título, fecha, país, álbum de fotos y usuario al que pertenece)-->
 
   <?php
+  session_start();
   require_once("requires/cabecera.php");
   require_once("requires/inicio.php");
   require_once("requires/barrabusqueda.php");

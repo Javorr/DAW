@@ -5,6 +5,7 @@
     y un listado con un resumen (foto, título, fecha, país) de las últimas cinco fotos que se han introducido. -->
 
 <?php
+session_start();
 require_once("requires/cabecera.php");
 require_once("requires/inicio.php");
 require_once("requires/barrabusqueda.php");
