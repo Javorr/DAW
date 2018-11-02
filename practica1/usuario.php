@@ -6,6 +6,7 @@
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/barrabusqueda.php");
+    echo "<p>Ultima conexion:".$_COOKIE['last_visit'];
      ?>
 
         <section id="perfil">

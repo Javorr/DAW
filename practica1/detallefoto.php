@@ -7,6 +7,8 @@
   require_once("requires/barrabusqueda.php");
   require_once("requires/ensesion.php");
 
+    if(isset($_GET['id'])){
+
         $id = $_GET['id'];
 
         //Foto para los id pares
@@ -43,6 +45,14 @@ echo<<<EOF
           </ul>
         </figure>
 EOF;
+}
+else{
+  $host = $_SERVER['HTTP_HOST'];
+  $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+  $extra = 'index.php';
+  header("Location: http://$host$uri/$extra");
+  exit;
+}
 
        $volver="index.php";
     require_once("requires/pie.php"); ?>

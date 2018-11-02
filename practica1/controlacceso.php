@@ -5,16 +5,17 @@ $nombre = $_GET['nombre'];
 $password = $_GET['password'];
 
 $usuarios = array(
-    "1" => "usuario1",
-    "2" => "usuario2",
-    "3" => "usuario3",
-    "4" => "usuario4"
+  "usuario1",
+  "usuario2",
+  "usuario3",
+  "usuario4"
 );
+
 $constrasenas = array(
-    "1" => "usuario1",
-    "2" => "usuario2",
-    "3" => "usuario3",
-    "4" => "usuario4"
+    "usuario1",
+    "usuario2",
+    "usuario3",
+    "usuario4"
 );
 
 $correcto = 'false';
@@ -23,7 +24,12 @@ for ($i=0; $i <count($usuarios) ; $i++) {
   if($nombre==$usuarios[$i] and $password==$constrasenas[$i]) $correcto = 'true';
 }
 
+//Si el usuario y la contrasena son correctos
 if($correcto=='true'){
+    $last_visit = isset($_COOKIE['last_visit']) ? $_COOKIE['last_visit'] : "Primera vez";
+    $current_visit = date("c");
+    setcookie("last_visit", $current_visit, (time()+60*60*24*90));
+
       $host = $_SERVER['HTTP_HOST'];
       $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
       $extra = 'usuario.php';

@@ -223,6 +223,12 @@ input[type="submit"]:hover {
   background: #C09F80;
 }
 
+#busqr{
+	width: 60px;
+	height: 20px;
+	display: inline;
+}
+
 
 input[type=search] {
     -webkit-transition: width 0.4s ease-in-out;
