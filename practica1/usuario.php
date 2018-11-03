@@ -7,7 +7,7 @@
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/barrabusqueda.php");
-    echo "<p>Ultima conexion:".$_COOKIE['last_visit'];
+    echo "<p>Hola " .$_SESSION['nombre'].". Ultima conexion:".$_COOKIE['last_visit'];
      ?>
 
         <section id="perfil">
@@ -16,7 +16,6 @@
         </figure>
 
         <div>
-          <p><?php echo $_SESSION['nombre']; ?></p>
           <a href="index.php">Cerrar sesión</a>
         </div>
 

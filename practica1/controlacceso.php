@@ -26,6 +26,8 @@ for ($i=0; $i <count($usuarios) ; $i++) {
 
 //Si el usuario y la contrasena son correctos
 if($correcto=='true'){
+    session_start();
+    $_SESSION['nombre']=$nombre;
     $last_visit = isset($_COOKIE['last_visit']) ? $_COOKIE['last_visit'] : "Primera vez";
     $current_visit = date("c");
     setcookie("last_visit", $current_visit, (time()+60*60*24*90));
