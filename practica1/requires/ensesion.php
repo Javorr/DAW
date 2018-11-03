@@ -11,7 +11,7 @@ echo<<<EOF
         </figure>
         <a href="usuario.php"><h2>{$_SESSION['nombre']}</h2></a>
         <a href="usuario.php">Ver perfil</a><br>
-        <a href="index.php">Cerrar sesión</a>
+        <a href="cerrarsesion.php">Cerrar sesión</a>
       </div>
     </div>
 
@@ -21,7 +21,7 @@ echo<<<EOF
     </figure>
     <a href="usuario.php"><h2>{$_SESSION['nombre']}</h2></a>
     <a href="usuario.php">Ver perfil</a><br>
-    <a href="index.php">Cerrar sesión</a>
+    <a href="cerrarsesion.php">Cerrar sesión</a>
   </div>
 
 </section>

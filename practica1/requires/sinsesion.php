@@ -12,6 +12,7 @@ echo<<<EOF
           <h2 id="ti">Iniciar sesión</h2>
           <input id="fnombre" type="text" name="nombre" placeholder="Nombre" required><br>
           <input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
+          <label id="rec"><input type="checkbox" id="cbox1" value="first_checkbox"> Recordarme en este equipo</label><br>
           <input id="botoni" type="submit" name="submit" value="Iniciar sesión"><br/>
 EOF;
 
@@ -28,6 +29,7 @@ echo<<<EOF
         <h2 id="ti">Iniciar sesión</h2>
         <input id="fnombre" type="text" name="nombre" placeholder="Nombre" required><br>
         <input id="fpassword" type="password" name="password" placeholder="Contraseña" required><br>
+        <label id="rec"><input type="checkbox" id="cbox1" value="first_checkbox"> Recordarme en este equipo</label><br>
         <input id="botoni" type="submit" name="submit" value="Iniciar sesión"><br/>
 EOF;
 
@@ -54,7 +56,7 @@ echo<<<EOF
         </figure>
         <a href="usuario.php"><h2>{$_SESSION['nombre']}</h2></a>
         <a href="usuario.php">Ver perfil</a><br>
-        <a href="index.php">Cerrar sesión</a>
+        <a href="cerrarsesion.php">Cerrar sesión</a>
       </div>
     </div>
 
@@ -64,7 +66,7 @@ echo<<<EOF
     </figure>
     <a href="usuario.php"><h2>{$_SESSION['nombre']}</h2></a>
     <a href="usuario.php">Ver perfil</a><br>
-    <a href="index.php">Cerrar sesión</a>
+    <a href="cerrarsesion.php">Cerrar sesión</a>
   </div>
 
 </section>

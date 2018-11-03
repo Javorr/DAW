@@ -16,7 +16,7 @@
         </figure>
 
         <div>
-          <a href="index.php">Cerrar sesión</a>
+          <a href="cerrarsesion.php">Cerrar sesión</a>
         </div>
 
         <ul class="perfilusu">
