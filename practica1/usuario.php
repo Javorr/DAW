@@ -7,7 +7,7 @@
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/barrabusqueda.php");
-    echo "<p>Hola " .$_SESSION['nombre'].". Ultima conexion:".$_COOKIE['last_visit'];
+    echo "<p>Hola " .$_SESSION['nombre'];
      ?>
 
         <section id="perfil">

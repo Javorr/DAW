@@ -28,9 +28,15 @@ for ($i=0; $i <count($usuarios) ; $i++) {
 if($correcto=='true'){
     session_start();
     $_SESSION['nombre']=$nombre;
-    $last_visit = isset($_COOKIE['last_visit']) ? $_COOKIE['last_visit'] : "Primera vez";
-    $current_visit = date("c");
-    setcookie("last_visit", $current_visit, (time()+60*60*24*90));
+
+    //Si quiere que se le recuerde
+    if(isset($_GET['recordar'])){
+        $last_visit = isset($_COOKIE['last_visit']) ? $_COOKIE['last_visit'] : "Primera vez";
+        $current_visit = date("c");
+        setcookie("last_visit", $current_visit, (time()+60*60*24*90));
+
+        setcookie("nombre", $nombre, (time()+60*60*24*90));
+      }
 
       $host = $_SERVER['HTTP_HOST'];
       $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
@@ -46,7 +52,6 @@ if($correcto=='true'){
       header("Location: http://$host$uri/$extra");
       exit;
     }
-
 
  ?>
 </html>
