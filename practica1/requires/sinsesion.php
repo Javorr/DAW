@@ -5,7 +5,7 @@ $error = $_GET['error'];
 if(!(isset($_SESSION['nombre']))) { //si no esta iniciado en sesion tendra la opcion de iniciar sesion
 if(!isset($_COOKIE['last_visit'])){
 echo<<<EOF
-<p> no te esta guardando la cookie </p>
+
 <section>
     <div class="desplegable">
       <span>Iniciar sesión / Registro</span>
@@ -46,11 +46,12 @@ echo<<<EOF
 EOF;
 }
 else {
+  $fecha = date('d-m-Y', strtotime($_COOKIE['last_visit']));
+  $hora = date('H:i', strtotime($_COOKIE['last_visit']));
 echo<<<EOF
-  <p>Te esta guardando la cookie </p>
 
   <div class="desplegable">
-      <p> Hola {$_COOKIE['nombre']}, tu última visita fue el {$_COOKIE['last_visit']} </p>
+      <p> Hola <b>{$_COOKIE['nombre']}</b>, tu última visita fue el <b>$fecha</b> a las <b>$hora</b></p>
 
       <a href="usuario.php">Acceder</a><br>
       <a href="borracookie.php">Salir</a>
@@ -58,7 +59,7 @@ echo<<<EOF
   </div>
 
   <div  id="sesioniniciada">
-  <p> Hola {$_COOKIE['nombre']}, tu última visita fue el {$_COOKIE['last_visit']}</p>
+  <p> Hola <b>{$_COOKIE['nombre']}</b>, tu última visita fue el <b>$fecha</b> a las <b>$hora</b></p>
 
   <a href="usuario.php">Acceder</a><br>
   <a href="borracookie.php">Salir</a>

@@ -4,10 +4,13 @@
 
     <?php
     session_start();
+    if (isset($_COOKIE['nombre'])) {
+      $_SESSION['nombre'] = $_COOKIE['nombre'];
+    }
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/barrabusqueda.php");
-    echo "<p>Hola " .$_SESSION['nombre'];
+    echo "<h3>Hola " .$_SESSION['nombre']. "</h3>";
      ?>
 
         <section id="perfil">
