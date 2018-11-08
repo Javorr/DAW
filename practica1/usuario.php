@@ -10,7 +10,7 @@
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/barrabusqueda.php");
-    echo "<h3>Hola " .$_SESSION['nombre']. "</h3>";
+    echo "<h3>¡Hola " .$_SESSION['nombre']. "!</h3>";
      ?>
 
         <section id="perfil">

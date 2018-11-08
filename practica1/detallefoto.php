@@ -64,7 +64,7 @@ else{
 else{
   $host = $_SERVER['HTTP_HOST'];
   $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-  $extra = 'index.php';
+  $extra = 'index.php?error=403';
   header("Location: http://$host$uri/$extra");
   exit;
 }

@@ -19,5 +19,7 @@ require_once("requires/sinsesion.php");
 
      $volver="#arriba";
     require_once("requires/pie.php");
-
+    if(isset($_GET['error']) and $_GET['error']=='403'){
+        echo '<script language="javascript">alert("Debes iniciar sesión para acceder a este contenido");</script>';
+    }
     ?>
