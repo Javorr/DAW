@@ -3,7 +3,13 @@
 
     <?php
     session_start();
-    if(isset($_SESSION['nombre'])){
+
+    if(isset($_COOKIE['last_visit'])) {
+      $current_visit = date("c");
+      setcookie("last_visit", $current_visit, (time()+60*60*24*90), $secure = true);
+    }
+
+    if(isset($_POST['nombre'])){
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/ensesion.php");

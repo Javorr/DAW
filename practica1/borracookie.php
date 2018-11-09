@@ -2,6 +2,8 @@
  <?php
 setcookie("nombre", "", time() - 3600);
 setcookie("last_visit", "", time() - 3600);
+setcookie("estilo", "", time() - 3600);
+setcookie("cont", "", time() - 3600);
 
 $host = $_SERVER['HTTP_HOST'];
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');

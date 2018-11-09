@@ -54,7 +54,7 @@ echo<<<EOF
       <p> Hola <b>{$_COOKIE['nombre']}</b>, tu última visita fue el <b>$fecha</b> a las <b>$hora</b></p>
 
       <a href="usuario.php">Acceder</a><br>
-      <a href="borracookie.php">Salir</a>
+      <a href="cerrarsesion.php">Salir</a>
     </div>
   </div>
 
@@ -62,7 +62,7 @@ echo<<<EOF
   <p> Hola <b>{$_COOKIE['nombre']}</b>, tu última visita fue el <b>$fecha</b> a las <b>$hora</b></p>
 
   <a href="usuario.php">Acceder</a><br>
-  <a href="borracookie.php">Salir</a>
+  <a href="cerrarsesion.php">Salir</a>
 </div>
 
 </section>
