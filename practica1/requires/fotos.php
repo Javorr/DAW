@@ -1,53 +1,42 @@
-<section class="columnas">
+<?php
+$connection = new mysqli("localhost", "root", "root", "pibd");
 
-           <article>
-               <h3 title="Fotografia 1"><a href="detallefoto.php?id=1">Fotografía 1</a></h3>
-               <a href="detallefoto.php?id=1"><img class="fotos" src='images/foto.jpg' alt="Fotografía" width="400"></a>
+  if ($connection->connect_error) {
+      die("Connection failed: " . $connection->connect_error);
+  }
+  else {
+    $sql = "SELECT * FROM fotos order by fotos.FRegistro";
+    $consulta = $connection->query($sql);
 
-                <ul>
-                  <li><time datetime="2018-09">Octubre 2018</time></li>
-                  <li>Alemania</li>
-                </ul>
-           </article>
+  if ($consulta->num_rows > 0) {
+    echo '<section class="columnas">';
 
-           <article>
-               <h3 title="Fotografia 2"><a href="detallefoto.php?id=2">Fotografía 2</a></h3>
-               <a href="detallefoto.php?id=2"><img class="fotos" src='images/foto1.jpg' alt="Fotografía" width="400"></a>
+    while($fila = $consulta->fetch_assoc()) {
 
-                <ul>
-                  <li><time datetime="2018-09">Septiembre 2018</time></li>
-                  <li>España</li>
-                </ul>
-           </article>
+      $sql2 = "SELECT * FROM paises where paises.IdPais={$fila["Pais"]}";
+      $consulta2 = $connection->query($sql2);
+      $fila2 = $consulta2->fetch_assoc();
+echo<<<EOF
 
-           <article>
-               <h3 title="Fotografia 3"><a href="detallefoto.php?id=3">Fotografía 3</a></h3>
-               <a href="detallefoto.php?id=3"><img class="fotos" src='images/foto.jpg' alt="Fotografía" width="400"></a>
+             <article>
+                 <h3 title="{$fila["Titulo"]}"><a href="detallefoto.php?id={$fila["IdFoto"]}">{$fila["Titulo"]}</a></h3>
+                 <a href="detallefoto.php?id={$fila["IdFoto"]}"><img class="fotos" src="{$fila["Fichero"]}" alt="{$fila["Alternativo"]}" width="400"></a>
 
-                <ul>
-                  <li><time datetime="2018-09">Octubre 2018</time></li>
-                  <li>Alemania</li>
-                </ul>
-           </article>
+                  <ul>
+                    <li><time datetime="2018-09">{$fila["FRegistro"]}</time></li>
+                    <li>{$fila2["NomPais"]}</li>
+                  </ul>
+             </article>
 
-           <article>
-               <h3 title="Fotografia 4"><a href="detallefoto.php?id=4">Fotografía 4</a></h3>
-               <a href="detallefoto.php?id=4"><img class="fotos" src='images/foto1.jpg' alt="Fotografía" width="400"></a>
+EOF;
 
-                <ul>
-                  <li><time datetime="2018-09">Septiembre 2018</time></li>
-                  <li>España</li>
-                </ul>
-           </article>
+    }
+    echo "</section>";
+  }
+  else {
+        echo "0 results";
+  }
 
-           <article>
-               <h3 title="Fotografia 5"><a href="detallefoto.php?id=5">Fotografía 5</a></h3>
-               <a href="detallefoto.php?id=5"><img class="fotos" src='images/foto.jpg' alt="Fotografía" width="400"></a>
-
-                <ul>
-                  <li><time datetime="2018-09">Octubre 2018</time></li>
-                  <li>Alemania</li>
-                </ul>
-           </article>
-
-</section>
+$connection->close();
+}
+?>
