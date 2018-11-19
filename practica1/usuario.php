@@ -34,12 +34,13 @@ echo<<<EOF
     </div>
 
     <ul class="perfilusu">
-      <li> <a href="#modificar"> <span>Modificar datos</span> </a> </li>
+      <li> <a href="configurar.php"> <span>Configuración estilo</span> </a> </li>
+      <li> <a href="modificardatos.php"> <span>Modificar datos</span> </a> </li>
       <li> <a href="#baja"> <span>Darse de baja</span> </a> </li>
     </ul>
 
     <ul class="perfilusu">
-      <li> <a href="#misalbumes"> <span>Mis álbumes</span> </a> </li>
+      <li> <a href="misalbumes.php"> <span>Mis álbumes</span> </a> </li>
       <li> <a href="crearalbum.php"> <span>Crear nuevo</span> </a> </li>
       <li> <a href="solicitaralbum.php"> <span>Solicitar álbum impreso</span> </a> </li>
     </ul>
