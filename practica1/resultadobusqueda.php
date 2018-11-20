@@ -24,18 +24,65 @@
       $fechai = $_GET['fechai']; if($fechai=='') $fechai = '---';
       $fechaf = $_GET['fechaf']; if($fechaf=='') $fechaf = '---';
 
+      $connection = new mysqli("localhost", "root", "root", "pibd");
+
+      if ($connection->connect_error) {
+          die("Connection failed: " . $connection->connect_error);
+      }
+      else {
+
+      $sql = "SELECT * FROM paises";
+      $consulta = $connection->query($sql);
+
       $pais = $_GET['pais'];
       if($pais == '') $paisl = '---';
-      if($pais == 'spa') $paisl = 'España';
-      if($pais == 'fr') $paisl = 'Francia';
-      if($pais == 'pt') $paisl = 'Portugal';
+
+      if ($consulta->num_rows > 0) {
+        while ($fila = $consulta->fetch_assoc()) {
+
+          if($pais == "{$fila["IdPais"]}"){
+            $paisl = "{$fila["NomPais"]}";
+            $pais = "{$fila["IdPais"]}";
+          }
+
+        }
+      }
+
 
 echo<<<EOF
       <p>Resultados para fotos con título "$titulo" entre las fechas $fechai y $fechaf del país $paisl.</p>
 EOF;
 
-      require_once("requires/fotos.php");
 
+    $sql2 = "SELECT * FROM fotos where fotos.Titulo like '%{$titulo}%' and (fotos.Fecha BETWEEN '$fechai' AND '$fechaf') and fotos.Pais=$pais order by fotos.FRegistro";
+    $consulta2 = $connection->query($sql2);
+
+    if ($consulta2->num_rows > 0) {
+    echo '<section class="columnas">';
+
+      while($fila2 = $consulta2->fetch_assoc()) {
+
+echo<<<EOF
+
+             <article>
+                 <h3 title="{$fila2["Titulo"]}"><a href="detallefoto.php?id={$fila2["IdFoto"]}">{$fila2["Titulo"]}</a></h3>
+                 <a href="detallefoto.php?id={$fila2["IdFoto"]}"><img class="fotos" src="{$fila2["Fichero"]}" alt="{$fila2["Alternativo"]}" width="400"></a>
+
+                  <ul>
+                    <li><time datetime="2018-09">{$fila2["FRegistro"]}</time></li>
+                    <li>$paisl</li>
+                  </ul>
+             </article>
+
+EOF;
+      }
+      echo "</section>";
+    }
+    else {
+      echo "<p>No se encontraron resultados para la búsqueda.</p>";
+    }
+
+}
 
      $volver="index.php";
     require_once("requires/pie.php"); ?>
