@@ -10,6 +10,15 @@
     require_once("requires/inicio.php");
     require_once("requires/sinsesion.php");
 
+    $connection = new mysqli("localhost", "root", "root", "pibd");
+
+      if ($connection->connect_error) {
+          die("Connection failed: " . $connection->connect_error);
+      }
+      else {
+
+        $sql = "SELECT * FROM paises";
+        $consulta = $connection->query($sql);
 
 echo<<<EOF
 
@@ -22,7 +31,21 @@ echo<<<EOF
         <label for="remail">Email: </label><br><input id="remail" type="email" name="email" placeholder="Email" required><br>
         <label for="rfecha">Fecha de nacimiento: </label><br><input id="rfecha" type="date" name="fecha"  required><br> <!-- warning puesto que date no lo soportan todos los navegadores-->
         <label for="rciudad">Ciudad: </label><br><input id="rciudad" type="text" name="ciudad" placeholder="Ciudad" required><br>
-        <label for="rpais">País de residencia: </label><br><input id="rpais" type="text" name="pais" placeholder="País" required><br>
+        <select for="rpais">País de residencia: <option value="---">------</option>
+EOF;
+
+  if ($consulta->num_rows > 0) {
+    while ($fila = $consulta->fetch_assoc()) {
+
+echo<<<EOF
+<option value="{$fila["IdPais"]}">{$fila["NomPais"]}</option>
+EOF;
+
+    }
+  }
+
+echo<<<EOF
+        </select>
         <label>Género:</label><br><input id="mgenero" type="radio" name="genero" value="Mujer" checked><label for="mgenero">Mujer</label> <input id="hgenero" type="radio" name="genero" value="Hombre"><label for="hgenero">Hombre</label> <input id="ogenero" type="radio" name="genero" value="Otro"> <label for="ogenero">Otro</label><br><br>
         <label for="rfoto">Foto: </label><br><input id="rfoto" type="file" name="foto" required><br>
         <input type="submit" name="submit" value="Registrarse"><br />
@@ -31,7 +54,7 @@ echo<<<EOF
 
 EOF;
 
-
+}
 
      $volver="index.php";
     require_once("requires/pie.php");
