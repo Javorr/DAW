@@ -26,18 +26,32 @@ $fotos = $mysqli->query($sentencia);
 if(!$fotos || $mysqli->errno) echo "<p>mal asunto</p>";
 //else echo "<p>lo tenemo</p>";
 
-while($fila = $fotos->fetch_assoc()){
-  echo "<p>{$fila['Titulo']}, {$fila['Fichero']}</p><br/>";
-}
-
 $sentencia2 = "SELECT * from Albumes where IdAlbum='{$_GET['idalb']}'";
 $albb = $mysqli->query($sentencia2);
 $resp = $albb->fetch_assoc();
 
+while($fila = $fotos->fetch_assoc()) {
+
+  $sql2 = "SELECT * FROM paises where paises.IdPais={$fila['Pais']}";
+  $consulta2 = $mysqli->query($sql2);
+  $fila2 = $consulta2->fetch_assoc();
+
 echo<<<EOF
     <h2> Álbum </h2>
     <a>{$resp['Titulo']}: {$resp['Descripcion']}</a>
+
+    <article>
+        <h3 title="{$fila["Titulo"]}"><a href="detallefoto.php?id={$fila["IdFoto"]}">{$fila["Titulo"]}</a></h3>
+        <a href="detallefoto.php?id={$fila["IdFoto"]}"><img class="fotos" src="{$fila["Fichero"]}" alt="{$fila["Alternativo"]}" width="400"></a>
+
+         <ul>
+           <li><time datetime="2018-09">{$fila["FRegistro"]}</time></li>
+           <li>{$fila2["NomPais"]}</li>
+         </ul>
+    </article>
+
 EOF;
+}
 
      $volver="index.php";
     require_once("requires/pie.php");

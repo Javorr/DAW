@@ -22,7 +22,7 @@ require_once("requires/inicio.php");
     if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
     //else echo "<p>tamos dentro</p>";
 
-    $sentencia = "SELECT * from Estilos";
+    $sentencia = "SELECT * from Albumes";
     $estilos = $mysqli->query($sentencia);
     if(!$estilos || $mysqli->errno) echo "<p>mal asunto</p>";
     //else echo "<p>lo tenemo</p>";
