@@ -13,7 +13,6 @@ if (isset($_COOKIE['nombre'])) {
   }
 }
 
-
 if(isset($_SESSION['nombre'])) {
 require_once("requires/cabecera.php");
 require_once("requires/inicio.php");
@@ -22,31 +21,22 @@ $mysqli = new mysqli("localhost", "root", "root", "pibd");
 if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
 //else echo "<p>tamos dentro</p>";
 
-$sentencia = "SELECT IdUsuario from Usuarios where NomUsuario='{$_SESSION['nombre']}'";
-$usu = $mysqli->query($sentencia);
-if(!$usu || $mysqli->errno) echo "<p>mal asunto</p>";
+$sentencia = "SELECT * from Fotos where Album='{$_GET['idalb']}'";
+$fotos = $mysqli->query($sentencia);
+if(!$fotos || $mysqli->errno) echo "<p>mal asunto</p>";
 //else echo "<p>lo tenemo</p>";
 
-$idusu = $usu->fetch_assoc();
-$id = $idusu['IdUsuario'];
-
-//Tenemos el id del usuario actual asi que buscamos sus misalbumes
-$sentencia2 = "SELECT * from Albumes where Usuario='{$id}'";
-$alb = $mysqli->query($sentencia2);
-if(!$alb || $mysqli->errno) echo "<p>mal asunto</p>";
-//else echo "<p>lo tenemo</p>";
-
-echo<<<EOF
-    <h2> Mis álbumes </h2>
-    <ul>
-EOF;
-
-while($fila = $alb->fetch_assoc()){
-  echo "<li><a href='veralbum.php?idalb={$fila['IdAlbum']}'>{$fila['Titulo']}, {$fila['Descripcion']}</a></li>";
+while($fila = $fotos->fetch_assoc()){
+  echo "<p>{$fila['Titulo']}, {$fila['Fichero']}</p><br/>";
 }
 
+$sentencia2 = "SELECT * from Albumes where IdAlbum='{$_GET['idalb']}'";
+$albb = $mysqli->query($sentencia2);
+$resp = $albb->fetch_assoc();
+
 echo<<<EOF
-    </ul>
+    <h2> Álbum </h2>
+    <a>{$resp['Titulo']}: {$resp['Descripcion']}</a>
 EOF;
 
      $volver="index.php";
