@@ -31,7 +31,8 @@ echo<<<EOF
         <label for="remail">Email: </label><br><input id="remail" type="email" name="email" placeholder="Email" required><br>
         <label for="rfecha">Fecha de nacimiento: </label><br><input id="rfecha" type="date" name="fecha"  required><br> <!-- warning puesto que date no lo soportan todos los navegadores-->
         <label for="rciudad">Ciudad: </label><br><input id="rciudad" type="text" name="ciudad" placeholder="Ciudad" required><br>
-        <select for="rpais">País de residencia: <option value="---">------</option>
+        <label for="rpais">País de residencia: </label><br>
+        <select><option value="---">------</option>
 EOF;
 
   if ($consulta->num_rows > 0) {
