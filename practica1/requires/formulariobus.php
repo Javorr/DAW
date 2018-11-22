@@ -15,6 +15,11 @@ echo<<<EOF
   <form action="resultadobusqueda.php" method="get">
   <h2>Filtros de búsqueda</h2>
 
+      <label for="tituloBus">Título</label><br>
+      <input id="tituloBus" name="titulo" type="text"><br>
+
+      <label for="fechaBusIni">Fecha entre </label><br>
+      <input id="fechaBusIni" name="fechai" type="date"> y <input id="fechaBusFin" name
 
       <select id="limpiarPaisBus" name="pais">
         <option value="---">------</option>

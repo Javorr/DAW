@@ -24,7 +24,7 @@ $connection = new mysqli("localhost", "root", "root", "pibd");
         $fila2 = $consulta2->fetch_assoc();
 
         $correcto = 'true';
-        $estilo = "{$fila2["Nombre"]}";
+        $estilo = "{$fila2["Fichero"]}";
       }
 
     }
