@@ -11,7 +11,7 @@ $connection = new mysqli("localhost", "root", "root", "pibd");
       die("Connection failed: " . $connection->connect_error);
   }
   else {
-    $sql = "SELECT * FROM fotos order by fotos.FRegistro";
+    $sql = "SELECT * FROM usuarios";
     $consulta = $connection->query($sql);
 
   if ($consulta->num_rows > 0) {
