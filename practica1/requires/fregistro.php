@@ -22,9 +22,6 @@ echo<<<EOF
         </select>
         <label>Género:</label><br><input id="mgenero" type="radio" value="{$fila['Sexo']}" name="genero" value="Mujer" checked><label for="mgenero">Mujer</label> <input id="hgenero" type="radio" name="genero" value="Hombre"><label for="hgenero">Hombre</label> <input id="ogenero" type="radio" name="genero" value="Otro"> <label for="ogenero">Otro</label><br><br>
         <label for="rfoto">Foto: </label><br><input id="rfoto" value="{$fila['Foto']}" type="file" name="foto" required><br>
-        <input type="submit" name="submit" value="Registrarse"><br />
-            </form>
-    </section>
 
 EOF;
 ?>

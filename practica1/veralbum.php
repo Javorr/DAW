@@ -16,19 +16,26 @@ if (isset($_COOKIE['nombre'])) {
 if(isset($_SESSION['nombre'])) {
 require_once("requires/cabecera.php");
 require_once("requires/inicio.php");
+require_once("requires/ensesion.php");
 
 $mysqli = new mysqli("localhost", "root", "root", "pibd");
-if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
-//else echo "<p>tamos dentro</p>";
+//if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
 
-$sentencia = "SELECT * from Fotos where Album='{$_GET['idalb']}'";
+
+$sentencia = "SELECT * from Fotos where Album='{$_GET['idalb']}' order by FRegistro";
 $fotos = $mysqli->query($sentencia);
-if(!$fotos || $mysqli->errno) echo "<p>mal asunto</p>";
-//else echo "<p>lo tenemo</p>";
+//if(!$fotos || $mysqli->errno) echo "<p>mal asunto</p>";
+
 
 $sentencia2 = "SELECT * from Albumes where IdAlbum='{$_GET['idalb']}'";
 $albb = $mysqli->query($sentencia2);
 $resp = $albb->fetch_assoc();
+
+echo<<<EOF
+  <h2> Álbum </h2>
+  <a>{$resp['Titulo']}: {$resp['Descripcion']}</a>
+  <section class="columnas">
+EOF;
 
 while($fila = $fotos->fetch_assoc()) {
 
@@ -37,8 +44,6 @@ while($fila = $fotos->fetch_assoc()) {
   $fila2 = $consulta2->fetch_assoc();
 
 echo<<<EOF
-    <h2> Álbum </h2>
-    <a>{$resp['Titulo']}: {$resp['Descripcion']}</a>
 
     <article>
         <h3 title="{$fila["Titulo"]}"><a href="detallefoto.php?id={$fila["IdFoto"]}">{$fila["Titulo"]}</a></h3>
@@ -52,6 +57,8 @@ echo<<<EOF
 
 EOF;
 }
+
+echo "</section>";
 
      $volver="index.php";
     require_once("requires/pie.php");

@@ -41,7 +41,7 @@
             $consulta3 = $connection->query($sql3);
             $fila3 = $consulta3->fetch_assoc();
 
-            $sql4 = "SELECT * FROM usuarios where usuarios.IdUsuario={$fila3["IdAlbum"]}";
+            $sql4 = "SELECT * FROM usuarios where usuarios.IdUsuario={$fila3["Usuario"]}";
             $consulta4 = $connection->query($sql4);
             $fila4 = $consulta4->fetch_assoc();
 

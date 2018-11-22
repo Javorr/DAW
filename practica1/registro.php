@@ -18,6 +18,7 @@
 
     echo "<h2> Registro </h2>";
     require_once("requires/fregistro.php");
+    echo"<input type='submit' name='submit' value='Registro'><br /></form></section>";
 
      $volver="index.php";
     require_once("requires/pie.php");

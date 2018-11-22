@@ -17,15 +17,14 @@ if (isset($_COOKIE['nombre'])) {
 if(isset($_SESSION['nombre'])) {
 require_once("requires/cabecera.php");
 require_once("requires/inicio.php");
+require_once("requires/ensesion.php");
 
 $mysqli = new mysqli("localhost", "root", "root", "pibd");
-if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
-//else echo "<p>tamos dentro</p>";
+//if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
 
 $sentencia = "SELECT * from Usuarios where NomUsuario='{$_SESSION['nombre']}'";
 $usuario = $mysqli->query($sentencia);
-if(!$usuario || $mysqli->errno) echo "<p>mal asunto</p>";
-//else echo "<p>lo tenemo</p>";
+//if(!$usuario || $mysqli->errno) echo "<p>mal asunto</p>";
 
 $idusu = $usuario->fetch_assoc();
 $id = $idusu['IdUsuario'];
@@ -35,8 +34,7 @@ $paises = $mysqli->query($sentencia);
 
 $sentencia = "SELECT * from Albumes where Usuario='$id'";
 $albumes = $mysqli->query($sentencia);
-if(!$albumes || $mysqli->errno) echo "<p>mal asunto</p>";
-//else echo "<p>lo tenemo</p>";
+//if(!$albumes || $mysqli->errno) echo "<p>mal asunto</p>";
 
 echo<<<EOF
     <h2> Añadir foto </h2>

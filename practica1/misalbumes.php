@@ -17,15 +17,16 @@ if (isset($_COOKIE['nombre'])) {
 if(isset($_SESSION['nombre'])) {
 require_once("requires/cabecera.php");
 require_once("requires/inicio.php");
+require_once("requires/ensesion.php");
 
 $mysqli = new mysqli("localhost", "root", "root", "pibd");
-if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
-//else echo "<p>tamos dentro</p>";
+//if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
+
 
 $sentencia = "SELECT IdUsuario from Usuarios where NomUsuario='{$_SESSION['nombre']}'";
 $usu = $mysqli->query($sentencia);
-if(!$usu || $mysqli->errno) echo "<p>mal asunto</p>";
-//else echo "<p>lo tenemo</p>";
+//if(!$usu || $mysqli->errno) echo "<p>mal asunto</p>";
+
 
 $idusu = $usu->fetch_assoc();
 $id = $idusu['IdUsuario'];
@@ -33,8 +34,8 @@ $id = $idusu['IdUsuario'];
 //Tenemos el id del usuario actual asi que buscamos sus misalbumes
 $sentencia2 = "SELECT * from Albumes where Usuario='{$id}'";
 $alb = $mysqli->query($sentencia2);
-if(!$alb || $mysqli->errno) echo "<p>mal asunto</p>";
-//else echo "<p>lo tenemo</p>";
+//if(!$alb || $mysqli->errno) echo "<p>mal asunto</p>";
+
 
 echo<<<EOF
     <h2> Mis álbumes </h2>

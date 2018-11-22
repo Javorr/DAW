@@ -17,15 +17,16 @@ if (isset($_COOKIE['nombre'])) {
 if(isset($_SESSION['nombre'])) {
 require_once("requires/cabecera.php");
 require_once("requires/inicio.php");
+require_once("requires/ensesion.php");
 
     $mysqli = new mysqli("localhost", "root", "root", "pibd");
-    if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
-    //else echo "<p>tamos dentro</p>";
+    //if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
+
 
     $sentencia = "SELECT * from Estilos";
     $estilos = $mysqli->query($sentencia);
-    if(!$estilos || $mysqli->errno) echo "<p>mal asunto</p>";
-    //else echo "<p>lo tenemo</p>";
+    //if(!$estilos || $mysqli->errno) echo "<p>mal asunto</p>";
+
 
 echo<<<EOF
     <h2> Configuración </h2>
