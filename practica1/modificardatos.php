@@ -17,15 +17,14 @@ if (isset($_COOKIE['nombre'])) {
 if(isset($_SESSION['nombre'])) {
 require_once("requires/cabecera.php");
 require_once("requires/inicio.php");
+require_once("requires/ensesion.php");
 
 $mysqli = new mysqli("localhost", "root", "root", "pibd");
-if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
-//else echo "<p>tamos dentro</p>";
+//if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
 
 $sentencia = "SELECT * from Usuarios where NomUsuario='{$_SESSION['nombre']}'";
 $usuario = $mysqli->query($sentencia);
-if(!$usuario || $mysqli->errno) echo "<p>mal asunto</p>";
-//else echo "<p>lo tenemo</p>";
+//if(!$usuario || $mysqli->errno) echo "<p>mal asunto</p>";
 
 $fila = $usuario->fetch_assoc();
 
@@ -34,6 +33,8 @@ $paises = $mysqli->query($sentencia);
 
 echo "<h2> Modificar datos </h2>";
 require_once("requires/fregistro.php");
+
+echo"<input type='submit' name='submit' value='Modificar'><br /></form></section>";
 
      $volver="index.php";
     require_once("requires/pie.php");
