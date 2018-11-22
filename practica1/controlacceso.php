@@ -18,12 +18,15 @@ $connection = new mysqli("localhost", "root", "root", "pibd");
 
     while($fila = $consulta->fetch_assoc()) {
 
-      if($nombre == $fila['NomUsuario'] && $password == $fila['Clave']) {
-        $sql2 = "SELECT * FROM paises where paises.IdPais={$fila["Pais"]}";
+      if($nombre == "{$fila["NomUsuario"]}" && $password == "{$fila["Clave"]}") {
+        $sql2 = "SELECT * FROM estilos where estilos.IdEstilo={$fila["Estilo"]}";
         $consulta2 = $connection->query($sql2);
         $fila2 = $consulta2->fetch_assoc();
+
+        $correcto = 'true';
+        $estilo = "{$fila2["Nombre"]}";
       }
-      
+
     }
   }
 }

@@ -13,8 +13,8 @@
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/ensesion.php");
-     ?>
 
+echo<<<EOF
       <section>
 
         <form action="respcrearalbum.php" method="POST">
@@ -27,8 +27,9 @@
 
     </section>
 
-    <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
-    <?php $volver="index.php";
+EOF;
+
+    $volver="index.php";
     require_once("requires/pie.php");
   }
 

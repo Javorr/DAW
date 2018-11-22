@@ -17,25 +17,43 @@
 
     if(isset($_GET['id'])){
 
-        $id = $_GET['id'];
+      $id = $_GET['id'];
 
-        //Foto para los id pares
-        if($id%2 == 0){
-          $nombre = 'Foto par';
-          $fecha = "'2018-09'>Septiembre 2018";
-          $pais = 'España';
-          $album = "<a href='#albumpar'> <span>Álbum Par</span> </a>";
-          $usuario = "<a href='#usuariopar'> <span>Usuario Par</span> </a>";
-          $foto = "images/foto1.jpg";
-        }
+      $connection = new mysqli("localhost", "root", "root", "pibd");
+
+      if ($connection->connect_error) {
+          die("Connection failed: " . $connection->connect_error);
+      }
         //Foto para los id impares
         else {
-          $nombre = 'Foto impar';
-          $fecha = "'2018-10'>Octubre 2018";
-          $pais = 'Alemania';
-          $album = "<a href='#albumimpar'> <span>Álbum Impar</span> </a>";
-          $usuario = "<a href='#usuarioimpar'> <span>Usuario Impar</span> </a>";
-          $foto = "images/foto2.jpg";
+          $sql = "SELECT * FROM fotos where fotos.IdFoto=$id";
+          $consulta = $connection->query($sql);
+
+          if ($consulta->num_rows > 0) {
+
+            $fila = $consulta->fetch_assoc();
+
+            $sql2 = "SELECT * FROM paises where paises.IdPais={$fila["Pais"]}";
+            $consulta2 = $connection->query($sql2);
+            $fila2 = $consulta2->fetch_assoc();
+
+            $sql3 = "SELECT * FROM albumes where albumes.IdAlbum={$fila["Album"]}";
+            $consulta3 = $connection->query($sql3);
+            $fila3 = $consulta3->fetch_assoc();
+
+            $sql4 = "SELECT * FROM usuarios where usuarios.IdUsuario={$fila3["IdAlbum"]}";
+            $consulta4 = $connection->query($sql4);
+            $fila4 = $consulta4->fetch_assoc();
+
+
+            $nombre = "{$fila["Titulo"]}";
+            $fecha = "'2018-09'>{$fila["Fecha"]}";
+            $pais = "{$fila2["NomPais"]}";
+            $album = "<a href='#album'> <span>{$fila3["Titulo"]}</span> </a>";
+            $usuario = "<a href='usuario.php?id={$fila4["IdUsuario"]}'> <span>{$fila4["NomUsuario"]}</span> </a>";
+            $foto = "{$fila["Fichero"]}";
+
+          }
         }
 
 echo<<<EOF

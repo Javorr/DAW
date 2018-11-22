@@ -13,40 +13,60 @@
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/ensesion.php");
-     ?>
 
+    /*  El formulario de solicitud de un álbum impreso contiene lo siguiente:
+
+        Un texto inicial con una descripción del funcionamiento de esta opción.
+
+        Una tabla con tarifas que dependen de: número de páginas, resolución, color de la portada (blanco y negro o color).
+
+        Nombre: para el envío postal y personalización del álbum, máximo 200 caracteres, obligatorio.
+        El formato es libre, pueden ser dos campos separados (nombre, apellidos) o un campo todo junto.
+
+        Título del álbum: para la cubierta del álbum, máximo 200 caracteres, obligatorio.
+
+        Texto adicional: un texto con una dedicatoria o una descripción del álbum, máximo 4000 caracteres.
+
+        Correo electrónico: del destinatario del álbum, para realizar posibles notificaciones, máximo 200 caracteres, obligatorio.
+
+        Dirección: para el envío postal, con los típicos campos (calle, número, piso, puerta, código postal, localidad, provincia y país).
+        El formato es libre, decide una estructura de campos.
+
+        Color de la portada: selector de color, el color por defecto debe ser el negro.
+
+        Número de copias: obligatorio, valor mínimo y por defecto 1.
+
+        Resolución de las fotos: rango entre 150 y 900 DPI, en incrementos de 150. Opcional. Valor por defecto 150.
+
+        Álbum de fotos del portal sobre el que se basará el álbum solicitado a imprimir. Obligatorio. Se deberá escoger entre los álbumes del usuario.
+
+        Fecha de recepción: fecha en la que el usuario desea recibir el álbum.
+
+        Impresión a color: si el álbum se imprimirá en blanco y negro o a todo color.*/
+
+        $mysqli = new mysqli("localhost", "root", "root", "pibd");
+        if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
+        //else echo "<p>tamos dentro</p>";
+
+        $sentencia = "SELECT * from Usuarios where NomUsuario='{$_SESSION['nombre']}'";
+        $usuario = $mysqli->query($sentencia);
+        if(!$usuario || $mysqli->errno) echo "<p>mal asunto</p>";
+        //else echo "<p>lo tenemo</p>";
+
+        $idusu = $usuario->fetch_assoc();
+        $id = $idusu['IdUsuario'];
+
+        $sentencia = "SELECT * from Paises";
+        $paises = $mysqli->query($sentencia);
+
+        $sentencia = "SELECT * from Albumes where Usuario='$id'";
+        $albumes = $mysqli->query($sentencia);
+        if(!$albumes || $mysqli->errno) echo "<p>mal asunto</p>";
+
+echo<<<EOF
     <section id="albumsolicitar">
         <h2>Solicita tu álbum</h2>
 
-<!--  El formulario de solicitud de un álbum impreso contiene lo siguiente:
-
-    Un texto inicial con una descripción del funcionamiento de esta opción.
-
-    Una tabla con tarifas que dependen de: número de páginas, resolución, color de la portada (blanco y negro o color).
-
-    Nombre: para el envío postal y personalización del álbum, máximo 200 caracteres, obligatorio.
-    El formato es libre, pueden ser dos campos separados (nombre, apellidos) o un campo todo junto.
-
-    Título del álbum: para la cubierta del álbum, máximo 200 caracteres, obligatorio.
-
-    Texto adicional: un texto con una dedicatoria o una descripción del álbum, máximo 4000 caracteres.
-
-    Correo electrónico: del destinatario del álbum, para realizar posibles notificaciones, máximo 200 caracteres, obligatorio.
-
-    Dirección: para el envío postal, con los típicos campos (calle, número, piso, puerta, código postal, localidad, provincia y país).
-    El formato es libre, decide una estructura de campos.
-
-    Color de la portada: selector de color, el color por defecto debe ser el negro.
-
-    Número de copias: obligatorio, valor mínimo y por defecto 1.
-
-    Resolución de las fotos: rango entre 150 y 900 DPI, en incrementos de 150. Opcional. Valor por defecto 150.
-
-    Álbum de fotos del portal sobre el que se basará el álbum solicitado a imprimir. Obligatorio. Se deberá escoger entre los álbumes del usuario.
-
-    Fecha de recepción: fecha en la que el usuario desea recibir el álbum.
-
-    Impresión a color: si el álbum se imprimirá en blanco y negro o a todo color.-->
 
         <p> Aquí podrás solicitar un álbum impreso. Revisa la tabla de tarifas y rellena el formulario. </p>
 
@@ -119,9 +139,13 @@
 
               <label for="salbum">Álbum</label>
               <select id="salbum" name="alb">
-                <option value="1">Mi álbum 1</option>
-                <option value="2">Mi álbum 2</option>
-                <option value="2">Mi álbum 3</option>
+EOF;
+
+          while($fila = $albumes->fetch_assoc()){
+            echo "<option value='{$fila['IdAlbum']}'>{$fila['Titulo']}</option>";
+          }
+
+echo<<<EOF
               </select><br>
 
               <label>Impresión: </label>
@@ -132,9 +156,10 @@
         </form>
 
     </section>
+EOF;
 
-    <!-- En el pie de página incluye los nombres de los autores de la práctica, un aviso de copyright con el año y alguna información más. -->
-    <?php $volver="index.php";
+
+     $volver="index.php";
     require_once("requires/pie.php");
   }
   else{
