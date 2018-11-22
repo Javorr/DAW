@@ -49,8 +49,8 @@
             $nombre = "{$fila["Titulo"]}";
             $fecha = "'2018-09'>{$fila["Fecha"]}";
             $pais = "{$fila2["NomPais"]}";
-            $album = "<a href='veralbum.php?id={$fila3["IdAlbum"]}'> <span>{$fila3["Titulo"]}</span> </a>";
-            $usuario = "<a href='usuario.php?id={$fila4["IdUsuario"]}'> <span>{$fila4["NomUsuario"]}</span> </a>";
+            $album = "<a href='#{$fila3["IdAlbum"]}'> <span>{$fila3["Titulo"]}</span> </a>";
+            $usuario = "<a href='#{$fila4["IdUsuario"]}'> <span>{$fila4["NomUsuario"]}</span> </a>";
             $foto = "{$fila["Fichero"]}";
 
           }

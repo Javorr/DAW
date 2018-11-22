@@ -20,48 +20,96 @@
     <?php
 
       error_reporting(0);
-      $titulo = $_GET['titulo']; if($titulo=='') $titulo = '---';
-      $fechai = $_GET['fechai']; if($fechai=='') $fechai = '---';
-      $fechaf = $_GET['fechaf']; if($fechaf=='') $fechaf = '---';
+      $titulo = $_GET['titulo'];
+      $fechai = $_GET['fechai'];
+      $fechaf = $_GET['fechaf'];
+      $pais = $_GET['pais'];
+
+      if(isset($_GET['titulo']) && !(isset($_GET['fechai'])) && !(isset($_GET['fechaf'])) && !(isset($_GET['pais']))) {
 
 
-      $connection = new mysqli("localhost", "root", "root", "pibd");
+        $connection = new mysqli("localhost", "root", "root", "pibd");
 
-      if ($connection->connect_error) {
-          die("Connection failed: " . $connection->connect_error);
+        if ($connection->connect_error) {
+            die("Connection failed: " . $connection->connect_error);
+        }
+        else {
+
+
+echo<<<EOF
+      <p>Resultados para fotos con título "$titulo".</p>
+EOF;
+
+     $sql2 = "SELECT * FROM fotos where fotos.Titulo like '%{$titulo}%' order by fotos.FRegistro";
+     $consulta2 = $connection->query($sql2);
+
+     if ($consulta2->num_rows > 0) {
+       echo '<section class="columnas">';
+
+      while($fila2 = $consulta2->fetch_assoc()) {
+
+        $sql = "SELECT * FROM paises where paises.IdPais = {$fila2["Pais"]}";
+        $consulta = $connection->query($sql);
+        $fila = $consulta->fetch_assoc();
+
+echo<<<EOF
+
+       <article>
+           <h3 title="{$fila2["Titulo"]}"><a href="detallefoto.php?id={$fila2["IdFoto"]}">{$fila2["Titulo"]}</a></h3>
+           <a href="detallefoto.php?id={$fila2["IdFoto"]}"><img class="fotos" src="{$fila2["Fichero"]}" alt="{$fila2["Alternativo"]}" width="400"></a>
+
+            <ul>
+              <li><time datetime="2018-09">{$fila2["FRegistro"]}</time></li>
+              <li>{$fila["NomPais"]}</li>
+            </ul>
+       </article>
+
+EOF;
+      }
+  echo "</section>";
+    }
+    else {
+  echo "<p>No se encontraron resultados para la búsqueda.</p>";
+    }
+
+  }
+
+
       }
       else {
+        $connection = new mysqli("localhost", "root", "root", "pibd");
 
-      $sql = "SELECT * FROM paises";
-      $consulta = $connection->query($sql);
-
-
-
-      $pais = $_GET['pais'];
-      if($pais == '') $paisl = '---';
-
-      if ($consulta->num_rows > 0) {
-        while ($fila = $consulta->fetch_assoc()) {
-
-          if($pais == "{$fila["IdPais"]}"){
-            $paisl = "{$fila["NomPais"]}";
-            $pais = "{$fila["IdPais"]}";
-          }
-
+        if ($connection->connect_error) {
+            die("Connection failed: " . $connection->connect_error);
         }
-      }
+        else {
+
+        $sql = "SELECT * FROM paises";
+        $consulta = $connection->query($sql);
+
+
+        if ($consulta->num_rows > 0) {
+          while ($fila = $consulta->fetch_assoc()) {
+
+            if($pais == "{$fila["IdPais"]}"){
+              $paisl = "{$fila["NomPais"]}";
+              $pais = "{$fila["IdPais"]}";
+            }
+
+          }
+        }
 
 echo<<<EOF
       <p>Resultados para fotos con título "$titulo" entre las fechas $fechai y $fechaf del país $paisl.</p>
 EOF;
 
-   $sql2 = "SELECT * FROM fotos where fotos.Titulo like '%{$titulo}%' and (fotos.Fecha BETWEEN '$fechai' AND '$fechaf') and fotos.Pais=$pais order by fotos.FRegistro";
-   $consulta2 = $connection->query($sql2);
+     $sql2 = "SELECT * FROM fotos where fotos.Titulo like '%{$titulo}%' and (fotos.Fecha BETWEEN '$fechai' AND '$fechaf') and fotos.Pais=$pais order by fotos.FRegistro";
+     $consulta2 = $connection->query($sql2);
 
-   if ($consulta2->num_rows > 0) {
-echo '<section class="columnas">';
+     if ($consulta2->num_rows > 0) {
+  echo '<section class="columnas">';
 
-    while($fila2 = $consulta2->fetch_assoc()) {
+      while($fila2 = $consulta2->fetch_assoc()) {
 
 echo<<<EOF
 
@@ -76,14 +124,18 @@ echo<<<EOF
        </article>
 
 EOF;
+      }
+  echo "</section>";
     }
-echo "</section>";
-  }
-  else {
-echo "<p>No se encontraron resultados para la búsqueda.</p>";
-  }
+    else {
+  echo "<p>No se encontraron resultados para la búsqueda.</p>";
+    }
 
+  }
 }
+
+
+
 
 
      $volver="index.php";

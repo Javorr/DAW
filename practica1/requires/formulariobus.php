@@ -9,6 +9,7 @@ $connection = new mysqli("localhost", "root", "root", "pibd");
 
     $sql = "SELECT * FROM paises";
     $consulta = $connection->query($sql);
+    $fechahoy = date("Y-m-d");
 
 echo<<<EOF
 <section>
@@ -19,12 +20,11 @@ echo<<<EOF
       <input id="tituloBus" name="titulo" type="text"><br>
 
       <label for="fechaBusIni">Fecha entre </label><br>
-      <input id="fechaBusIni" name="fechai" type="date"> y <input id="fechaBusFin" name="fechaf" type="date"><br>
+      <input id="fechaBusIni" name="fechai" type="date" value="1990-01-01"> y <input id="fechaBusFin" name="fechaf" type="date" value="$fechahoy"><br>
 
       <label for="limpiarPaisBus">Pais</label><br>
 
       <select id="limpiarPaisBus" name="pais">
-        <option value="---">------</option>
 
 EOF;
 
