@@ -3,37 +3,31 @@
 
 $nombre = $_GET['nombre'];
 $password = $_GET['password'];
-
-$usuarios = array(
-  "usuario1",
-  "usuario2",
-  "usuario3",
-  "usuario4"
-);
-
-$contrasenas = array(
-  "usuario1",
-  "usuario2",
-  "usuario3",
-  "usuario4"
-);
-
-$estilos = array(
-  "ua.css",
-  "estilos.css",
-  "ua.css",
-  "estilos.css"
-);
-
 $correcto = 'false';
 
-for ($i=0; $i <count($usuarios) ; $i++) {
-  if($nombre==$usuarios[$i] and $password==$contrasenas[$i]) {
-    $correcto = 'true';
-    $estilo = $estilos[$i];
-    $cont = $contrasenas[$i];
+$connection = new mysqli("localhost", "root", "root", "pibd");
+
+  if ($connection->connect_error) {
+      die("Connection failed: " . $connection->connect_error);
+  }
+  else {
+    $sql = "SELECT * FROM fotos order by fotos.FRegistro";
+    $consulta = $connection->query($sql);
+
+  if ($consulta->num_rows > 0) {
+
+    while($fila = $consulta->fetch_assoc()) {
+
+      if($nombre == $fila['NomUsuario'] && $password == $fila['Clave']) {
+        $sql2 = "SELECT * FROM paises where paises.IdPais={$fila["Pais"]}";
+        $consulta2 = $connection->query($sql2);
+        $fila2 = $consulta2->fetch_assoc();
+      }
+      
+    }
   }
 }
+
 
 //Si el usuario y la contrasena son correctos
 if($correcto=='true'){
