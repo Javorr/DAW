@@ -16,12 +16,16 @@
     $sentencia = "SELECT * from Paises";
     $paises = $mysqli->query($sentencia);
 
-    echo "<h2> Registro </h2>";
+    echo "<h2> Registro </h2>
+    <section>
+    <form action='respregistro.php' id='registro' method='POST'>";
+
     require_once("requires/fregistro.php");
     echo"<input type='submit' name='submit' value='Registro'><br /></form></section>";
 
      $volver="index.php";
     require_once("requires/pie.php");
+    mysqli_close($mysqli);
   }
   else{
     $host = $_SERVER['HTTP_HOST'];

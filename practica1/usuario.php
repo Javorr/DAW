@@ -21,12 +21,18 @@
     require_once("requires/inicio.php");
     require_once("requires/barrabusqueda.php");
 
+    $mysqli = new mysqli("localhost", "root", "root", "pibd");
+
+    $sentencia = "SELECT Foto from Usuarios where NomUsuario='{$_SESSION['nombre']}'";
+    $fichero = $mysqli->query($sentencia);
+    $fotillo = $fichero->fetch_assoc();
+
 echo<<<EOF
 <h3>¡Hola {$_SESSION['nombre']}!</h3>
 
     <section id="perfil">
     <figure>
-      <img src='images/icon.svg' alt="Foto del usuario" style="width:15%">
+      <img src='{$fotillo['Foto']}' alt="Foto del usuario" style="width:15%">
     </figure>
 
     <div>
@@ -51,6 +57,7 @@ EOF;
 
          $volver="index.php";
         require_once("requires/pie.php");
+        mysqli_close($mysqli);
       }
       else{
         $host = $_SERVER['HTTP_HOST'];
@@ -59,5 +66,4 @@ EOF;
         header("Location: http://$host$uri/$extra");
         exit;
       }
-
 ?>

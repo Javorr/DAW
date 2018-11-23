@@ -5,7 +5,7 @@ $connection = new mysqli("localhost", "root", "root", "pibd");
       die("Connection failed: " . $connection->connect_error);
   }
   else {
-    $sql = "SELECT * FROM fotos order by fotos.FRegistro";
+    $sql = "SELECT * FROM fotos order by fotos.FRegistro LIMIT 5";
     $consulta = $connection->query($sql);
 
   if ($consulta->num_rows > 0) {
@@ -16,6 +16,10 @@ $connection = new mysqli("localhost", "root", "root", "pibd");
       $sql2 = "SELECT * FROM paises where paises.IdPais={$fila["Pais"]}";
       $consulta2 = $connection->query($sql2);
       $fila2 = $consulta2->fetch_assoc();
+
+      $fecha = date('d-m-Y', strtotime($fila["FRegistro"]));
+      $hora = date('H:i', strtotime($fila["FRegistro"]));
+
 echo<<<EOF
 
              <article>
@@ -23,7 +27,7 @@ echo<<<EOF
                  <a href="detallefoto.php?id={$fila["IdFoto"]}"><img class="fotos" src="{$fila["Fichero"]}" alt="{$fila["Alternativo"]}" width="400"></a>
 
                   <ul>
-                    <li><time datetime="2018-09">{$fila["FRegistro"]}</time></li>
+                    <li><time datetime="2018-09">Del $fecha a las $hora</time></li>
                     <li>{$fila2["NomPais"]}</li>
                   </ul>
              </article>

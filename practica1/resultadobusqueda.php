@@ -71,7 +71,7 @@ EOF;
     else {
   echo "<p>No se encontraron resultados para la búsqueda.</p>";
     }
-
+    mysqli_close($connection);
   }
 
 
@@ -91,9 +91,16 @@ EOF;
         if ($consulta->num_rows > 0) {
           while ($fila = $consulta->fetch_assoc()) {
 
+            if($pais == "0") {
+              $sql2 = "SELECT * FROM fotos where fotos.Titulo like '%{$titulo}%' and (fotos.Fecha BETWEEN '$fechai' AND '$fechaf') order by fotos.FRegistro";
+            }
+
+
             if($pais == "{$fila["IdPais"]}"){
               $paisl = "{$fila["NomPais"]}";
               $pais = "{$fila["IdPais"]}";
+              $sql2 = "SELECT * FROM fotos where fotos.Titulo like '%{$titulo}%' and (fotos.Fecha BETWEEN '$fechai' AND '$fechaf') and fotos.Pais=$pais order by fotos.FRegistro";
+
             }
 
           }
@@ -103,8 +110,7 @@ echo<<<EOF
       <p>Resultados para fotos con título "$titulo" entre las fechas $fechai y $fechaf del país $paisl.</p>
 EOF;
 
-     $sql2 = "SELECT * FROM fotos where fotos.Titulo like '%{$titulo}%' and (fotos.Fecha BETWEEN '$fechai' AND '$fechaf') and fotos.Pais=$pais order by fotos.FRegistro";
-     $consulta2 = $connection->query($sql2);
+    $consulta2 = $connection->query($sql2);
 
      if ($consulta2->num_rows > 0) {
   echo '<section class="columnas">';
@@ -132,6 +138,7 @@ EOF;
     }
 
   }
+  mysqli_close($connection);
 }
 
 

@@ -54,6 +54,7 @@
             $foto = "{$fila["Fichero"]}";
 
           }
+          mysqli_close($connection);
         }
 
 echo<<<EOF

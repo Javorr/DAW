@@ -31,13 +31,16 @@ $fila = $usuario->fetch_assoc();
 $sentencia = "SELECT * from Paises";
 $paises = $mysqli->query($sentencia);
 
-echo "<h2> Modificar datos </h2>";
+echo "<h2> Modificar datos </h2>
+      <section>
+      <form action='respmoddatos.php' id='registro' method='POST'>";
 require_once("requires/fregistro.php");
 
 echo"<input type='submit' name='submit' value='Modificar'><br /></form></section>";
 
      $volver="index.php";
     require_once("requires/pie.php");
+    mysqli_close($mysqli);
   }
   else{
     $host = $_SERVER['HTTP_HOST'];

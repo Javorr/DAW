@@ -52,6 +52,7 @@ EOF;
 
      $volver="index.php";
     require_once("requires/pie.php");
+    mysqli_close($mysqli);
   }
   else{
     $host = $_SERVER['HTTP_HOST'];

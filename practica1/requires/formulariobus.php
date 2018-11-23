@@ -39,6 +39,7 @@ EOF;
 }
 
 echo<<<EOF
+    <option value="0"> </option>
       </select>
 
       <input type="submit" name="submit" value="Buscar"><br />
@@ -46,6 +47,7 @@ echo<<<EOF
   </form>
 </section>
 EOF;
+mysqli_close($connection);
 }
 
  ?>

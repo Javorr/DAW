@@ -29,6 +29,7 @@ $connection = new mysqli("localhost", "root", "root", "pibd");
 
     }
   }
+  mysqli_close($connection);
 }
 
 
