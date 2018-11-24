@@ -19,7 +19,7 @@ require_once("requires/cabecera.php");
 require_once("requires/inicio.php");
 require_once("requires/ensesion.php");
 
-$mysqli = new mysqli("localhost", "root", "root", "pibd");
+require_once("requires/mysqli.php");
 //if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
 
 $sentencia = "SELECT * from Usuarios where NomUsuario='{$_SESSION['nombre']}'";
@@ -29,7 +29,7 @@ $usuario = $mysqli->query($sentencia);
 $idusu = $usuario->fetch_assoc();
 $id = $idusu['IdUsuario'];
 
-$sentencia = "SELECT * from Paises";
+$sentencia = "SELECT * from Paises order by NomPais";
 $paises = $mysqli->query($sentencia);
 
 $sentencia = "SELECT * from Albumes where Usuario='$id'";

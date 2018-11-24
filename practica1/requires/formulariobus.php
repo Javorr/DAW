@@ -1,14 +1,14 @@
 <?php
 
-$connection = new mysqli("localhost", "root", "root", "pibd");
+require_once("requires/mysqli.php");
 
-  if ($connection->connect_error) {
-      die("Connection failed: " . $connection->connect_error);
+  if ($mysqli->connect_error) {
+      die("Connection failed: " . $mysqli->connect_error);
   }
   else {
 
-    $sql = "SELECT * FROM paises";
-    $consulta = $connection->query($sql);
+    $sql = "SELECT * FROM paises order by NomPais";
+    $consulta = $mysqli->query($sql);
     $fechahoy = date("Y-m-d");
 
 echo<<<EOF
@@ -47,7 +47,7 @@ echo<<<EOF
   </form>
 </section>
 EOF;
-mysqli_close($connection);
+mysqli_close($mysqli);
 }
 
  ?>

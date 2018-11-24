@@ -18,7 +18,7 @@ require_once("requires/cabecera.php");
 require_once("requires/inicio.php");
 require_once("requires/ensesion.php");
 
-$mysqli = new mysqli("localhost", "root", "root", "pibd");
+require_once("requires/mysqli.php");
 //if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
 
 
@@ -31,7 +31,7 @@ $sentencia2 = "SELECT * from Albumes where IdAlbum='{$_GET['idalb']}'";
 $albb = $mysqli->query($sentencia2);
 $resp = $albb->fetch_assoc();
 
-$sentencia3 = "SELECT distinct NomPais from Paises, Fotos where Album='{$_GET['idalb']}' and Fotos.Pais=Paises.IdPais";
+$sentencia3 = "SELECT distinct NomPais from Paises, Fotos where Album='{$_GET['idalb']}' and Fotos.Pais=Paises.IdPais order by NomPais";
 $paises = $mysqli->query($sentencia3);
 
 

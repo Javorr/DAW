@@ -44,7 +44,7 @@
 
         Impresión a color: si el álbum se imprimirá en blanco y negro o a todo color.*/
 
-        $mysqli = new mysqli("localhost", "root", "root", "pibd");
+        require_once("requires/mysqli.php");
         if($mysqli -> connect_errno) echo "<p>mal asunto</p>";
         //else echo "<p>tamos dentro</p>";
 

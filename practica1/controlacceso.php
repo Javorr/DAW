@@ -5,14 +5,14 @@ $nombre = $_GET['nombre'];
 $password = $_GET['password'];
 $correcto = 'false';
 
-$connection = new mysqli("localhost", "root", "root", "pibd");
+require_once("requires/mysqli.php");
 
-  if ($connection->connect_error) {
-      die("Connection failed: " . $connection->connect_error);
+  if ($mysqli->connect_error) {
+      die("Connection failed: " . $mysqli->connect_error);
   }
   else {
     $sql = "SELECT * FROM usuarios";
-    $consulta = $connection->query($sql);
+    $consulta = $mysqli->query($sql);
 
   if ($consulta->num_rows > 0) {
 
@@ -20,7 +20,7 @@ $connection = new mysqli("localhost", "root", "root", "pibd");
 
       if($nombre == "{$fila["NomUsuario"]}" && $password == "{$fila["Clave"]}") {
         $sql2 = "SELECT * FROM estilos where estilos.IdEstilo={$fila["Estilo"]}";
-        $consulta2 = $connection->query($sql2);
+        $consulta2 = $mysqli->query($sql2);
         $fila2 = $consulta2->fetch_assoc();
 
         $correcto = 'true';
@@ -29,7 +29,7 @@ $connection = new mysqli("localhost", "root", "root", "pibd");
 
     }
   }
-  mysqli_close($connection);
+  mysqli_close($mysqli);
 }
 
 

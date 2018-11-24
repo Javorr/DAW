@@ -1,12 +1,12 @@
 <?php
-$connection = new mysqli("localhost", "root", "root", "pibd");
+require_once("requires/mysqli.php");
 
-  if ($connection->connect_error) {
-      die("Connection failed: " . $connection->connect_error);
+  if ($mysqli->connect_error) {
+      die("Connection failed: " . $mysqli->connect_error);
   }
   else {
     $sql = "SELECT * FROM fotos order by fotos.FRegistro LIMIT 5";
-    $consulta = $connection->query($sql);
+    $consulta = $mysqli->query($sql);
 
   if ($consulta->num_rows > 0) {
     echo '<section class="columnas">';
@@ -14,7 +14,7 @@ $connection = new mysqli("localhost", "root", "root", "pibd");
     while($fila = $consulta->fetch_assoc()) {
 
       $sql2 = "SELECT * FROM paises where paises.IdPais={$fila["Pais"]}";
-      $consulta2 = $connection->query($sql2);
+      $consulta2 = $mysqli->query($sql2);
       $fila2 = $consulta2->fetch_assoc();
 
       $fecha = date('d-m-Y', strtotime($fila["FRegistro"]));
@@ -41,6 +41,6 @@ EOF;
         echo "0 results";
   }
 
-$connection->close();
+$mysqli->close();
 }
 ?>

@@ -19,30 +19,30 @@
 
       $id = $_GET['id'];
 
-      $connection = new mysqli("localhost", "root", "root", "pibd");
+      require_once("requires/mysqli.php");
 
-      if ($connection->connect_error) {
-          die("Connection failed: " . $connection->connect_error);
+      if ($mysqli->connect_error) {
+          die("Connection failed: " . $mysqli->connect_error);
       }
         //Foto para los id impares
         else {
           $sql = "SELECT * FROM fotos where fotos.IdFoto=$id";
-          $consulta = $connection->query($sql);
+          $consulta = $mysqli->query($sql);
 
           if ($consulta->num_rows > 0) {
 
             $fila = $consulta->fetch_assoc();
 
             $sql2 = "SELECT * FROM paises where paises.IdPais={$fila["Pais"]}";
-            $consulta2 = $connection->query($sql2);
+            $consulta2 = $mysqli->query($sql2);
             $fila2 = $consulta2->fetch_assoc();
 
             $sql3 = "SELECT * FROM albumes where albumes.IdAlbum={$fila["Album"]}";
-            $consulta3 = $connection->query($sql3);
+            $consulta3 = $mysqli->query($sql3);
             $fila3 = $consulta3->fetch_assoc();
 
             $sql4 = "SELECT * FROM usuarios where usuarios.IdUsuario={$fila3["Usuario"]}";
-            $consulta4 = $connection->query($sql4);
+            $consulta4 = $mysqli->query($sql4);
             $fila4 = $consulta4->fetch_assoc();
 
 
@@ -54,7 +54,7 @@
             $foto = "{$fila["Fichero"]}";
 
           }
-          mysqli_close($connection);
+          mysqli_close($mysqli);
         }
 
 echo<<<EOF

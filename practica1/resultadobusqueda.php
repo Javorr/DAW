@@ -28,10 +28,10 @@
       if(isset($_GET['titulo']) && !(isset($_GET['fechai'])) && !(isset($_GET['fechaf'])) && !(isset($_GET['pais']))) {
 
 
-        $connection = new mysqli("localhost", "root", "root", "pibd");
+        require_once("requires/mysqli.php");
 
-        if ($connection->connect_error) {
-            die("Connection failed: " . $connection->connect_error);
+        if ($mysqli->connect_error) {
+            die("Connection failed: " . $mysqli->connect_error);
         }
         else {
 
@@ -41,7 +41,7 @@ echo<<<EOF
 EOF;
 
      $sql2 = "SELECT * FROM fotos where fotos.Titulo like '%{$titulo}%' order by fotos.FRegistro";
-     $consulta2 = $connection->query($sql2);
+     $consulta2 = $mysqli->query($sql2);
 
      if ($consulta2->num_rows > 0) {
        echo '<section class="columnas">';
@@ -49,7 +49,7 @@ EOF;
       while($fila2 = $consulta2->fetch_assoc()) {
 
         $sql = "SELECT * FROM paises where paises.IdPais = {$fila2["Pais"]}";
-        $consulta = $connection->query($sql);
+        $consulta = $mysqli->query($sql);
         $fila = $consulta->fetch_assoc();
 
 echo<<<EOF
@@ -71,21 +71,21 @@ EOF;
     else {
   echo "<p>No se encontraron resultados para la búsqueda.</p>";
     }
-    mysqli_close($connection);
+    mysqli_close($mysqli);
   }
 
 
       }
       else {
-        $connection = new mysqli("localhost", "root", "root", "pibd");
+        require_once("requires/mysqli.php");
 
-        if ($connection->connect_error) {
-            die("Connection failed: " . $connection->connect_error);
+        if ($mysqli->connect_error) {
+            die("Connection failed: " . $mysqli->connect_error);
         }
         else {
 
         $sql = "SELECT * FROM paises";
-        $consulta = $connection->query($sql);
+        $consulta = $mysqli->query($sql);
 
 
         if ($consulta->num_rows > 0) {
@@ -110,7 +110,7 @@ echo<<<EOF
       <p>Resultados para fotos con título "$titulo" entre las fechas $fechai y $fechaf del país $paisl.</p>
 EOF;
 
-    $consulta2 = $connection->query($sql2);
+    $consulta2 = $mysqli->query($sql2);
 
      if ($consulta2->num_rows > 0) {
   echo '<section class="columnas">';
@@ -138,7 +138,7 @@ EOF;
     }
 
   }
-  mysqli_close($connection);
+  mysqli_close($mysqli);
 }
 
 
