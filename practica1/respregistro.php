@@ -15,6 +15,26 @@
 
     if (!(empty($rnombre) && empty($rpass) && empty($rpass2) )) { //si se ha escrito algo en los campos
       if ($rpass == $rpass2) { //si contraseña y repetir contraseña se repiten entonces se habran realizado las comprobaciones y se mostrara la informacion introducida
+
+        if(preg_match("/[^\x00-\x7F]/", $rnombre)) { //filtro el nombre de usuario
+            if(3<=strlen($rnombre)<=15) {
+              //entonces guay
+            }
+        }
+
+
+        require_once("requires/mysqli.php");
+
+          if ($mysqli->connect_error) {
+              die("Connection failed: " . $mysqli->connect_error);
+          }
+          else {
+
+            $sql = "SELECT * FROM paises order by NomPais";
+            $consulta = $mysqli->query($sql);
+          }
+
+
 echo<<<EOF
                         <section>
                           <h2>Registro realizado con éxito</h2>
@@ -33,7 +53,7 @@ EOF;
 
       }
       else {
-        echo "Registro incorrecto. <br><br>";
+        echo "Las contraseñas no coinciden. <br><br>";
       }
     }
 
