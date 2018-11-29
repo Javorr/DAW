@@ -19,7 +19,7 @@
 
       $id = $_GET['id'];
 
-      require_once("requires/mysqli.php");
+      require("requires/mysqli.php");
 
       if ($mysqli->connect_error) {
           die("Connection failed: " . $mysqli->connect_error);

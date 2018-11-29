@@ -1,6 +1,6 @@
 <?php
   if(isset($_SESSION['nombre'])) {
-    require_once("requires/mysqli.php");
+    require("requires/mysqli.php");
 
     $sentencia = "SELECT Foto from Usuarios where NomUsuario='{$_SESSION['nombre']}'";
     $fichero = $mysqli->query($sentencia);

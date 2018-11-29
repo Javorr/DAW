@@ -21,7 +21,7 @@
     require_once("requires/inicio.php");
     require_once("requires/barrabusqueda.php");
 
-    require_once("requires/mysqli.php");
+    require("requires/mysqli.php");
 
     $sentencia = "SELECT Foto from Usuarios where NomUsuario='{$_SESSION['nombre']}'";
     $fichero = $mysqli->query($sentencia);
