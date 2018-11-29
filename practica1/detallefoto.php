@@ -24,8 +24,8 @@
       if ($mysqli->connect_error) {
           die("Connection failed: " . $mysqli->connect_error);
       }
-        //Foto para los id impares
         else {
+
           $sql = "SELECT * FROM fotos where fotos.IdFoto=$id";
           $consulta = $mysqli->query($sql);
 
@@ -53,6 +53,13 @@
             $usuario = "<a href='#{$fila4["IdUsuario"]}'> <span>{$fila4["NomUsuario"]}</span> </a>";
             $foto = "{$fila["Fichero"]}";
 
+          }
+          else{
+            $host = $_SERVER['HTTP_HOST'];
+            $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+            $extra = 'index.php';
+            header("Location: http://$host$uri/$extra");
+            exit;
           }
           mysqli_close($mysqli);
         }
