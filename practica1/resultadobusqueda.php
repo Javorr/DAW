@@ -28,7 +28,7 @@
       if(isset($_GET['titulo']) && !(isset($_GET['fechai'])) && !(isset($_GET['fechaf'])) && !(isset($_GET['pais']))) {
 
 
-        require_once("requires/mysqli.php");
+        require("requires/mysqli.php");
 
         if ($mysqli->connect_error) {
             die("Connection failed: " . $mysqli->connect_error);
