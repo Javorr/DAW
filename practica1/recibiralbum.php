@@ -13,6 +13,7 @@
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/ensesion.php");
+    require("requires/mysqli.php");
 
 
         $reso = $_POST['reso'];
@@ -28,6 +29,10 @@
         if($imp == "Color") $dineros=$dineros+($fotos * 0.05);
         if($reso != "150" && $reso != "300" && $reso != "---") $dineros=$dineros+($fotos * 0.02);
 
+
+
+$sql = "INSERT INTO `solicitudes` (`Album`, `Nombre`, `Titulo`, `Descripcion`, `Email`, `Direccion`, `Color`, `Copias`, `Resolucion`, `Fecha`, `IColor`, `FRegistro`, `Coste`) VALUES ('{$_POST['alb']}', '{$_POST['nombre']}', '{$_POST['titulo']}', '{$_POST['textoadicional']}', '{$_POST['email']}', '{$_POST['direccion']}', '#0431B4', '{$_POST['copias']}', '$reso', '2018-03-02', '$imp', '2018-05-03 11:20:17', '$dineros')";
+$consulta = $mysqli->query($sql);
 
 echo<<<EOF
 

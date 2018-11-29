@@ -6,7 +6,7 @@ if(isset($_COOKIE['last_visit'])) {
   setcookie("last_visit", $current_visit, (time()+60*60*24*90), $secure = true);
 }
 
-if (isset($_COOKIE['nombre'])) {
+if (isset($_COOKIE['nombre']) and isset($_COOKIE['cont'])) {
    if($_COOKIE['nombre'] == $_COOKIE['cont']){
   $_SESSION['nombre'] = $_COOKIE['nombre'];
   $_SESSION['estilo'] = $_COOKIE['estilo'];
@@ -40,7 +40,7 @@ echo<<<EOF
     <h2> Añadir foto </h2>
 
     <section>
-        <form action="usuario.php" id="fot" method="POST">
+        <form action="respanadirfoto.php" id="fot" method="POST">
 
         <label for="fitulo">Título: </label><br><input id="fitulo" type="text" name="Titulo" placeholder="Título" required><br>
         <label for="fdescripcion">Descripción: </label><br><input id="fdescripcion" type="text" name="fdescripcion" placeholder="Descripción"><br>
@@ -50,9 +50,28 @@ echo<<<EOF
         <select id="selalb" name="alb">
 EOF;
 
+    if(isset($_GET['alb'])){
+      $sentencia = "SELECT * from Albumes where IdAlbum='{$_GET['alb']}'";
+      $albumes1 = $mysqli->query($sentencia);
+      $fila1 = $albumes1->fetch_assoc();
+
+      if ($albumes1->num_rows > 0) {
+        echo "<option value='{$fila1['IdAlbum']}'>{$fila1['Titulo']}</option>";
+      }
+
+      else{
         while($fila = $albumes->fetch_assoc()){
           echo "<option value='{$fila['IdAlbum']}'>{$fila['Titulo']}</option>";
         }
+      }
+
+    }
+
+    else{
+        while($fila = $albumes->fetch_assoc()){
+          echo "<option value='{$fila['IdAlbum']}'>{$fila['Titulo']}</option>";
+        }
+    }
 
 echo<<<EOF
         </select>

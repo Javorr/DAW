@@ -10,7 +10,7 @@
       setcookie("last_visit", $current_visit, (time()+60*60*24*90), $secure = true);
     }
 
-    if (isset($_COOKIE['nombre'])) {
+    if (isset($_COOKIE['nombre']) and  isset($_COOKIE['cont'])) {
        if($_COOKIE['nombre'] == $_COOKIE['cont']){
       $_SESSION['nombre'] = $_COOKIE['nombre'];
       $_SESSION['estilo'] = $_COOKIE['estilo'];
