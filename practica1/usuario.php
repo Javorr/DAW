@@ -42,7 +42,7 @@ echo<<<EOF
     <ul class="perfilusu">
       <li> <a href="configurar.php"> <span>Configuración estilo</span> </a> </li>
       <li> <a href="modificardatos.php"> <span>Modificar datos</span> </a> </li>
-      <li> <a href="#baja"> <span>Darse de baja</span> </a> </li>
+      <li> <a href="baja.php"> <span>Darse de baja</span> </a> </li>
     </ul>
 
     <ul class="perfilusu">
