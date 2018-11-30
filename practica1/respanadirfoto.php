@@ -13,9 +13,8 @@ require_once("requires/ensesion.php");
 require("requires/mysqli.php");
 
 
-$sql = "INSERT INTO `fotos` (`Titulo`, `Descripcion`, `Fecha`, `Pais`, `Album`, `Fichero`, `Alternativo`) VALUES ('{$_POST['Titulo']}', '{$_POST['fdescripcion']}', '{$_POST['fecha']}', '{$_POST['pa']}', '{$_POST['alb']}', '{$_POST['foto']}', '{$_POST['textalt']}')";
+$sql = "INSERT INTO `fotos` (`Titulo`, `Descripcion`, `Fecha`, `Pais`, `Album`, `Fichero`, `Alternativo`) VALUES ('{$_POST['Titulo']}', '{$_POST['fdescripcion']}', '{$_POST['fecha']}', '{$_POST['pa']}', '{$_POST['alb']}', 'images/{$_POST['foto']}', '{$_POST['textalt']}')";
 $consulta = $mysqli->query($sql);
-echo "voy ".$sql;
 
 echo<<<EOF
   <section>

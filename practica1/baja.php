@@ -49,9 +49,9 @@ echo<<<EOF
     <p>Número de fotos totales: $total.</p>
     </section>
 
-    <form action="usuario.php">
+    <form action="confirmacionbaja.php" method="post">
         <p>Confirme su contraseña</p>
-        <input id="fnombre" type="text" name="nombre" placeholder="Contraseña" required><br>
+        <input type="password" name="pass" placeholder="Contraseña" required><br>
         <input id="botoni" type="submit" name="submit" value="Eliminar cuenta"><br/>
     </form>
 EOF;
