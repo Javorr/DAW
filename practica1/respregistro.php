@@ -43,13 +43,9 @@
                           die("Connection failed: " . $mysqli->connect_error);
                       }
                       else {
-
-                        $sql = "INSERT INTO usuarios (nomusuario, clave, email, sexo, fnacimiento, ciudad, pais, foto, fregistro, estilo) VALUES ('$rnombre', '$rpass', '$remail', $rsexo, STR_TO_DATE('$rfecha', '%Y/%m/%d'), '$rciudad', $rpais, 'images/iconop.gif', date('Y-m-d H:i:s'), 1)";
+                        $rfregistro = date('Y-m-d H:i:s');
+                        $sql = "INSERT INTO usuarios (nomusuario, clave, email, sexo, fnacimiento, ciudad, pais, foto, fregistro, estilo) VALUES ('$rnombre', '$rpass', '$remail', $rsexo, STR_TO_DATE('$rfecha', '%Y-%m-%d'), '$rciudad', $rpais, 'images/iconop.gif', '$rfregistro', 1)";
                         $consulta = $mysqli->query($sql);
-                        $num = mysqli_affected_rows($mysqli);
-                        printf("Errormessage: %s\n", $mysqli->error);
-                        echo "{$num}";
-                        echo "{$rfecha}";
 
                         $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
                         $consulta2 = $mysqli->query($sql2);
