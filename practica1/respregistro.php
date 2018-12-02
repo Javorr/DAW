@@ -13,10 +13,15 @@
     $rpass=$_POST['password'];
     $rpass2=$_POST['password2'];
     $remail=$_POST['email'];
-    $rsexo=$_POST['genero'];
+    $rsexonom=$_POST['genero'];
     $rfecha=$_POST['fecha'];
     $rciudad=$_POST['ciudad'];
     $rpais=$_POST['pais'];
+
+    if(!empty($rsexonom) && $rsexonom == 'Mujer') $rsexo = 1;
+    else if(!empty($rsexonom) && $rsexonom == 'Hombre') $rsexo = 2;
+    else if(!empty($rsexonom) && $rsexonom == 'Otro') $rsexo = 3;
+    else $rsexo = 3;
 
     if (!(empty($rnombre) && empty($rpass) && empty($rpass2) )) { //si se ha escrito algo en los campos
       if ($rpass == $rpass2) { //si contraseña y repetir contraseña se repiten entonces se habran realizado las comprobaciones y se mostrara la informacion introducida
@@ -39,8 +44,16 @@
                       }
                       else {
 
-                        $sql = "INSERT INTO usuarios VALUES ('$rnombre', '$rpass', '$remail', '$rsexo', '$rfecha')";
+                        $sql = "INSERT INTO usuarios (nomusuario, clave, email, sexo, fnacimiento, ciudad, pais, foto, fregistro, estilo) VALUES ('$rnombre', '$rpass', '$remail', $rsexo, STR_TO_DATE('$rfecha', '%Y/%m/%d'), '$rciudad', $rpais, 'images/iconop.gif', date('Y-m-d H:i:s'), 1)";
                         $consulta = $mysqli->query($sql);
+                        $num = mysqli_affected_rows($mysqli);
+                        printf("Errormessage: %s\n", $mysqli->error);
+                        echo "{$num}";
+                        echo "{$rfecha}";
+
+                        $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
+                        $consulta2 = $mysqli->query($sql2);
+                        $rnompais = $consulta2->fetch_assoc();
                       }
 
 
@@ -51,11 +64,11 @@ echo<<<EOF
                           <ul>
                             <li>Nombre usuario: $rnombre.</li>
                             <li>Contraseña: $rpass.</li>
-                            <li>Email: {$_POST['email']}.</li>
-                            <li>Fecha de nacimiento: {$_POST['fecha']}.</li>
-                            <li>Ciudad: {$_POST['ciudad']}.</li>
-                            <li>País de residencia: {$_POST['pais']}.</li>
-                            <li>Género: {$_POST['genero']}.</li>
+                            <li>Email: $remail.</li>
+                            <li>Fecha de nacimiento: $rfecha.</li>
+                            <li>Ciudad: $rciudad.</li>
+                            <li>País de residencia: {$rnompais['NomPais']}.</li>
+                            <li>Género: $rsexonom.</li>
                           </ul>
                         </section>
 EOF;
