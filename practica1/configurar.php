@@ -33,7 +33,7 @@ echo<<<EOF
     <h3> Selecciona uno de los estilos disponibles </h3>
 
     <section>
-      <form action="usuario.php" method="get">
+      <form action="respconf.php" method="get">
           <label for="selest">Estilos disponibles:</label><br>
 
           <select id="selest" name="est">
