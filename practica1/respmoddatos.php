@@ -8,33 +8,44 @@
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/ensesion.php");
+    require_once("requires/filtros.php");
 
-    $rnombre=$_POST['nombre'];
-    $rpass=$_POST['password'];
-    $rpass2=$_POST['password2'];
+    if($filtros == true) {
 
-    if (!(empty($rnombre) && empty($rpass) && empty($rpass2) )) { //si se ha escrito algo en los campos
-      if ($rpass == $rpass2) { //si contraseña y repetir contraseña se repiten entonces se habran realizado las comprobaciones y se mostrara la informacion introducida
+      require("requires/mysqli.php");
+
+        if ($mysqli->connect_error) {
+            die("Connection failed: " . $mysqli->connect_error);
+        }
+        else {
+          $rfregistro = date('Y-m-d H:i:s');
+          $sql = "INSERT INTO usuarios (nomusuario, clave, email, sexo, fnacimiento, ciudad, pais, foto, fregistro, estilo) VALUES ('$rnombre', '$rpass', '$remail', $rsexo, STR_TO_DATE('$rfecha', '%Y-%m-%d'), '$rciudad', $rpais, 'images/iconop.gif', '$rfregistro', 1)";
+          $consulta = $mysqli->query($sql);
+
+          $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
+          $consulta2 = $mysqli->query($sql2);
+          $rnompais = $consulta2->fetch_assoc();
+        }
+
+
 echo<<<EOF
-                        <section>
-                          <h2>Datos modificados con éxito</h2>
-                          <p><b>Inserción realizada, tus datos son:</b></p>
-                          <ul>
-                            <li>Nombre usuario: $rnombre.</li>
-                            <li>Contraseña: $rpass.</li>
-                            <li>Email: {$_POST['email']}.</li>
-                            <li>Fecha de nacimiento: {$_POST['fecha']}.</li>
-                            <li>Ciudad: {$_POST['ciudad']}.</li>
-                            <li>País de residencia: {$_POST['pais']}.</li>
-                            <li>Género: {$_POST['genero']}.</li>
-                          </ul>
-                        </section>
+          <section>
+            <h2>Registro realizado con éxito</h2>
+            <p><b>Inserción realizada, tus datos son:</b></p>
+            <ul>
+              <li>Nombre usuario: $rnombre.</li>
+              <li>Contraseña: $rpass.</li>
+              <li>Email: $remail.</li>
+              <li>Fecha de nacimiento: $rfecha.</li>
+              <li>Ciudad: $rciudad.</li>
+              <li>País de residencia: {$rnompais['NomPais']}.</li>
+              <li>Género: $rsexonom.</li>
+            </ul>
+          </section>
 EOF;
-
-      }
-      else {
-        echo "Registro incorrecto. <br><br>";
-      }
+    }
+    else {
+      echo "No se ha podido realizar el registro con éxito. <br><br>";
     }
 
     $volver="index.php";

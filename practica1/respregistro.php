@@ -8,96 +8,44 @@
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
     require_once("requires/sinsesion.php");
+    require_once("requires/filtros.php");
 
-    $rnombre=$_POST['nombre'];
-    $rpass=$_POST['password'];
-    $rpass2=$_POST['password2'];
-    $remail=$_POST['email'];
-    $rsexonom=$_POST['genero'];
-    $rfecha=$_POST['fecha'];
-    $rciudad=$_POST['ciudad'];
-    $rpais=$_POST['pais'];
+    if($filtros == true) {
 
-    if(!empty($rsexonom) && $rsexonom == 'Mujer') $rsexo = 1;
-    else if(!empty($rsexonom) && $rsexonom == 'Hombre') $rsexo = 2;
-    else if(!empty($rsexonom) && $rsexonom == 'Otro') $rsexo = 3;
-    else $rsexo = 3;
+      require("requires/mysqli.php");
 
-    if (!(empty($rnombre) && empty($rpass) && empty($rpass2) )) { //si se ha escrito algo en los campos
-      if ($rpass == $rpass2) { //si contraseña y repetir contraseña se repiten entonces se habran realizado las comprobaciones y se mostrara la informacion introducida
+        if ($mysqli->connect_error) {
+            die("Connection failed: " . $mysqli->connect_error);
+        }
+        else {
+          $rfregistro = date('Y-m-d H:i:s');
+          $sql = "INSERT INTO usuarios (nomusuario, clave, email, sexo, fnacimiento, ciudad, pais, foto, fregistro, estilo) VALUES ('$rnombre', '$rpass', '$remail', $rsexo, STR_TO_DATE('$rfecha', '%Y-%m-%d'), '$rciudad', $rpais, 'images/iconop.gif', '$rfregistro', 1)";
+          $consulta = $mysqli->query($sql);
 
-        if(preg_match('/^[0-9A-Za-z]{3,15}$/', $rnombre)) { //filtro el nombre de usuario
-
-            if(preg_match('/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])[0-9A-Za-z_]{6,15}$/', $rpass)) { //filtro la password
-
-              if(!empty($remail) && filter_var($remail, FILTER_VALIDATE_EMAIL)) { //filtro el email
-
-                if(!empty($rsexo)) { //filtro el sexo
-
-                  if(checkdate($rfecha['month'], $rfecha['day'], $rfecha['year'])) { //filtro la fecha de nacimiento
-
-
-                    require("requires/mysqli.php");
-
-                      if ($mysqli->connect_error) {
-                          die("Connection failed: " . $mysqli->connect_error);
-                      }
-                      else {
-                        $rfregistro = date('Y-m-d H:i:s');
-                        $sql = "INSERT INTO usuarios (nomusuario, clave, email, sexo, fnacimiento, ciudad, pais, foto, fregistro, estilo) VALUES ('$rnombre', '$rpass', '$remail', $rsexo, STR_TO_DATE('$rfecha', '%Y-%m-%d'), '$rciudad', $rpais, 'images/iconop.gif', '$rfregistro', 1)";
-                        $consulta = $mysqli->query($sql);
-
-                        $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
-                        $consulta2 = $mysqli->query($sql2);
-                        $rnompais = $consulta2->fetch_assoc();
-                      }
+          $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
+          $consulta2 = $mysqli->query($sql2);
+          $rnompais = $consulta2->fetch_assoc();
+        }
 
 
 echo<<<EOF
-                        <section>
-                          <h2>Registro realizado con éxito</h2>
-                          <p><b>Inserción realizada, tus datos son:</b></p>
-                          <ul>
-                            <li>Nombre usuario: $rnombre.</li>
-                            <li>Contraseña: $rpass.</li>
-                            <li>Email: $remail.</li>
-                            <li>Fecha de nacimiento: $rfecha.</li>
-                            <li>Ciudad: $rciudad.</li>
-                            <li>País de residencia: {$rnompais['NomPais']}.</li>
-                            <li>Género: $rsexonom.</li>
-                          </ul>
-                        </section>
+          <section>
+            <h2>Registro realizado con éxito</h2>
+            <p><b>Inserción realizada, tus datos son:</b></p>
+            <ul>
+              <li>Nombre usuario: $rnombre.</li>
+              <li>Contraseña: $rpass.</li>
+              <li>Email: $remail.</li>
+              <li>Fecha de nacimiento: $rfecha.</li>
+              <li>Ciudad: $rciudad.</li>
+              <li>País de residencia: {$rnompais['NomPais']}.</li>
+              <li>Género: $rsexonom.</li>
+            </ul>
+          </section>
 EOF;
-
-
-                  }
-                  else {
-                    echo "Introduzca una fecha de nacimiento válida. <br><br>";
-                  }
-
-                }
-                else {
-                  echo "Introduzca un sexo válido. <br><br>";
-                }
-
-              }
-              else {
-                echo "Introduzca un email válido. <br><br>";
-              }
-
-            }
-            else {
-              echo "Introduzca una contraseña válida. <br><br>";
-            }
-        }
-        else {
-          echo "Introduzca un nombre de usuario válido. <br><br>";
-        }
-
-      }
-      else {
-        echo "Las contraseñas no coinciden. <br><br>";
-      }
+    }
+    else {
+      echo "No se ha podido realizar el registro con éxito. <br><br>";
     }
 
     $volver="index.php";
