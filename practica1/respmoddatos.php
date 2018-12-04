@@ -10,7 +10,7 @@
     require_once("requires/ensesion.php");
     require_once("requires/filtros.php");
 
-    if($filtros == true) {
+    if($filtros === true) {
 
       require("requires/mysqli.php");
 
@@ -18,8 +18,20 @@
             die("Connection failed: " . $mysqli->connect_error);
         }
         else {
-          $rfregistro = date('Y-m-d H:i:s');
-          $sql = "INSERT INTO usuarios (nomusuario, clave, email, sexo, fnacimiento, ciudad, pais, foto, fregistro, estilo) VALUES ('$rnombre', '$rpass', '$remail', $rsexo, STR_TO_DATE('$rfecha', '%Y-%m-%d'), '$rciudad', $rpais, 'images/iconop.gif', '$rfregistro', 1)";
+          $sql0 = "SELECT * FROM usuarios where usuarios.NomUsuario='{$_SESSION['nombre']}'";
+          $consulta0 = $mysqli->query($sql0);
+          $infoprevia = $consulta0->fetch_assoc();
+
+          $id = $infoprevia['IdUsuario'];
+          if(empty($rnombre)) $rnombre = $infoprevia['NomUsuario'];
+          if(empty($rpass)) $rpass = $infoprevia['Clave'];
+          if(empty($remail)) $remail = $infoprevia['Email'];
+          if(empty($rsexo)) $rsexo = $infoprevia['Sexo'];
+          if(empty($rfecha)) $rfecha = $infoprevia['FNacimiento'];
+          if(empty($rciudad)) $rciudad = $infoprevia['Ciudad'];
+          if(empty($rpais)) $rpais = $infoprevia['Pais'];
+
+          $sql = "UPDATE usuarios SET nomusuario = '$rnombre', clave = '$rpass', email = '$remail', sexo = $rsexo, fnacimiento = STR_TO_DATE('$rfecha', '%Y-%m-%d'), ciudad = '$rciudad', pais = $rpais WHERE IdUsuario = $id";
           $consulta = $mysqli->query($sql);
 
           $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
@@ -30,8 +42,8 @@
 
 echo<<<EOF
           <section>
-            <h2>Registro realizado con éxito</h2>
-            <p><b>Inserción realizada, tus datos son:</b></p>
+            <h2>Modificación realizada con éxito</h2>
+            <p><b>Tus datos son ahora:</b></p>
             <ul>
               <li>Nombre usuario: $rnombre.</li>
               <li>Contraseña: $rpass.</li>
@@ -45,7 +57,7 @@ echo<<<EOF
 EOF;
     }
     else {
-      echo "No se ha podido realizar el registro con éxito. <br><br>";
+      echo "No se ha podido realizar la modificación con éxito. <br><br>";
     }
 
     $volver="index.php";

@@ -10,7 +10,7 @@
     require_once("requires/sinsesion.php");
     require_once("requires/filtros.php");
 
-    if($filtros == true) {
+    if($filtros === true) {
 
       require("requires/mysqli.php");
 
