@@ -63,6 +63,14 @@
         $albumes = $mysqli->query($sentencia);
         if(!$albumes || $mysqli->errno) echo "<p>mal asunto</p>";
 
+        if ($albumes->num_rows <= 0) {
+          $host = $_SERVER['HTTP_HOST'];
+          $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+          $extra = 'crearalbum.php?error=401';
+          header("Location: http://$host$uri/$extra");
+          exit;
+        }
+
 echo<<<EOF
     <section id="albumsolicitar">
         <h2>Solicita tu álbum</h2>
