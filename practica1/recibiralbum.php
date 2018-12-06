@@ -15,7 +15,8 @@
     require_once("requires/ensesion.php");
     require("requires/mysqli.php");
 
-
+        $sfecha = $_POST['fecha'];
+        $semail = $_POST['email'];
         $reso = $_POST['reso'];
         $imp = $_POST['imp'];
 
@@ -30,9 +31,11 @@
         if($reso != "150" && $reso != "300" && $reso != "---") $dineros=$dineros+($fotos * 0.02);
 
 
+        if(!empty($semail) && filter_var($semail, FILTER_VALIDATE_EMAIL) && checkdate(date("m",strtotime($sfecha)), date("d",strtotime($sfecha)), date("Y",strtotime($sfecha)))) {
 
-$sql = "INSERT INTO `solicitudes` (`Album`, `Nombre`, `Titulo`, `Descripcion`, `Email`, `Direccion`, `Color`, `Copias`, `Resolucion`, `Fecha`, `IColor`, `FRegistro`, `Coste`) VALUES ('{$_POST['alb']}', '{$_POST['nombre']}', '{$_POST['titulo']}', '{$_POST['textoadicional']}', '{$_POST['email']}', '{$_POST['direccion']}', '{$_POST['color']}', '{$_POST['copias']}', '$reso', '{$_POST['fecha']}', '$imp', 'GETDATE()', '$dineros')";
-$consulta = $mysqli->query($sql);
+          $fregistro = date('Y-m-d H:i:s');
+          $sql = "INSERT INTO `solicitudes` (`Album`, `Nombre`, `Titulo`, `Descripcion`, `Email`, `Direccion`, `Color`, `Copias`, `Resolucion`, `Fecha`, `IColor`, `FRegistro`, `Coste`) VALUES ('{$_POST['alb']}', '{$_POST['nombre']}', '{$_POST['titulo']}', '{$_POST['textoadicional']}', '{$_POST['email']}', '{$_POST['direccion']}', '{$_POST['color']}', '{$_POST['copias']}', '$reso', '{$_POST['fecha']}', '$imp', '$fregistro', '$dineros')";
+          $consulta = $mysqli->query($sql);
 
 echo<<<EOF
             <section >
@@ -58,6 +61,11 @@ echo<<<EOF
                 </section>
 
 EOF;
+
+        }
+        else {
+          echo "<p>Introduzca valores válidos para la solicitud del álbum.</p><a href='solicitaralbum.php'>Volver a intentarlo</a>";
+        }
 
          $volver="index.php";
         require_once("requires/pie.php");

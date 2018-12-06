@@ -12,8 +12,8 @@ require_once("requires/inicio.php");
 require_once("requires/ensesion.php");
 require("requires/mysqli.php");
 
-
-$sql = "INSERT INTO `fotos` (`Titulo`, `Descripcion`, `Fecha`, `Pais`, `Album`, `Fichero`, `Alternativo`) VALUES ('{$_POST['Titulo']}', '{$_POST['fdescripcion']}', '{$_POST['fecha']}', '{$_POST['pa']}', '{$_POST['alb']}', 'images/{$_POST['foto']}', '{$_POST['textalt']}')";
+$fregistro = date('Y-m-d H:i:s');
+$sql = "INSERT INTO `fotos` (`Titulo`, `Descripcion`, `Fecha`, `Pais`, `Album`, `Fichero`, `Alternativo`, `FRegistro`) VALUES ('{$_POST['Titulo']}', '{$_POST['fdescripcion']}', '{$_POST['fecha']}', '{$_POST['pa']}', '{$_POST['alb']}', 'images/{$_POST['foto']}', '{$_POST['textalt']}', '$fregistro')";
 $consulta = $mysqli->query($sql);
 
 echo<<<EOF

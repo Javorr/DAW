@@ -45,7 +45,7 @@ echo<<<EOF
 EOF;
     }
     else {
-      echo "No se ha podido realizar el registro con éxito. <br><br>";
+      echo "<p>No se ha podido realizar el registro con éxito.</p><a href='registro.php'>Volver a intentarlo</a>";
     }
 
     $volver="index.php";

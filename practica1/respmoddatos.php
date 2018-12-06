@@ -34,7 +34,7 @@
           $sql = "UPDATE usuarios SET nomusuario = '$rnombre', clave = '$rpass', email = '$remail', sexo = $rsexo, fnacimiento = STR_TO_DATE('$rfecha', '%Y-%m-%d'), ciudad = '$rciudad', pais = $rpais WHERE IdUsuario = $id";
           $consulta = $mysqli->query($sql);
 
-          if(mysql_affected_rows($mysqli)>0) $_SESSION['nombre']=$rnombre;
+          if(mysqli_affected_rows($mysqli)>0) $_SESSION['nombre']=$rnombre;  //nos guardamos el nuevo nombre en la sesion para que se pueda mostrar de manera correcta todo en ensesion.php
 
           $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
           $consulta2 = $mysqli->query($sql2);
@@ -59,7 +59,7 @@ echo<<<EOF
 EOF;
     }
     else {
-      echo "No se ha podido realizar la modificación con éxito. <br><br>";
+      echo "<p>No se ha podido realizar la modificación con éxito.</p><a href='modificardatos.php'>Volver a intentarlo</a>";
     }
 
     $volver="index.php";

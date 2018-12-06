@@ -28,8 +28,8 @@
               if(!empty($remail) && filter_var($remail, FILTER_VALIDATE_EMAIL)) { //filtro el email
 
                 if(!empty($rsexo)) { //filtro el sexo
-
-                  if(checkdate($rfecha['month'], $rfecha['day'], $rfecha['year'])) { //filtro la fecha de nacimiento
+                   
+                  if(checkdate(date("m",strtotime($rfecha)), date("d",strtotime($rfecha)), date("Y",strtotime($rfecha)))) { //filtro la fecha de nacimiento
 
                     $filtros = true;
 
