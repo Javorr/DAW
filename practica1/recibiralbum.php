@@ -31,11 +31,10 @@
 
 
 
-$sql = "INSERT INTO `solicitudes` (`Album`, `Nombre`, `Titulo`, `Descripcion`, `Email`, `Direccion`, `Color`, `Copias`, `Resolucion`, `Fecha`, `IColor`, `FRegistro`, `Coste`) VALUES ('{$_POST['alb']}', '{$_POST['nombre']}', '{$_POST['titulo']}', '{$_POST['textoadicional']}', '{$_POST['email']}', '{$_POST['direccion']}', '#0431B4', '{$_POST['copias']}', '$reso', '2018-03-02', '$imp', '2018-05-03 11:20:17', '$dineros')";
+$sql = "INSERT INTO `solicitudes` (`Album`, `Nombre`, `Titulo`, `Descripcion`, `Email`, `Direccion`, `Color`, `Copias`, `Resolucion`, `Fecha`, `IColor`, `FRegistro`, `Coste`) VALUES ('{$_POST['alb']}', '{$_POST['nombre']}', '{$_POST['titulo']}', '{$_POST['textoadicional']}', '{$_POST['email']}', '{$_POST['direccion']}', '{$_POST['color']}', '{$_POST['copias']}', '$reso', '2018-03-02', '$imp', '2018-05-03 11:20:17', '$dineros')";
 $consulta = $mysqli->query($sql);
 
 echo<<<EOF
-
             <section >
                   <h2>Confirmación del pedido</h2>
                   <p>El pedido con los siguientes datos ha sido procesado.</p>

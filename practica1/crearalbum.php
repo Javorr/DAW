@@ -31,6 +31,11 @@ EOF;
 
     $volver="index.php";
     require_once("requires/pie.php");
+
+    if(isset($_GET['error'])){
+        echo '<script language="javascript">alert("Crea primero un álbum");</script>';
+    }
+
   }
 
   else{

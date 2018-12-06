@@ -47,7 +47,7 @@ echo<<<EOF
 
     <ul class="perfilusu">
       <li> <a href="misalbumes.php"> <span>Mis álbumes</span> </a> </li>
-      <li> <a href="crearalbum.php"> <span>Crear nuevo</span> </a> </li>
+      <li> <a href="crearalbum.php"> <span>Crear nuevo álbum</span> </a> </li>
       <li> <a href="anadirfoto.php"> <span>Añadir foto a álbum</span> </a> </li>
       <li> <a href="solicitaralbum.php"> <span>Solicitar álbum impreso</span> </a> </li>
     </ul>

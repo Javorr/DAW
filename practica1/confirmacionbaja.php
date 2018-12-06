@@ -16,11 +16,11 @@ if(isset($_SESSION['nombre'])){
       $fila = $consulta->fetch_assoc();
 
       if($fila['Clave']==$_POST['pass']){
-        $sql = "DELETE FROM `usuarios` WHERE NomUsuario = '{$_SESSION['nombre']}'";
+        $sql = "DELETE u, a, f FROM usuarios u LEFT JOIN albumes a ON u.IdUsuario = a.Usuario LEFT JOIN fotos f ON f.Album = a.IdAlbum WHERE u.NomUsuario = '{$_SESSION['nombre']}'";
         $consulta = $mysqli->query($sql);
         $host = $_SERVER['HTTP_HOST'];
         $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-        $extra = 'cerrarsesion.php';
+        $extra = 'cerrarsesion.php?del=1';
         header("Location: http://$host$uri/$extra");
         exit;
       }

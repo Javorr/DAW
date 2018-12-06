@@ -31,11 +31,10 @@
           if(empty($rciudad)) $rciudad = $infoprevia['Ciudad'];
           if(empty($rpais)) $rpais = $infoprevia['Pais'];
 
-
           $sql = "UPDATE usuarios SET nomusuario = '$rnombre', clave = '$rpass', email = '$remail', sexo = $rsexo, fnacimiento = STR_TO_DATE('$rfecha', '%Y-%m-%d'), ciudad = '$rciudad', pais = $rpais WHERE IdUsuario = $id";
           $consulta = $mysqli->query($sql);
 
-          if(mysqli_affected_rows($mysqli) > 0) $_SESSION['nombre'] = $rnombre; //nos guardamos el nuevo nombre en la sesion para que se pueda mostrar de manera correcta todo en ensesion.php
+          if(mysql_affected_rows($mysqli)>0) $_SESSION['nombre']=$rnombre;
 
           $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
           $consulta2 = $mysqli->query($sql2);
