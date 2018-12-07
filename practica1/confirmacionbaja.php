@@ -16,6 +16,7 @@ if(isset($_SESSION['nombre'])){
       $fila = $consulta->fetch_assoc();
 
       if($fila['Clave']==$_POST['pass']){
+        //BORRAR SOLICITUDES?
         $sql = "DELETE u, a, f FROM usuarios u LEFT JOIN albumes a ON u.IdUsuario = a.Usuario LEFT JOIN fotos f ON f.Album = a.IdAlbum WHERE u.NomUsuario = '{$_SESSION['nombre']}'";
         $consulta = $mysqli->query($sql);
         $host = $_SERVER['HTTP_HOST'];
@@ -24,11 +25,18 @@ if(isset($_SESSION['nombre'])){
         header("Location: http://$host$uri/$extra");
         exit;
       }
+      else {
+        $host = $_SERVER['HTTP_HOST'];
+        $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        $extra = 'baja.php';
+        header("Location: http://$host$uri/$extra");
+        exit;
+      }
     mysqli_close($mysqli);
   }
 }
 
-else{
+else {
   $host = $_SERVER['HTTP_HOST'];
   $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
   $extra = 'cerrarsesion.php';

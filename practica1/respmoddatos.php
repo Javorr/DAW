@@ -7,7 +7,6 @@
     if((isset($_POST['nombre']))) {
     require_once("requires/cabecera.php");
     require_once("requires/inicio.php");
-    require_once("requires/ensesion.php");
     require_once("requires/filtros.php");
 
     if($filtros === true) {
@@ -39,6 +38,8 @@
           $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
           $consulta2 = $mysqli->query($sql2);
           $rnompais = $consulta2->fetch_assoc();
+
+          require_once("requires/ensesion.php");
         }
 
 

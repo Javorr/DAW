@@ -19,6 +19,16 @@
         $semail = $_POST['email'];
         $reso = $_POST['reso'];
         $imp = $_POST['imp'];
+        $scopias = $_POST['copias'];
+        $hayalbumes = false;
+        $lleno =false;
+
+        $sentencia = "SELECT * from Albumes, Usuarios where Usuarios.NomUsuario = '{$_SESSION['nombre']}' and Albumes.IdAlbum = {$_POST['alb']}";
+        $albumes = $mysqli->query($sentencia);
+        if(!$albumes || $mysqli->errno) echo "<p>mal asunto</p>";
+
+        $nomalbum = $albumes->fetch_assoc();
+        if($albumes->num_rows > 0) $hayalbumes = true;
 
         $pag=10;
         $fotos = 10;
@@ -28,10 +38,13 @@
         if($pag>=11) $dineros = $pag * 0.07;
 
         if($imp == "Color") $dineros=$dineros+($fotos * 0.05);
-        if($reso != "150" && $reso != "300" && $reso != "---") $dineros=$dineros+($fotos * 0.02);
+        if($reso != "150" && $reso != "300" && $reso != "---" && $reso == ("150" || "300" || "450" || "600" || "750" || "900")) $dineros=$dineros+($fotos * 0.02);
 
+        list($emailnom, $dominio) = explode("@", $semail);
+        $dominio = explode(".", $dominio);
 
-        if(!empty($semail) && filter_var($semail, FILTER_VALIDATE_EMAIL) && checkdate(date("m",strtotime($sfecha)), date("d",strtotime($sfecha)), date("Y",strtotime($sfecha)))) {
+        //if(!empty({$_POST['nombre']}) && !empty({$_POST['titulo']}) && !empty({$_POST['direccion']}) && !empty({$_POST['cp']}) && !empty({$_POST['localidad']}) && !empty({$_POST['provincia']}) && !empty({$_POST['pais']}) && !empty({$_POST['copias']}) && !empty({$_POST['reso']}) && !empty({$_POST['fecha']})) $lleno = true;
+        if(!empty($semail) && filter_var($semail, FILTER_VALIDATE_EMAIL) && checkdate(date("m",strtotime($sfecha)), date("d",strtotime($sfecha)), date("Y",strtotime($sfecha))) && $reso == ("150" || "300" || "450" || "600" || "750" || "900") && $scopias > 0 && $hayalbumes && strlen($dominio[sizeof($dominio)-1]) >= 2 && strlen($dominio[sizeof($dominio)-1]) <= 4) {
 
           $fregistro = date('Y-m-d H:i:s');
           $sql = "INSERT INTO `solicitudes` (`Album`, `Nombre`, `Titulo`, `Descripcion`, `Email`, `Direccion`, `Color`, `Copias`, `Resolucion`, `Fecha`, `IColor`, `FRegistro`, `Coste`) VALUES ('{$_POST['alb']}', '{$_POST['nombre']}', '{$_POST['titulo']}', '{$_POST['textoadicional']}', '{$_POST['email']}', '{$_POST['direccion']}', '{$_POST['color']}', '{$_POST['copias']}', '$reso', '{$_POST['fecha']}', '$imp', '$fregistro', '$dineros')";
@@ -54,7 +67,7 @@ echo<<<EOF
                       <li>Número de copias: {$_POST['copias']}</li>
                       <li>Fecha: {$_POST['fecha']} </li>
                       <li>Resolución: $reso </li>
-                      <li>Álbum: {$_POST['alb']}</li>
+                      <li>Álbum: {$nomalbum['Titulo']}</li>
                       <li>Impresión: $imp </li>
                       <li>Coste: $dineros €</li>
                   </ul>

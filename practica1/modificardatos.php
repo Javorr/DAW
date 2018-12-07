@@ -36,7 +36,11 @@ echo "<h2> Modificar datos </h2>
       <form action='respmoddatos.php' id='registro' method='POST'>";
 require_once("requires/fregistro.php");
 
-echo"<input type='submit' name='submit' value='Modificar'><br /></form></section>";
+echo<<<EOF
+<p>Confirme su contraseña</p>
+<input type="password" name="passconf" placeholder="Contraseña" required><br>
+<input type='submit' name='submit' value='Modificar'><br/></form></section>
+EOF;
 
      $volver="index.php";
     require_once("requires/pie.php");

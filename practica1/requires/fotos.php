@@ -5,7 +5,7 @@ require("requires/mysqli.php");
       die("Connection failed: " . $mysqli->connect_error);
   }
   else {
-    $sql = "SELECT * FROM fotos order by fotos.FRegistro LIMIT 5";
+    $sql = "SELECT * FROM fotos order by  fotos.FRegistro desc LIMIT 5";
     $consulta = $mysqli->query($sql);
 
   if ($consulta->num_rows > 0) {

@@ -32,7 +32,7 @@ $id = $idusu['IdUsuario'];
 $sentencia = "SELECT * from Paises order by NomPais";
 $paises = $mysqli->query($sentencia);
 
-$sentencia = "SELECT * from Albumes where Usuario='$id'";
+$sentencia = "SELECT * from Albumes where Usuario='$id' order by Albumes.Titulo";
 $albumes = $mysqli->query($sentencia);
 //if(!$albumes || $mysqli->errno) echo "<p>mal asunto</p>";
 

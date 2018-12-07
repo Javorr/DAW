@@ -11,10 +11,26 @@ require_once("requires/cabecera.php");
 require_once("requires/inicio.php");
 require_once("requires/ensesion.php");
 require("requires/mysqli.php");
+$hayalbumes = false;
 
-$fregistro = date('Y-m-d H:i:s');
-$sql = "INSERT INTO `fotos` (`Titulo`, `Descripcion`, `Fecha`, `Pais`, `Album`, `Fichero`, `Alternativo`, `FRegistro`) VALUES ('{$_POST['Titulo']}', '{$_POST['fdescripcion']}', '{$_POST['fecha']}', '{$_POST['pa']}', '{$_POST['alb']}', 'images/{$_POST['foto']}', '{$_POST['textalt']}', '$fregistro')";
-$consulta = $mysqli->query($sql);
+$sentencia = "SELECT * from Albumes, Usuarios where Usuarios.NomUsuario = '{$_SESSION['nombre']}' and Albumes.IdAlbum = {$_POST['alb']}";
+$albumes = $mysqli->query($sentencia);
+if(!$albumes || $mysqli->errno) echo "<p>mal asunto</p>";
+
+$nomalbum = $albumes->fetch_assoc();
+if($albumes->num_rows > 0) $hayalbumes = true;
+
+$sentencia = "SELECT * from Paises where Paises.IdPais = {$_POST['pa']}";
+$paises = $mysqli->query($sentencia);
+if(!$paises || $mysqli->errno) echo "<p>mal asunto</p>";
+
+$nompais = $paises->fetch_assoc();
+
+if($hayalbumes) {
+
+  $fregistro = date('Y-m-d H:i:s');
+  $sql = "INSERT INTO `fotos` (`Titulo`, `Descripcion`, `Fecha`, `Pais`, `Album`, `Fichero`, `Alternativo`, `FRegistro`) VALUES ('{$_POST['Titulo']}', '{$_POST['fdescripcion']}', '{$_POST['fecha']}', '{$_POST['pa']}', '{$_POST['alb']}', 'images/{$_POST['foto']}', '{$_POST['textalt']}', '$fregistro')";
+  $consulta = $mysqli->query($sql);
 
 echo<<<EOF
   <section>
@@ -24,13 +40,18 @@ echo<<<EOF
           <li>Título: {$_POST['Titulo']} </li>
           <li>Descripción: {$_POST['fdescripcion']} </li>
           <li>Fecha: {$_POST['fecha']}</li>
-          <li>País: {$_POST['pa']}</li>
-          <li>Álbum: {$_POST['alb']} </li>
+          <li>País: {$nompais['NomPais']}</li>
+          <li>Álbum: {$nomalbum['Titulo']} </li>
           <li>Fichero:  {$_POST['foto']} </li>
           <li>Texto alternativo: {$_POST['textalt']} </li>
       </ul>
     </section>
 EOF;
+
+}
+else {
+  echo "<p>Álbum no disponible.</p>";
+}
 
 
  $volver="index.php";
