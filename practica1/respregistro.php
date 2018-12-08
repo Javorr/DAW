@@ -18,6 +18,31 @@
             die("Connection failed: " . $mysqli->connect_error);
         }
         else {
+
+          if($_FILES["foto"]["error"] > 0)
+             {
+               echo "Error: " . $msgError[$_FILES["foto"]["error"]] . "<br />";
+             }
+             else
+             {
+               echo "Nombre original: " . $_FILES["foto"]["name"] . "<br />";
+               echo "Tipo: " . $_FILES["foto"]["type"] . "<br />";
+               echo "Tamaño: " . ceil($_FILES["foto"]["size"] / 1024) . " Kb<br />";
+               echo "Nombre temporal: " . $_FILES["foto"]["tmp_name"] . "<br />";
+
+
+               $sentencia = "SELECT IdUsuario from Usuarios where NomUsuario='{$_SESSION['nombre']}'";
+               $usu = $mysqli->query($sentencia);
+               $idusu = $usu->fetch_assoc();
+               $id = $idusu['IdUsuario'];
+
+              echo "oye".$id;
+
+               move_uploaded_file($_FILES["foto"]["tmp_name"],
+                  "D:\\xampp\\files\\" . $_FILES["foto"]["name"]);
+              echo "Almacenado en: " . "D:\\xampp\\files\\" . $_FILES["foto"]["name"];
+
+             }
           $rfregistro = date('Y-m-d H:i:s');
           $sql = "INSERT INTO usuarios (nomusuario, clave, email, sexo, fnacimiento, ciudad, pais, foto, fregistro, estilo) VALUES ('$rnombre', '$rpass', '$remail', $rsexo, STR_TO_DATE('$rfecha', '%Y-%m-%d'), '$rciudad', $rpais, 'images/iconop.gif', '$rfregistro', 1)";
           $consulta = $mysqli->query($sql);
@@ -25,8 +50,8 @@
           $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
           $consulta2 = $mysqli->query($sql2);
           $rnompais = $consulta2->fetch_assoc();
-        }
 
+}
 
 echo<<<EOF
           <section>

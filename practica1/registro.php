@@ -18,7 +18,7 @@
 
     echo "<h2> Registro </h2>
     <section>
-    <form action='respregistro.php' id='registro' method='POST'>";
+    <form action='respregistro.php' id='registro' method='POST' enctype='multipart/form-data'>";
 
     require_once("requires/fregistro.php");
     echo"<input type='submit' name='submit' value='Registro'><br /></form></section>";
