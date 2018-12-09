@@ -25,26 +25,28 @@
              }
              else
              {
+               /*
                echo "Nombre original: " . $_FILES["foto"]["name"] . "<br />";
                echo "Tipo: " . $_FILES["foto"]["type"] . "<br />";
                echo "Tamaño: " . ceil($_FILES["foto"]["size"] / 1024) . " Kb<br />";
                echo "Nombre temporal: " . $_FILES["foto"]["tmp_name"] . "<br />";
+              */
 
+              $formato = explode("/", $_FILES["foto"]["type"]);
 
-               $sentencia = "SELECT IdUsuario from Usuarios where NomUsuario='{$_SESSION['nombre']}'";
-               $usu = $mysqli->query($sentencia);
-               $idusu = $usu->fetch_assoc();
-               $id = $idusu['IdUsuario'];
+              $defi = $rnombre.".".$formato[1];
+              //echo $defi;
 
-              echo "oye".$id;
+              $ruta = "http://localhost/files/".$defi;
+              //echo "ruta " . $ruta;
 
                move_uploaded_file($_FILES["foto"]["tmp_name"],
-                  "D:\\xampp\\files\\" . $_FILES["foto"]["name"]);
-              echo "Almacenado en: " . "D:\\xampp\\files\\" . $_FILES["foto"]["name"];
+                  "D:\\xampp\\htdocs\\files\\".$defi);
+                  //echo "Almacenado en: " . "D:\\xampp\\htdocs\\files\\".$defi;
 
              }
           $rfregistro = date('Y-m-d H:i:s');
-          $sql = "INSERT INTO usuarios (nomusuario, clave, email, sexo, fnacimiento, ciudad, pais, foto, fregistro, estilo) VALUES ('$rnombre', '$rpass', '$remail', $rsexo, STR_TO_DATE('$rfecha', '%Y-%m-%d'), '$rciudad', $rpais, 'images/iconop.gif', '$rfregistro', 1)";
+          $sql = "INSERT INTO usuarios (nomusuario, clave, email, sexo, fnacimiento, ciudad, pais, foto, fregistro, estilo) VALUES ('$rnombre', '$rpass', '$remail', $rsexo, STR_TO_DATE('$rfecha', '%Y-%m-%d'), '$rciudad', $rpais, '$defi', '$rfregistro', 1)";
           $consulta = $mysqli->query($sql);
 
           $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
@@ -65,7 +67,13 @@ echo<<<EOF
               <li>Ciudad: $rciudad.</li>
               <li>País de residencia: {$rnompais['NomPais']}.</li>
               <li>Género: $rsexonom.</li>
+              <li>Icono:</li>
             </ul>
+
+            <figure>
+              <img src='$ruta' alt="Foto del usuario" style="width:15%">
+            </figure>
+
           </section>
 EOF;
     }
