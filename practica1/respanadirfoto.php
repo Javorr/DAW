@@ -28,8 +28,41 @@ $nompais = $paises->fetch_assoc();
 
 if($hayalbumes) {
 
+  if ($_FILES['foto']['size'] > 0 && $_FILES['foto']['error'] == 0) { //si hay una imagen y no hay un error entonces se subira la foto
+
+    $formato = explode("/", $_FILES["foto"]["type"]);
+
+    $nomfile = $_FILES['foto']['name'];
+    $nomalbum = $_POST['alb'];
+
+    $defi = $nomfile."_".$rnombre."_".$nomalbum.".".$formato[1];
+    //echo $defi;
+
+    $numarchivos = 0;
+    $archivos = glob($defi . "*");
+    if ($archivos){
+     $numarchivos = count($archivos);
+    }
+
+    for ($i=0; $i < $numarchivos; $i++) {
+
+      if(file_exists("D:\\xampp\\htdocs\\files\\fotos\\".$defi)) { //si existe un file con ese nombre en el directorio entonces se le asignara un numero, se comprobara si el nombre nuevo existe y si no existe se movera al directorio
+        $defi = $defi.$i; //se concatena la i SE VA INCREMENTANDO EN PLAN yo1234.jpg
+      }
+      else { //si no existe ese file aun entonces se movera ha dicho directorio con ese nombre
+        move_uploaded_file($_FILES["foto"]["tmp_name"],
+           "D:\\xampp\\htdocs\\files\\fotos\\".$defi);
+           //echo "Almacenado en: " . "D:\\xampp\\htdocs\\files\\fotos\\".$defi;
+      }
+    }
+
+    $ruta = "http://localhost/files/fotos/".$defi;
+    //echo "ruta " . $ruta;
+
+  }
+
   $fregistro = date('Y-m-d H:i:s');
-  $sql = "INSERT INTO `fotos` (`Titulo`, `Descripcion`, `Fecha`, `Pais`, `Album`, `Fichero`, `Alternativo`, `FRegistro`) VALUES ('{$_POST['Titulo']}', '{$_POST['fdescripcion']}', '{$_POST['fecha']}', '{$_POST['pa']}', '{$_POST['alb']}', 'images/{$_POST['foto']}', '{$_POST['textalt']}', '$fregistro')";
+  $sql = "INSERT INTO `fotos` (`Titulo`, `Descripcion`, `Fecha`, `Pais`, `Album`, `Fichero`, `Alternativo`, `FRegistro`) VALUES ('{$_POST['Titulo']}', '{$_POST['fdescripcion']}', '{$_POST['fecha']}', '{$_POST['pa']}', '{$_POST['alb']}', '$defi', '{$_POST['textalt']}', '$fregistro')";
   $consulta = $mysqli->query($sql);
 
 echo<<<EOF
@@ -46,6 +79,10 @@ echo<<<EOF
           <li>Texto alternativo: {$_POST['textalt']} </li>
       </ul>
     </section>
+
+    <figure>
+      <img src='$ruta' alt="Foto de álbum" style="width:15%">
+    </figure>
 EOF;
 
 }

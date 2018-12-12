@@ -11,6 +11,22 @@ require("requires/mysqli.php");
   if ($consulta->num_rows > 0) {
     echo '<section class="columnas">';
 
+    $arr = array();
+    $ficherolin = file("seleccionadas.txt");
+    $i = 0;
+
+    foreach ($ficherolin as $linea) {
+      list($id, $usu, $com) = explode("/", $linea, 3);
+
+      $arr[$i] = [$id, $usu, $com];
+      $i++;
+    }
+
+    $fotorandom = rand(0,(sizeof($arr)-1)); //pillo los datos de la foto random
+    $id_random = $arr[$random][0];
+    $usu_random = $arr[$random][1];
+    $com_random = $arr[$random][2];
+
     while($fila = $consulta->fetch_assoc()) {
 
       $sql2 = "SELECT * FROM paises where paises.IdPais={$fila["Pais"]}";

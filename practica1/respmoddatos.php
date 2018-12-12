@@ -30,7 +30,23 @@
           if(empty($rciudad)) $rciudad = $infoprevia['Ciudad'];
           if(empty($rpais)) $rpais = $infoprevia['Pais'];
 
-          $sql = "UPDATE usuarios SET nomusuario = '$rnombre', clave = '$rpass', email = '$remail', sexo = $rsexo, fnacimiento = STR_TO_DATE('$rfecha', '%Y-%m-%d'), ciudad = '$rciudad', pais = $rpais WHERE IdUsuario = $id";
+          if ($_FILES['foto']['size'] > 0 && $_FILES['foto']['error'] == 0) { //si hay una imagen y no hay un error entonces se actualizara la foto
+
+            $formato = explode("/", $_FILES["foto"]["type"]);
+
+            $defi = $rnombre.".".$formato[1];
+            //echo $defi;
+
+            $ruta = "http://localhost/files/perfil/".$defi;
+            //echo "ruta " . $ruta;
+
+             move_uploaded_file($_FILES["foto"]["tmp_name"],
+                "D:\\xampp\\htdocs\\files\\perfil\\".$defi);
+                //echo "Almacenado en: " . "D:\\xampp\\htdocs\\files\\perfil\\".$defi;
+
+          }
+
+          $sql = "UPDATE usuarios SET nomusuario = '$rnombre', clave = '$rpass', email = '$remail', sexo = $rsexo, fnacimiento = STR_TO_DATE('$rfecha', '%Y-%m-%d'), ciudad = '$rciudad', pais = $rpais, foto = '$defi' WHERE IdUsuario = $id";
           $consulta = $mysqli->query($sql);
 
           if(mysqli_affected_rows($mysqli)>0) $_SESSION['nombre']=$rnombre;  //nos guardamos el nuevo nombre en la sesion para que se pueda mostrar de manera correcta todo en ensesion.php
@@ -57,6 +73,10 @@ echo<<<EOF
               <li>Género: $rsexonom.</li>
             </ul>
           </section>
+
+          <figure>
+            <img src='$ruta' alt="Foto del usuario" style="width:15%">
+          </figure>
 EOF;
     }
     else {
