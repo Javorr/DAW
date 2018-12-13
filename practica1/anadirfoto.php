@@ -48,7 +48,7 @@ echo<<<EOF
     <h2> Añadir foto </h2>
 
     <section>
-        <form action="respanadirfoto.php" id="fot" method="POST">
+        <form action="respanadirfoto.php" id="fot" method="POST" enctype='multipart/form-data'>
 
         <label for="fitulo">Título: </label><br><input id="fitulo" type="text" name="Titulo" placeholder="Título" required><br>
         <label for="fdescripcion">Descripción: </label><br><input id="fdescripcion" type="text" name="fdescripcion" placeholder="Descripción"><br>

@@ -30,7 +30,7 @@
           $id = $idusu['IdUsuario'];
 
           $defi = 'cosa.jpg';
-          $ruta = "http://localhost/files/cosa.jpg";
+          $ruta = "http://localhost/files/perfil/cosa.jpg";
 
           if($_FILES["foto"]["error"] > 0)
              {
@@ -50,11 +50,11 @@
               $defi = $id.".".$formato[1];
               //echo $defi;
 
-              $ruta = "http://localhost/files/".$defi;
+              $ruta = "http://localhost/files/perfil/".$defi;
               //echo "ruta " . $ruta;
 
                move_uploaded_file($_FILES["foto"]["tmp_name"],
-                  "D:\\xampp\\htdocs\\files\\".$defi);
+                  "D:\\xampp\\htdocs\\files\\perfil\\".$defi);
                   //echo "Almacenado en: " . "D:\\xampp\\htdocs\\files\\".$defi;
 
              }

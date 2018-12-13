@@ -16,6 +16,8 @@ require_once("requires/cabecera.php");
 require_once("requires/inicio.php");
 require_once("requires/barrabusqueda.php");
 require_once("requires/sinsesion.php");
+
+
  ?>
 
 

@@ -26,18 +26,25 @@ if(!$paises || $mysqli->errno) echo "<p>mal asunto</p>";
 
 $nompais = $paises->fetch_assoc();
 
+$sentencia2 = "SELECT COUNT(Titulo) FROM `fotos` WHERE Album='{$_POST['alb']}'";
+$fotos = $mysqli->query($sentencia2);
+$fot = $fotos->fetch_assoc();
+$num = $fot['COUNT(Titulo)'];
+
 if($hayalbumes) {
 
-  if ($_FILES['foto']['size'] > 0 && $_FILES['foto']['error'] == 0) { //si hay una imagen y no hay un error entonces se subira la foto
+  if ($_FILES["foto"]["size"] > 0 && $_FILES["foto"]["error"] == 0) { //si hay una imagen y no hay un error entonces se subira la foto
 
     $formato = explode("/", $_FILES["foto"]["type"]);
 
     $nomfile = $_FILES['foto']['name'];
     $nomalbum = $_POST['alb'];
 
-    $defi = $nomfile."_".$rnombre."_".$nomalbum.".".$formato[1];
+    $defi = $nomalbum."_".$num.".".$formato[1];
+
     //echo $defi;
 
+/*
     $numarchivos = 0;
     $archivos = glob($defi . "*");
     if ($archivos){
@@ -54,12 +61,17 @@ if($hayalbumes) {
            "D:\\xampp\\htdocs\\files\\fotos\\".$defi);
            //echo "Almacenado en: " . "D:\\xampp\\htdocs\\files\\fotos\\".$defi;
       }
+      */
+
+      move_uploaded_file($_FILES["foto"]["tmp_name"],
+         "D:\\xampp\\htdocs\\files\\fotos\\".$defi);
+
     }
 
     $ruta = "http://localhost/files/fotos/".$defi;
     //echo "ruta " . $ruta;
 
-  }
+
 
   $fregistro = date('Y-m-d H:i:s');
   $sql = "INSERT INTO `fotos` (`Titulo`, `Descripcion`, `Fecha`, `Pais`, `Album`, `Fichero`, `Alternativo`, `FRegistro`) VALUES ('{$_POST['Titulo']}', '{$_POST['fdescripcion']}', '{$_POST['fecha']}', '{$_POST['pa']}', '{$_POST['alb']}', '$defi', '{$_POST['textalt']}', '$fregistro')";
@@ -74,8 +86,7 @@ echo<<<EOF
           <li>Descripción: {$_POST['fdescripcion']} </li>
           <li>Fecha: {$_POST['fecha']}</li>
           <li>País: {$nompais['NomPais']}</li>
-          <li>Álbum: {$nomalbum['Titulo']} </li>
-          <li>Fichero:  {$_POST['foto']} </li>
+          <li>Álbum: {$nomalbum} </li>
           <li>Texto alternativo: {$_POST['textalt']} </li>
       </ul>
     </section>

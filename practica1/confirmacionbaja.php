@@ -17,6 +17,30 @@ if(isset($_SESSION['nombre'])){
 
       if($fila['Clave']==$_POST['pass']){
         //BORRAR SOLICITUDES?
+        $sentencia = "SELECT IdUsuario from Usuarios where NomUsuario='{$_SESSION['nombre']}'";
+        $usu = $mysqli->query($sentencia);
+
+        $idusu = $usu->fetch_assoc();
+        $id = $idusu['IdUsuario'];
+
+
+        $sentencia2 = "SELECT * from Albumes where Usuario='{$id}'";
+        $alb = $mysqli->query($sentencia2);
+
+        while($fila1 = $alb->fetch_assoc()){
+          $sentencia2 = "SELECT * FROM `fotos` WHERE Album='{$fila1['IdAlbum']}'";
+          $fotos = $mysqli->query($sentencia2);
+
+          while($fila2 = $fotos->fetch_assoc()){
+              unlink("D:\\xampp\\htdocs\\files\\fotos\\{$fila2['Fichero']}");
+          }
+
+        }
+
+
+
+
+
         $sql = "DELETE u, a, f FROM usuarios u LEFT JOIN albumes a ON u.IdUsuario = a.Usuario LEFT JOIN fotos f ON f.Album = a.IdAlbum WHERE u.NomUsuario = '{$_SESSION['nombre']}'";
         $consulta = $mysqli->query($sql);
         $host = $_SERVER['HTTP_HOST'];

@@ -56,7 +56,7 @@ echo<<<EOF
 
        <article>
            <h3 title="{$fila2["Titulo"]}"><a href="detallefoto.php?id={$fila2["IdFoto"]}">{$fila2["Titulo"]}</a></h3>
-           <a href="detallefoto.php?id={$fila2["IdFoto"]}"><img class="fotos" src="{$fila2["Fichero"]}" alt="{$fila2["Alternativo"]}" width="400"></a>
+           <a href="detallefoto.php?id={$fila2["IdFoto"]}"><img class="fotos" src='http://localhost/files/fotos/{$fila2["Fichero"]}' alt="{$fila2["Alternativo"]}" width="400"></a>
 
             <ul>
               <li><time datetime="2018-09">{$fila2["FRegistro"]}</time></li>

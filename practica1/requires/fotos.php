@@ -29,6 +29,7 @@ require("requires/mysqli.php");
 
     while($fila = $consulta->fetch_assoc()) {
 
+
       $sql2 = "SELECT * FROM paises where paises.IdPais={$fila["Pais"]}";
       $consulta2 = $mysqli->query($sql2);
       $fila2 = $consulta2->fetch_assoc();
@@ -36,11 +37,12 @@ require("requires/mysqli.php");
       $fecha = date('d-m-Y', strtotime($fila["FRegistro"]));
       $hora = date('H:i', strtotime($fila["FRegistro"]));
 
+
 echo<<<EOF
 
              <article>
                  <h3 title="{$fila["Titulo"]}"><a href="detallefoto.php?id={$fila["IdFoto"]}">{$fila["Titulo"]}</a></h3>
-                 <a href="detallefoto.php?id={$fila["IdFoto"]}"><img class="fotos" src="{$fila["Fichero"]}" alt="{$fila["Alternativo"]}" width="400"></a>
+                 <a href="detallefoto.php?id={$fila["IdFoto"]}"><img class="fotos" src='http://localhost/files/fotos/{$fila["Fichero"]}' alt="{$fila["Alternativo"]}" width="400"></a>
 
                   <ul>
                     <li><time datetime="2018-09">Del $fecha a las $hora</time></li>
