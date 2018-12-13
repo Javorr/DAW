@@ -32,7 +32,7 @@ echo<<<EOF
 
     <section id="perfil">
     <figure>
-      <img src='{$fotillo['Foto']}' alt="Foto del usuario" style="width:15%">
+      <img src='http://localhost/files/{$fotillo['Foto']}' alt="Foto del usuario" style="width:15%">
     </figure>
 
     <div>

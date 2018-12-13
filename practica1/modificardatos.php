@@ -33,10 +33,11 @@ $paises = $mysqli->query($sentencia);
 
 echo "<h2> Modificar datos </h2>
       <section>
-      <form action='respmoddatos.php' id='registro' method='POST'>";
+      <form action='respmoddatos.php' id='registro' method='POST' enctype='multipart/form-data'>";
 require_once("requires/fregistro.php");
 
 echo<<<EOF
+<label><input type="checkbox" id="cbox1" name="del" value="1">Eliminar foto actual</label><br>
 <p>Confirme su contraseña</p>
 <input type="password" name="passconf" placeholder="Contraseña" required><br>
 <input type='submit' name='submit' value='Modificar'><br/></form></section>

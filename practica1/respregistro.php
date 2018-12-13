@@ -19,9 +19,22 @@
         }
         else {
 
+
+          $rfregistro = date('Y-m-d H:i:s');
+          $sql = "INSERT INTO usuarios (nomusuario, clave, email, sexo, fnacimiento, ciudad, pais, foto, fregistro, estilo) VALUES ('$rnombre', '$rpass', '$remail', $rsexo, STR_TO_DATE('$rfecha', '%Y-%m-%d'), '$rciudad', $rpais, 'vacio', '$rfregistro', 2)";
+          $consulta = $mysqli->query($sql);
+
+          $sentencia = "SELECT IdUsuario from Usuarios where NomUsuario='$rnombre'";
+          $usu = $mysqli->query($sentencia);
+          $idusu = $usu->fetch_assoc();
+          $id = $idusu['IdUsuario'];
+
+          $defi = 'cosa.jpg';
+          $ruta = "http://localhost/files/cosa.jpg";
+
           if($_FILES["foto"]["error"] > 0)
              {
-               echo "Error: " . $msgError[$_FILES["foto"]["error"]] . "<br />";
+
              }
              else
              {
@@ -34,7 +47,7 @@
 
               $formato = explode("/", $_FILES["foto"]["type"]);
 
-              $defi = $rnombre.".".$formato[1];
+              $defi = $id.".".$formato[1];
               //echo $defi;
 
               $ruta = "http://localhost/files/".$defi;
@@ -45,9 +58,10 @@
                   //echo "Almacenado en: " . "D:\\xampp\\htdocs\\files\\".$defi;
 
              }
-          $rfregistro = date('Y-m-d H:i:s');
-          $sql = "INSERT INTO usuarios (nomusuario, clave, email, sexo, fnacimiento, ciudad, pais, foto, fregistro, estilo) VALUES ('$rnombre', '$rpass', '$remail', $rsexo, STR_TO_DATE('$rfecha', '%Y-%m-%d'), '$rciudad', $rpais, '$defi', '$rfregistro', 1)";
-          $consulta = $mysqli->query($sql);
+
+             $sql = "UPDATE usuarios SET foto = '$defi' WHERE IdUsuario = $id";
+             $consulta = $mysqli->query($sql);
+
 
           $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
           $consulta2 = $mysqli->query($sql2);

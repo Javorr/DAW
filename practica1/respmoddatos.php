@@ -21,6 +21,11 @@
           $consulta0 = $mysqli->query($sql0);
           $infoprevia = $consulta0->fetch_assoc();
 
+          $sentencia = "SELECT IdUsuario from Usuarios where NomUsuario='$rnombre'";
+          $usu = $mysqli->query($sentencia);
+          $idusu = $usu->fetch_assoc();
+          $id = $idusu['IdUsuario'];
+
           $id = $infoprevia['IdUsuario'];
           if(empty($rnombre)) $rnombre = $infoprevia['NomUsuario'];
           if(empty($rpass)) $rpass = $infoprevia['Clave'];
@@ -30,34 +35,50 @@
           if(empty($rciudad)) $rciudad = $infoprevia['Ciudad'];
           if(empty($rpais)) $rpais = $infoprevia['Pais'];
 
-          if ($_FILES['foto']['size'] > 0 && $_FILES['foto']['error'] == 0) { //si hay una imagen y no hay un error entonces se actualizara la foto
 
-            $formato = explode("/", $_FILES["foto"]["type"]);
+        $sql = "UPDATE usuarios SET nomusuario = '$rnombre', clave = '$rpass', email = '$remail', sexo = $rsexo, fnacimiento = STR_TO_DATE('$rfecha', '%Y-%m-%d'), ciudad = '$rciudad', pais = $rpais, WHERE IdUsuario = $id";
+        $consulta = $mysqli->query($sql);
 
-            $defi = $rnombre.".".$formato[1];
-            //echo $defi;
+        if(mysqli_affected_rows($mysqli)>0) $_SESSION['nombre']=$rnombre;  //nos guardamos el nuevo nombre en la sesion para que se pueda mostrar de manera correcta todo en ensesion.php
 
-            $ruta = "http://localhost/files/perfil/".$defi;
-            //echo "ruta " . $ruta;
+          $ruta="http://localhost/files/".$infoprevia['Foto'];
 
-             move_uploaded_file($_FILES["foto"]["tmp_name"],
-                "D:\\xampp\\htdocs\\files\\perfil\\".$defi);
-                //echo "Almacenado en: " . "D:\\xampp\\htdocs\\files\\perfil\\".$defi;
+            if ($_FILES["foto"]["size"] > 0 && $_FILES["foto"]["error"] == 0) { //si hay una imagen y no hay un error entonces se actualizara la foto
 
-          }
+              $formato = explode("/", $_FILES["foto"]["type"]);
 
-          $sql = "UPDATE usuarios SET nomusuario = '$rnombre', clave = '$rpass', email = '$remail', sexo = $rsexo, fnacimiento = STR_TO_DATE('$rfecha', '%Y-%m-%d'), ciudad = '$rciudad', pais = $rpais, foto = '$defi' WHERE IdUsuario = $id";
-          $consulta = $mysqli->query($sql);
+              $defi = $id.".".$formato[1];
+              //echo $defi;
 
-          if(mysqli_affected_rows($mysqli)>0) $_SESSION['nombre']=$rnombre;  //nos guardamos el nuevo nombre en la sesion para que se pueda mostrar de manera correcta todo en ensesion.php
+              $ruta = "http://localhost/files/".$defi;
+              //echo "ruta " . $ruta;
 
-          $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
-          $consulta2 = $mysqli->query($sql2);
-          $rnompais = $consulta2->fetch_assoc();
+              move_uploaded_file($_FILES["foto"]["tmp_name"],
+                 "D:\\xampp\\htdocs\\files\\".$defi);
+                  //echo "Almacenado en: " . "D:\\xampp\\htdocs\\files\\perfil\\".$defi;
 
-          require_once("requires/ensesion.php");
-        }
+                  $sql = "UPDATE usuarios SET foto = '$defi' WHERE IdUsuario = $id";
+                  $consulta = $mysqli->query($sql);
+            }
 
+            else{
+
+              if($borrar==1){
+                $defi = 'cosa.jpg';
+                $ruta = "http://localhost/files/cosa.jpg";
+
+                $sql = "UPDATE usuarios SET foto = '$defi' WHERE IdUsuario = $id";
+                $consulta = $mysqli->query($sql);
+              }
+
+            }
+
+        $sql2 = "SELECT NomPais FROM paises where paises.IdPais=$rpais";
+        $consulta2 = $mysqli->query($sql2);
+        $rnompais = $consulta2->fetch_assoc();
+
+        require_once("requires/ensesion.php");
+}
 
 echo<<<EOF
           <section>

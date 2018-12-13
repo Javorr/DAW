@@ -14,6 +14,10 @@
     $rpais=$_POST['pais'];
     $filtros = false;
     $nomcorrecto = false;
+    $borrar = 0;
+      if(isset($_POST['del']) and $_POST['del'] == '1'){
+        $borrar=1;
+      }
 
     if(!empty($rsexonom) && $rsexonom == 'Mujer') $rsexo = 1;
     else if(!empty($rsexonom) && $rsexonom == 'Hombre') $rsexo = 2;
