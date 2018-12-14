@@ -69,7 +69,7 @@ echo<<<EOF
         <h1>Detalles de la foto</h1>
 
         <figure id='fotoendetalle'>
-          <img src='$foto' alt='Fotografía' style='width:100%'>
+          <img src='http://localhost/files/fotos/$foto' alt='Fotografía' style='width:100%'>
           <figcaption>$nombre</figcaption>
 
           <ul>

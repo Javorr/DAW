@@ -11,21 +11,41 @@ require("requires/mysqli.php");
   if ($consulta->num_rows > 0) {
     echo '<section class="columnas">';
 
-    $arr = array();
-    $ficherolin = file("seleccionadas.txt");
-    $i = 0;
+        $arr = array();
+        $ficherolin = file("seleccionadas.txt");
 
-    foreach ($ficherolin as $linea) {
-      list($id, $usu, $com) = explode("/", $linea, 3);
+        $i = 0;
+        foreach ($ficherolin as $linea) {
+          list($id, $usu, $com) = explode("/", $linea, 3);
 
-      $arr[$i] = [$id, $usu, $com];
-      $i++;
-    }
+          $arr[$i] = [$id, $usu, $com];
+          $i++;
 
-    $fotorandom = rand(0,(sizeof($arr)-1)); //pillo los datos de la foto random
-    $id_random = $arr[$random][0];
-    $usu_random = $arr[$random][1];
-    $com_random = $arr[$random][2];
+        }
+
+        $random = rand(0,(sizeof($arr)-1)); //pillo los datos de la foto random
+        $id_random = $arr[$random][0];
+        $usu_random = $arr[$random][1];
+        $com_random = $arr[$random][2];
+
+        $sql0 = "SELECT * FROM fotos where fotos.IdFoto = $id_random";
+        $consulta0 = $mysqli->query($sql0);
+        $fila0 = $consulta0->fetch_assoc();
+
+echo<<<EOF
+
+  <article id="especial">
+  <h3>Foto seleccionada por los usuarios</h3>
+      <h3 title="{$fila0["Titulo"]}"><a href="detallefoto.php?id={$fila0["IdFoto"]}">{$fila0["Titulo"]}</a></h3>
+      <a href="detallefoto.php?id={$fila0["IdFoto"]}"><img class="fotos" src='http://localhost/files/fotos/{$fila0["Fichero"]}' alt="{$fila0["Alternativo"]}" width="400"></a>
+
+        <ul>
+         <li>Elegida por $usu_random</li>
+         <li>$com_random</li>
+        </ul>
+  </article>
+
+EOF;
 
     while($fila = $consulta->fetch_assoc()) {
 

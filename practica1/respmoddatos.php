@@ -45,6 +45,8 @@
 
             if ($_FILES["foto"]["size"] > 0 && $_FILES["foto"]["error"] == 0) { //si hay una imagen y no hay un error entonces se actualizara la foto
 
+             if($infoprevia['Foto']!='cosa.jpg') unlink("D:\\xampp\\htdocs\\files\\perfil\\{$infoprevia['Foto']}");
+
               $formato = explode("/", $_FILES["foto"]["type"]);
 
               $defi = $id.".".$formato[1];
@@ -66,6 +68,8 @@
               if($borrar==1){
                 $defi = 'cosa.jpg';
                 $ruta = "http://localhost/files/perfil/cosa.jpg";
+
+             if($infoprevia['Foto']!='cosa.jpg') unlink("D:\\xampp\\htdocs\\files\\perfil\\{$infoprevia['Foto']}");
 
                 $sql = "UPDATE usuarios SET foto = '$defi' WHERE IdUsuario = $id";
                 $consulta = $mysqli->query($sql);

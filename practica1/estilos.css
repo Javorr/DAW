@@ -43,6 +43,12 @@ body>header>h2{
 	color: #E8E5DE;
 }
 
+#especial{
+	background-color: #FBE896;
+	border: 1px solid black;
+	padding: 1.5em 2em;
+}
+
 
 #sesioniniciada{
 	width: 250px;
